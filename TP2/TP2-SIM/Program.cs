@@ -101,6 +101,36 @@ namespace TP2_SIM
                     acumulador = 0;
                 }
             }
+
+            // Generador de nros aleatorios correspondientes a una Exponencial Negativa mediante lambda
+            void Exponencial_NegativaLambda(int tam_muestra, double lambda)
+            // Parametros de entrada: tamaño de la muestra, lambda
+            {
+                // Se establecen las variables iniciales
+
+                // rnd: nro aleatorio perteneciente a una Uniforme[0,1)
+                Random rnd = new Random();
+
+                // nro_gen: será el nro generado en cada iteración del ciclo for.
+                double nro_gen;
+
+                for (int i = 0; i<tam_muestra; i++)
+                {
+                    nro_gen = (-1/lambda)*Math.Log(1-rnd.NextDouble());
+
+                    // ACA DEBERÍA IR LO DE CARGARLO AL CSV
+                    Console.WriteLine(nro_gen);
+                }
+            }
+
+            // Generador de nros aleatorios correspondientes a una Exponencial Negativa mediante media
+            void Exponencial_NegativaMedia(int tam_muestra, double media)
+            // Parametros de entrada: tamaño de la muestra, media
+            {
+                // Se calcula lambda y se utiliza la función anterior
+                double lambda = 1 / media;
+                Exponencial_NegativaLambda(tam_muestra, lambda);
+            }
         }
     }
 }
