@@ -1,50 +1,48 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Security.Cryptography.X509Certificates;
 
-namespace TP2_SIM
+namespace TP2_WF
 {
-    class ValidadorParametros
+    internal static class Program
     {
-        private static ValidadorParametros instance;
-
-        // Private constructor para evitar la creación de instancias de esta clase fuera de la misma.
-        private ValidadorParametros()
+        /// <summary>
+        /// Punto de entrada principal para la aplicación.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-        }
-
-        public static ValidadorParametros Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new ValidadorParametros();
-                }
-                return instance;
-            }
-        }
-
-        bool validarParametrosUniforme(double a, double b)
-        {
-            if (a > b)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        bool validarTamMuestra(int n)
-        {
-            if(n < 0)
-            {
-                return false;
-            }
-            return true;
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
         }
     }
 
+    class ValidadorParametros
+    {
+        public ValidadorParametros()
+        {
+
+        }
+
+        public bool validarTamMuestra(int n)
+        {
+            return n > 0;
+        }
+
+        public bool validarParametrosUniforme(double a, double b)
+        {
+            return a < b;
+        }
 
 
-    class GeneradorNros
+    }
+}
+
+    /*class GeneradorNros
     {
         static void Main()
         {
@@ -186,4 +184,5 @@ namespace TP2_SIM
             }
         }
     }
-}
+}*/
+

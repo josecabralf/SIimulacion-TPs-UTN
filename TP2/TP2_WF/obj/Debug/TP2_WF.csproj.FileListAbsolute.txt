@@ -1,0 +1,11 @@
+C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.SuggestedBindingRedirects.cache
+C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.Form1.resources
+C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.Properties.Resources.resources
+C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.GenerateResource.cache
+C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\bin\Debug\TP2_WF.exe.config
+C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\bin\Debug\TP2_WF.exe
+C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\bin\Debug\TP2_WF.pdb
+C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.exe
+C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.pdb
