@@ -38,7 +38,10 @@ namespace TP2_WF
                 txt_param1.Enabled = true;
                 txt_param2.Enabled = true;
                 gbx_radioButtons.Hide();
-                
+                txt_tamM.Text = "";
+                txt_param1.Text = "";
+                txt_param2.Text = "";
+
             }
             else if (cbo_selectDist.SelectedIndex == 1)
             {
@@ -48,7 +51,9 @@ namespace TP2_WF
                 txt_param1.Enabled = true;
                 txt_param2.Enabled = true;
                 gbx_radioButtons.Hide();
-
+                txt_tamM.Text = "";
+                txt_param1.Text = "";
+                txt_param2.Text = "";
 
             }
             else
@@ -60,6 +65,9 @@ namespace TP2_WF
                 txt_param1.Enabled = true;
                 txt_param2.Enabled = false;
                 rbt_lambda.Checked = true;
+                txt_tamM.Text = "";
+                txt_param1.Text = "";
+                txt_param2.Text = "";
 
             }
         }
@@ -71,27 +79,52 @@ namespace TP2_WF
             cbo_selectInterval.SelectedIndex = 0;
         }
 
+        private bool estaVacio(string texto)
+        {
+            return texto == "";
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
-            // Convertimos el string obtenidoe del form a int
+            // Se valida que el textBox muestra no este vacio
+            if (estaVacio(txt_tamM.Text))
+            {
+                MessageBox.Show("Tamaño de muestra no ingresado.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Convertimos el string obtenido del form a int
             int tamMuestra = int.Parse(txt_tamM.Text);
-            
+            Console.WriteLine(tamMuestra);
+
             // Se valida que el tamaño de muestra sea superior a cero
             bool muestraValida = validadorParametros.validarSuperiorACero(tamMuestra);
             if (!muestraValida)
-                {
-                    MessageBox.Show("El tamaño de muestra no es valido.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            {
+                MessageBox.Show("El tamaño de muestra no es valido.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+          
+            
             
             // Dependiendo la distribución el camino a tomar es distinto
             if (cbo_selectDist.SelectedIndex == 0)
             {
                 Console.WriteLine("Soy Uniforme");
+                
+                // Se valida que no esten vacios los parametros
+                if (estaVacio(txt_param1.Text) || estaVacio(txt_param2.Text))
+                {
+                    MessageBox.Show("No se ingresaron los dos parametros.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 // Convertimos los strings obtenidos del form a double
                 double paramLimInf = Double.Parse(txt_param1.Text);
                 double paramLimSup = Double.Parse(txt_param2.Text);
-
+                Console.WriteLine(paramLimInf);
+                Console.WriteLine(paramLimSup);
                 // Verificamos que los parametros sean validos (limite inferior < limite superior)                
                 bool parametrosValidos = validadorParametros.validarParametrosUniforme(paramLimInf, paramLimSup);
 
@@ -106,10 +139,19 @@ namespace TP2_WF
             {
                 Console.WriteLine("Soy Normal");
 
+                // Se valida que no esten vacios los parametros
+                if (estaVacio(txt_param1.Text) || estaVacio(txt_param2.Text))
+                {
+                    MessageBox.Show("No se ingresaron los dos parametros.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
                 // Convertimos los strings obtenidos del form a double
                 double paramMedia = Double.Parse(txt_param1.Text);
                 double paramSD = Double.Parse(txt_param2.Text);
-
+                Console.WriteLine(paramMedia);
+                Console.WriteLine(paramSD);
                 // Verificamos que la deviación estandar sea mayor a 0
                 bool parametrosValidos = validadorParametros.validarParametrosUniforme(paramMedia, paramSD);
 
@@ -123,10 +165,16 @@ namespace TP2_WF
             {
                 if (rbt_lambda.Checked) {
                     Console.WriteLine("Soy Exponencial Negativa con param Lambda");
+                    // Se valida que no este vacio el parametro
+                    if (estaVacio(txt_param1.Text))
+                    {
+                        MessageBox.Show("No se ingresaro el parametro.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
                     // Convertimos el string obtenido del form a double
                     double paramLambda = Double.Parse(txt_param1.Text);
-
+                    Console.WriteLine(paramLambda);
                     bool parametrosValidos = validadorParametros.validarSuperiorACero(paramLambda);
                     Console.WriteLine("Soy Exponencial Negativa con param Lambda");
                     // Verificamos que la lambda sea mayor a 0
@@ -139,10 +187,16 @@ namespace TP2_WF
                 else
                 {
                     Console.WriteLine("Soy Exponencial Negativa con param Media");
+                    // Se valida que no este vacio el parametro
+                    if (estaVacio(txt_param2.Text))
+                    {
+                        MessageBox.Show("No se ingresaro el parametro.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
                     // Convertimos el string obtenido del form a double
                     double paramMedia = Double.Parse(txt_param2.Text);
-
+                    Console.WriteLine(paramMedia);
                     // Verificamos que la media sea mayor a 0
                     bool parametrosValidos = validadorParametros.validarSuperiorACero(paramMedia);
                     
@@ -176,7 +230,7 @@ namespace TP2_WF
         {
             // Permitir solo digitos, caracteres de control y un solo punto decimal o signo menos
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.' || txt_param2.Text.Contains(".")) &&
+                (e.KeyChar != ',' || txt_param2.Text.Contains(",")) &&
                 (e.KeyChar != '-' || txt_param2.Text.Length != 0))
             {
                 e.Handled = true;
@@ -187,7 +241,7 @@ namespace TP2_WF
         {
             // Permitir solo digitos, caracteres de control y un solo punto decimal o signo menos
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.' || txt_param2.Text.Contains(".")) &&
+                (e.KeyChar != ',' || txt_param2.Text.Contains(",")) &&
                 (e.KeyChar != '-' || txt_param2.Text.Length != 0))
             {
                 e.Handled = true;
