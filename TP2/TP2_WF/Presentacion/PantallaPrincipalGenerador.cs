@@ -132,7 +132,12 @@ namespace TP2_WF
                 {
                     MessageBox.Show("Los parametros ingresados no son validos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+                else
+                {
+                    // Se ejecuta el generador
+                    generadorNros.Uniforme(tamMuestra, paramLimInf, paramLimSup);
+                    Console.WriteLine("Fin exe gen");
+                } 
             }
 
             else if (cbo_selectDist.SelectedIndex == 1)
@@ -158,6 +163,12 @@ namespace TP2_WF
                 if (!parametrosValidos)
                 {
                     MessageBox.Show("Los parametros ingresados no son validos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } 
+                else
+                {
+                    // Se ejecuta el generador
+                    generadorNros.Normal_BoxMuller(tamMuestra, paramMedia, paramSD);
+                    Console.WriteLine("Fin exe gen");
                 }
             }
 
@@ -182,6 +193,12 @@ namespace TP2_WF
                     {
                         MessageBox.Show("Los parametros ingresados no son validos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    else
+                    {
+                        // Se ejecuta el generador
+                        generadorNros.Exponencial_NegativaLambda(tamMuestra, paramLambda);
+                        Console.WriteLine("Fin exe gen");
+                    }
 
                 }
                 else
@@ -203,6 +220,12 @@ namespace TP2_WF
                     if (!parametrosValidos)
                     {
                         MessageBox.Show("Los parametros ingresados no son validos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        // Se ejecuta el generador
+                        generadorNros.Exponencial_NegativaLambda(tamMuestra, paramMedia);
+                        Console.WriteLine("Fin exe gen");
                     }
                 }
 

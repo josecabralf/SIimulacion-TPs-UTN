@@ -8,12 +8,18 @@ namespace TP2_WF.Entidades
 {
     class GeneradorNros
     {
+        // Ruta relativa al archivo CSV con los datos
+        private string _archivoCSV = @"../../Recursos/numeros.csv";
+
             // Generador de nros aleatorios correspondientes a una Uniforme[A,B)
             public void Uniforme(int tam_muestra, double a = 0, double b = 1)
             // Parametros de entrada: tamaño de la muestra, a = nro minimo y b = nro máximo
             // En caso de no introducirse a y/o b, se asume Uniforme[0,1)
             {
                 // Se establecen las variables iniciales
+
+                // Se abre archivo CSV
+                CsvWriter csv = new CsvWriter(_archivoCSV);
 
                 // nro_gen: será el nro generado en cada iteración del ciclo for.
                 double nro_gen;
@@ -29,8 +35,10 @@ namespace TP2_WF.Entidades
                     nro_gen_4dp = Math.Truncate((decimal)nro_gen * 10000) / 10000;
 
                     // ACA DEBERÍA IR LO DE CARGARLO AL CSV
+                    csv.WriteToCsvFile(nro_gen_4dp);
                     Console.WriteLine(nro_gen_4dp);
                 }
+                csv.closeStream();
             }
 
             // Generador de nros aleatorios correspondientes a una Normal según Método de Box-Muller
@@ -40,9 +48,12 @@ namespace TP2_WF.Entidades
             {
                 // Se establecen las variables iniciales
 
+                // Se abre archivo CSV
+                CsvWriter csv = new CsvWriter(_archivoCSV);
+
                 // rnd1 y rnd2: serán los dos random pertenecientes a una Uniforme[0,1) utilizados para la generación de nros.
                 Random rnd1 = new Random();
-                Random rnd2 = new Random();
+                //Random rnd2 = new Random();
 
                 // Variables auxiliares para calculos intermedios:
                 double b;
@@ -50,26 +61,31 @@ namespace TP2_WF.Entidades
 
                 // nro_gen1 y nro_gen2: serán los nros aleatorios generados por los rnd anteriores
                 double nro_gen1;
-                double nro_gen2;
+                //double nro_gen2;
+
                 decimal nro_gen1_4dp;
-                decimal nro_gen2_4dp;
+                // nro_gen2_4dp;
 
                 for (int i = 0; i < tam_muestra; i++)
                 {
                     b = Math.Sqrt(-2 * Math.Log(rnd1.NextDouble()));
                     ang = 2 * Math.PI * rnd1.NextDouble();
-
                     nro_gen1 = media + dev_est * b * Math.Cos(ang);
-                    nro_gen2 = media + dev_est * b * Math.Sin(ang);
+                    
+                    //b = Math.Sqrt(-2 * Math.Log(rnd2.NextDouble()));
+                    //ang = 2 * Math.PI * rnd2.NextDouble();
+                    //nro_gen2 = media + dev_est * b * Math.Sin(ang);
 
                     nro_gen1_4dp = Math.Truncate((decimal)nro_gen1 * 10000) / 10000;
-                    nro_gen2_4dp = Math.Truncate((decimal)nro_gen2 * 10000) / 10000;
+                    //nro_gen2_4dp = Math.Truncate((decimal)nro_gen2 * 10000) / 10000;
 
                     // ACA DEBERÍA IR LO DE CARGARLO AL CSV
                     Console.WriteLine(nro_gen1_4dp);
-                    Console.WriteLine(nro_gen2_4dp);
+                    csv.WriteToCsvFile(nro_gen1_4dp);
+                    //Console.WriteLine(nro_gen2_4dp);
+                    //csv.WriteToCsvFile(nro_gen2_4dp);
                 }
-
+                csv.closeStream() ;
             }
 
             // Generador de nros aleatorios correspondientes a una Normal según Método de Convolusion
@@ -78,6 +94,9 @@ namespace TP2_WF.Entidades
             // En caso de no introducirse media y/o deviación estándar, se asume Normal(0,1)
             {
                 // Se establecen las variables iniciales
+
+                // Se abre archivo CSV
+                CsvWriter csv = new CsvWriter(_archivoCSV);
 
                 // rnd: nro aleatorio perteneciente a una Uniforme[0,1)
                 Random rnd = new Random();
@@ -106,11 +125,13 @@ namespace TP2_WF.Entidades
                     nro_gen_4dp = Math.Truncate((decimal)nro_gen * 10000) / 10000;
 
                     // ACA DEBERÍA IR LO DE CARGARLO AL CSV
+                    csv.WriteToCsvFile(nro_gen_4dp);
                     Console.WriteLine(nro_gen_4dp);
 
                     // Se resetea el acumulador para la próxima generación
                     acumulador = 0;
                 }
+                csv.closeStream();
             }
 
             // Generador de nros aleatorios correspondientes a una Exponencial Negativa mediante lambda
@@ -118,6 +139,9 @@ namespace TP2_WF.Entidades
             // Parametros de entrada: tamaño de la muestra, lambda
             {
                 // Se establecen las variables iniciales
+
+                // Se abre archivo CSV
+                CsvWriter csv = new CsvWriter(_archivoCSV);
 
                 // rnd: nro aleatorio perteneciente a una Uniforme[0,1)
                 Random rnd = new Random();
@@ -133,7 +157,9 @@ namespace TP2_WF.Entidades
 
                     // ACA DEBERÍA IR LO DE CARGARLO AL CSV
                     Console.WriteLine(nro_gen_4dp);
+                    csv.WriteToCsvFile(nro_gen_4dp);
                 }
+                csv.closeStream();
             }
 
             // Generador de nros aleatorios correspondientes a una Exponencial Negativa mediante media

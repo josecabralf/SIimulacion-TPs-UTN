@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\CsvWriter.cs" />
     <Compile Include="Entidades\GeneradorNros.cs" />
     <Compile Include="Entidades\ValidadorParametros.cs" />
     <Compile Include="Presentacion\PantallaPrincipalGenerador.cs">
@@ -80,6 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Recursos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
