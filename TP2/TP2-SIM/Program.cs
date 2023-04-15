@@ -15,17 +15,19 @@ namespace TP2_SIM
 
                 // nro_gen: será el nro generado en cada iteración del ciclo for.
                 double nro_gen;
+                decimal nro_gen_4dp;
 
                 // rnd: nro aleatorio perteneciente a una Uniforme[0,1)
                 Random rnd = new Random();
 
-                for (int i = 0; i<tam_muestra; i++)
+                for (int i = 0; i < tam_muestra; i++)
                 {
                     // Aplicamos la fórmula para realizar la generación de nros que siguen una distribución Uniforme[A,B)
                     nro_gen = a + rnd.NextDouble() * (b - a);
+                    nro_gen_4dp = Math.Truncate((decimal)nro_gen * 10000) / 10000;
 
                     // ACA DEBERÍA IR LO DE CARGARLO AL CSV
-                    Console.WriteLine(nro_gen);
+                    Console.WriteLine(nro_gen_4dp);
                 }
             }
 
@@ -47,8 +49,10 @@ namespace TP2_SIM
                 // nro_gen1 y nro_gen2: serán los nros aleatorios generados por los rnd anteriores
                 double nro_gen1;
                 double nro_gen2;
+                decimal nro_gen1_4dp;
+                decimal nro_gen2_4dp;
 
-                for (int i = 0; i<tam_muestra; i++)
+                for (int i = 0; i < tam_muestra; i++)
                 {
                     b = Math.Sqrt(-2 * Math.Log(rnd1.NextDouble()));
                     ang = 2 * Math.PI * rnd1.NextDouble();
@@ -56,9 +60,12 @@ namespace TP2_SIM
                     nro_gen1 = media + dev_est * b * Math.Cos(ang);
                     nro_gen2 = media + dev_est * b * Math.Sin(ang);
 
+                    nro_gen1_4dp = Math.Truncate((decimal)nro_gen1 * 10000) / 10000;
+                    nro_gen2_4dp = Math.Truncate((decimal)nro_gen2 * 10000) / 10000;
+
                     // ACA DEBERÍA IR LO DE CARGARLO AL CSV
-                    Console.WriteLine(nro_gen1);
-                    Console.WriteLine(nro_gen2);
+                    Console.WriteLine(nro_gen1_4dp);
+                    Console.WriteLine(nro_gen2_4dp);
                 }
 
             }
@@ -75,6 +82,7 @@ namespace TP2_SIM
 
                 // nro_gen: será el nro generado en cada iteración del ciclo for.
                 double nro_gen;
+                decimal nro_gen_4dp;
 
                 // Variables para la Convolusión
                 // acumulador: guardará la sumatoria de los 12 nros aleatorios generados
@@ -82,10 +90,10 @@ namespace TP2_SIM
                 // Guardara el nro rnd generado
                 double x;
 
-                for (int i = 0; i<tam_muestra; i++)
+                for (int i = 0; i < tam_muestra; i++)
                 {
                     // Convolusión
-                    for (int j = 0; j<12; j++)
+                    for (int j = 0; j < 12; j++)
                     {
                         x = rnd.NextDouble();
                         acumulador += x;
@@ -93,9 +101,10 @@ namespace TP2_SIM
 
                     // Se termina el método
                     nro_gen = (acumulador - 6) * dev_est + media;
+                    nro_gen_4dp = Math.Truncate((decimal)nro_gen * 10000) / 10000;
 
                     // ACA DEBERÍA IR LO DE CARGARLO AL CSV
-                    Console.WriteLine(nro_gen);
+                    Console.WriteLine(nro_gen_4dp);
 
                     // Se resetea el acumulador para la próxima generación
                     acumulador = 0;
@@ -113,13 +122,15 @@ namespace TP2_SIM
 
                 // nro_gen: será el nro generado en cada iteración del ciclo for.
                 double nro_gen;
+                decimal nro_gen_4dp;
 
-                for (int i = 0; i<tam_muestra; i++)
+                for (int i = 0; i < tam_muestra; i++)
                 {
-                    nro_gen = (-1/lambda)*Math.Log(1-rnd.NextDouble());
+                    nro_gen = (-1 / lambda) * Math.Log(1 - rnd.NextDouble());
+                    nro_gen_4dp = Math.Truncate((decimal)nro_gen * 10000) / 10000;
 
                     // ACA DEBERÍA IR LO DE CARGARLO AL CSV
-                    Console.WriteLine(nro_gen);
+                    Console.WriteLine(nro_gen_4dp);
                 }
             }
 
