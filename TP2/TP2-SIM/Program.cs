@@ -100,11 +100,7 @@ namespace TP2_SIM
                     // Se resetea el acumulador para la próxima generación
                     acumulador = 0;
                 }
-
             }
-
-            
-
         }
     }
 }

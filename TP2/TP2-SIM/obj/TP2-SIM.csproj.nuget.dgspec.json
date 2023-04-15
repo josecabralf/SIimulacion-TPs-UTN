@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\benja\\Desktop\\Nacho\\Apuntes UTN\\SIM\\SIimulacion-TPs-UTN\\TP2\\TP2-SIM\\TP2-SIM.csproj": {}
+    "C:\\Users\\benja\\Desktop\\Nacho\\Apuntes UTN\\SIM\\Simulacion-TPs-UTN\\TP2\\TP2-SIM\\TP2-SIM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\benja\\Desktop\\Nacho\\Apuntes UTN\\SIM\\SIimulacion-TPs-UTN\\TP2\\TP2-SIM\\TP2-SIM.csproj": {
+    "C:\\Users\\benja\\Desktop\\Nacho\\Apuntes UTN\\SIM\\Simulacion-TPs-UTN\\TP2\\TP2-SIM\\TP2-SIM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\benja\\Desktop\\Nacho\\Apuntes UTN\\SIM\\SIimulacion-TPs-UTN\\TP2\\TP2-SIM\\TP2-SIM.csproj",
+        "projectUniqueName": "C:\\Users\\benja\\Desktop\\Nacho\\Apuntes UTN\\SIM\\Simulacion-TPs-UTN\\TP2\\TP2-SIM\\TP2-SIM.csproj",
         "projectName": "TP2-SIM",
-        "projectPath": "C:\\Users\\benja\\Desktop\\Nacho\\Apuntes UTN\\SIM\\SIimulacion-TPs-UTN\\TP2\\TP2-SIM\\TP2-SIM.csproj",
+        "projectPath": "C:\\Users\\benja\\Desktop\\Nacho\\Apuntes UTN\\SIM\\Simulacion-TPs-UTN\\TP2\\TP2-SIM\\TP2-SIM.csproj",
         "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\benja\\Desktop\\Nacho\\Apuntes UTN\\SIM\\SIimulacion-TPs-UTN\\TP2\\TP2-SIM\\obj\\",
+        "outputPath": "C:\\Users\\benja\\Desktop\\Nacho\\Apuntes UTN\\SIM\\Simulacion-TPs-UTN\\TP2\\TP2-SIM\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
