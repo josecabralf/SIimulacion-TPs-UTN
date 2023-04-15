@@ -153,7 +153,7 @@ namespace TP2_WF
                 Console.WriteLine(paramMedia);
                 Console.WriteLine(paramSD);
                 // Verificamos que la deviación estandar sea mayor a 0
-                bool parametrosValidos = validadorParametros.validarParametrosUniforme(paramMedia, paramSD);
+                bool parametrosValidos = validadorParametros.validarSuperiorACero(paramSD);
 
                 if (!parametrosValidos)
                 {
