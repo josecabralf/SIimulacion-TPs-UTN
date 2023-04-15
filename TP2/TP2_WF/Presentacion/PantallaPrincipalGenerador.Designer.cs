@@ -1,6 +1,6 @@
 ﻿namespace TP2_WF
 {
-    partial class Form1
+    partial class PantallaPrincipalGenerador
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -39,6 +39,10 @@
             this.lbl_selectDist = new System.Windows.Forms.Label();
             this.lbl_selectInterval = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.gbx_radioButtons = new System.Windows.Forms.GroupBox();
+            this.rbt_lambda = new System.Windows.Forms.RadioButton();
+            this.rbt_media = new System.Windows.Forms.RadioButton();
+            this.gbx_radioButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbo_selectInterval
@@ -58,21 +62,21 @@
             // 
             this.txt_tamM.Location = new System.Drawing.Point(12, 77);
             this.txt_tamM.Name = "txt_tamM";
-            this.txt_tamM.Size = new System.Drawing.Size(223, 20);
+            this.txt_tamM.Size = new System.Drawing.Size(192, 20);
             this.txt_tamM.TabIndex = 1;
             // 
             // txt_param1
             // 
             this.txt_param1.Location = new System.Drawing.Point(12, 117);
             this.txt_param1.Name = "txt_param1";
-            this.txt_param1.Size = new System.Drawing.Size(223, 20);
+            this.txt_param1.Size = new System.Drawing.Size(192, 20);
             this.txt_param1.TabIndex = 2;
             // 
             // txt_param2
             // 
             this.txt_param2.Location = new System.Drawing.Point(12, 160);
             this.txt_param2.Name = "txt_param2";
-            this.txt_param2.Size = new System.Drawing.Size(223, 20);
+            this.txt_param2.Size = new System.Drawing.Size(192, 20);
             this.txt_param2.TabIndex = 3;
             // 
             // lbl_tamM
@@ -111,7 +115,7 @@
             "Exponencial Negativa"});
             this.cbo_selectDist.Location = new System.Drawing.Point(12, 28);
             this.cbo_selectDist.Name = "cbo_selectDist";
-            this.cbo_selectDist.Size = new System.Drawing.Size(223, 21);
+            this.cbo_selectDist.Size = new System.Drawing.Size(192, 21);
             this.cbo_selectDist.TabIndex = 7;
             this.cbo_selectDist.SelectedIndexChanged += new System.EventHandler(this.cbo_selectDist_SelectedIndexChanged);
             // 
@@ -143,11 +147,44 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // gbx_radioButtons
+            // 
+            this.gbx_radioButtons.Controls.Add(this.rbt_media);
+            this.gbx_radioButtons.Controls.Add(this.rbt_lambda);
+            this.gbx_radioButtons.Location = new System.Drawing.Point(204, 77);
+            this.gbx_radioButtons.Name = "gbx_radioButtons";
+            this.gbx_radioButtons.Size = new System.Drawing.Size(54, 103);
+            this.gbx_radioButtons.TabIndex = 11;
+            this.gbx_radioButtons.TabStop = false;
+            // 
+            // rbt_lambda
+            // 
+            this.rbt_lambda.AutoSize = true;
+            this.rbt_lambda.Location = new System.Drawing.Point(6, 43);
+            this.rbt_lambda.Name = "rbt_lambda";
+            this.rbt_lambda.Size = new System.Drawing.Size(14, 13);
+            this.rbt_lambda.TabIndex = 0;
+            this.rbt_lambda.TabStop = true;
+            this.rbt_lambda.UseVisualStyleBackColor = true;
+            this.rbt_lambda.CheckedChanged += new System.EventHandler(this.rbt_lambda_CheckedChanged);
+            // 
+            // rbt_media
+            // 
+            this.rbt_media.AutoSize = true;
+            this.rbt_media.Location = new System.Drawing.Point(6, 86);
+            this.rbt_media.Name = "rbt_media";
+            this.rbt_media.Size = new System.Drawing.Size(14, 13);
+            this.rbt_media.TabIndex = 1;
+            this.rbt_media.TabStop = true;
+            this.rbt_media.UseVisualStyleBackColor = true;
+            this.rbt_media.CheckedChanged += new System.EventHandler(this.rbt_media_CheckedChanged);
+            // 
+            // PantallaPrincipalGenerador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(427, 201);
+            this.Controls.Add(this.gbx_radioButtons);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_selectInterval);
             this.Controls.Add(this.lbl_selectDist);
@@ -159,9 +196,11 @@
             this.Controls.Add(this.txt_param1);
             this.Controls.Add(this.txt_tamM);
             this.Controls.Add(this.cbo_selectInterval);
-            this.Name = "Form1";
+            this.Name = "PantallaPrincipalGenerador";
             this.Text = "Generador de Números Aleatorios";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.gbx_radioButtons.ResumeLayout(false);
+            this.gbx_radioButtons.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,6 +219,9 @@
         private System.Windows.Forms.Label lbl_selectDist;
         private System.Windows.Forms.Label lbl_selectInterval;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox gbx_radioButtons;
+        private System.Windows.Forms.RadioButton rbt_media;
+        private System.Windows.Forms.RadioButton rbt_lambda;
     }
 }
 

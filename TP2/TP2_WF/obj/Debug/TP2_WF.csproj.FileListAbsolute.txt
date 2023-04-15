@@ -9,3 +9,14 @@ C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\bin\Debug\TP2_WF.exe
 C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\bin\Debug\TP2_WF.pdb
 C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.exe
 C:\Users\USUARIO\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.pdb
+D:\Desktop\Contenidos\Santi\UTN\4to año\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.AssemblyReference.cache
+D:\Desktop\Contenidos\Santi\UTN\4to año\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.SuggestedBindingRedirects.cache
+D:\Desktop\Contenidos\Santi\UTN\4to año\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.PantallaPrincipalGenerador.resources
+D:\Desktop\Contenidos\Santi\UTN\4to año\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.Properties.Resources.resources
+D:\Desktop\Contenidos\Santi\UTN\4to año\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.GenerateResource.cache
+D:\Desktop\Contenidos\Santi\UTN\4to año\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.CoreCompileInputs.cache
+D:\Desktop\Contenidos\Santi\UTN\4to año\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.exe
+D:\Desktop\Contenidos\Santi\UTN\4to año\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.pdb
+D:\Desktop\Contenidos\Santi\UTN\4to año\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\bin\Debug\TP2_WF.exe.config
+D:\Desktop\Contenidos\Santi\UTN\4to año\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\bin\Debug\TP2_WF.exe
+D:\Desktop\Contenidos\Santi\UTN\4to año\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\bin\Debug\TP2_WF.pdb
