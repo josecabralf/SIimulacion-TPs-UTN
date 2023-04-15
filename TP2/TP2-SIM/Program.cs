@@ -13,9 +13,6 @@ namespace TP2_SIM
             {
                 // Se establecen las variables iniciales
 
-                // acumulador: es un acumulador con el que se llevará a cabo el promedio tras finalizar la generación.
-                // double acumulador = 0;
-
                 // nro_gen: será el nro generado en cada iteración del ciclo for.
                 double nro_gen;
 
@@ -29,13 +26,7 @@ namespace TP2_SIM
 
                     // ACA DEBERÍA IR LO DE CARGARLO AL CSV
                     Console.WriteLine(nro_gen);
-
-                    // acumulador += nro_gen;
                 }
-
-                // Console.WriteLine();
-                // double promedio = acumulador / tam_muestra;
-                // Console.WriteLine(promedio);
             }
 
             // Generador de nros aleatorios correspondientes a una Normal según Método de Box-Muller
