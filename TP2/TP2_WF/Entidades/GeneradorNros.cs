@@ -9,7 +9,7 @@ namespace TP2_WF.Entidades
     class GeneradorNros
     {
             // Generador de nros aleatorios correspondientes a una Uniforme[A,B)
-            void Uniforme(int tam_muestra, double a = 0, double b = 1)
+            public void Uniforme(int tam_muestra, double a = 0, double b = 1)
             // Parametros de entrada: tamaño de la muestra, a = nro minimo y b = nro máximo
             // En caso de no introducirse a y/o b, se asume Uniforme[0,1)
             {
@@ -34,7 +34,7 @@ namespace TP2_WF.Entidades
             }
 
             // Generador de nros aleatorios correspondientes a una Normal según Método de Box-Muller
-            void Normal_BoxMuller(int tam_muestra, double media = 0, double dev_est = 1)
+            public void Normal_BoxMuller(int tam_muestra, double media = 0, double dev_est = 1)
             // Parametros de entrada: tamaño de la muestra, media y deviación estándar
             // En caso de no introducirse media y/o deviación estándar, se asume Normal(0,1)
             {
@@ -73,7 +73,7 @@ namespace TP2_WF.Entidades
             }
 
             // Generador de nros aleatorios correspondientes a una Normal según Método de Convolusion
-            void Normal_Convolusion(int tam_muestra, double media = 0, double dev_est = 1)
+            public void Normal_Convolusion(int tam_muestra, double media = 0, double dev_est = 1)
             // Parametros de entrada: tamaño de la muestra, media y deviación estándar
             // En caso de no introducirse media y/o deviación estándar, se asume Normal(0,1)
             {
@@ -114,7 +114,7 @@ namespace TP2_WF.Entidades
             }
 
             // Generador de nros aleatorios correspondientes a una Exponencial Negativa mediante lambda
-            void Exponencial_NegativaLambda(int tam_muestra, double lambda)
+            public void Exponencial_NegativaLambda(int tam_muestra, double lambda)
             // Parametros de entrada: tamaño de la muestra, lambda
             {
                 // Se establecen las variables iniciales
@@ -137,7 +137,7 @@ namespace TP2_WF.Entidades
             }
 
             // Generador de nros aleatorios correspondientes a una Exponencial Negativa mediante media
-            void Exponencial_NegativaMedia(int tam_muestra, double media)
+            public void Exponencial_NegativaMedia(int tam_muestra, double media)
             // Parametros de entrada: tamaño de la muestra, media
             {
                 // Se calcula lambda y se utiliza la función anterior

@@ -64,6 +64,7 @@
             this.txt_tamM.Name = "txt_tamM";
             this.txt_tamM.Size = new System.Drawing.Size(192, 20);
             this.txt_tamM.TabIndex = 1;
+            this.txt_tamM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_tamM_KeyPress);
             // 
             // txt_param1
             // 
@@ -71,6 +72,7 @@
             this.txt_param1.Name = "txt_param1";
             this.txt_param1.Size = new System.Drawing.Size(192, 20);
             this.txt_param1.TabIndex = 2;
+            this.txt_param1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_param1_KeyPress);
             // 
             // txt_param2
             // 
@@ -78,6 +80,7 @@
             this.txt_param2.Name = "txt_param2";
             this.txt_param2.Size = new System.Drawing.Size(192, 20);
             this.txt_param2.TabIndex = 3;
+            this.txt_param2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_param2_KeyPress);
             // 
             // lbl_tamM
             // 
