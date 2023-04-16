@@ -3,43 +3,32 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Windows.Forms;
+using TP2_WF.Entidades;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace TP2_WF.Presentacion
 {
     public partial class PantallaVisualizacion : Form
     {
-        // Ruta relativa al archivo CSV con los datos
-        private string _archivoCSV = @"../../Recursos/numeros.csv";
-        private List<string> datos = new List<string>();
-        public PantallaVisualizacion()
+        CsvReader csvReader;
+        decimal[] MinMax;
+        int CantidadIntervalos;
+
+        public PantallaVisualizacion(decimal[] minMax, int cantIntervalos)
         {
             InitializeComponent();
+            csvReader = new CsvReader();
+            MinMax = minMax;
+            CantidadIntervalos = cantIntervalos;
         }
 
         private void PantallaVisualizacion_Load(object sender, EventArgs e)
         {
-            LoadCsvData();
-        }
+            DataTable csv = new DataTable();
+            int[] frecObs = new int[CantidadIntervalos];
 
-        private void LoadCsvData()
-        {
-            try
-            {
-                //Leer lineas del archivo:
-                DataTable dt = new DataTable();
-                dt.Columns.Add("Numeros Generados");
-                string[] lines = File.ReadAllLines(_archivoCSV);
-                foreach (string line in lines)
-                {
-                    dt.Rows.Add(line);
-                }
-
-                dataGridView1.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Fallo al cargar datos del CSV: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            csvReader.LoadCsvData(csv, frecObs, MinMax);
+            dataGridView1.DataSource = csv;
         }
     }
 }

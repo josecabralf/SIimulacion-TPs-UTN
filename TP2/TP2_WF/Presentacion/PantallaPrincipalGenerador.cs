@@ -102,7 +102,6 @@ namespace TP2_WF
             }
 
 
-
             // Dependiendo la distribución el camino a tomar es distinto
             if (cbo_selectDist.SelectedIndex == 0)
             {
@@ -226,7 +225,11 @@ namespace TP2_WF
                 }
 
             }
-            PantallaVisualizacion pantallaVisualizacion = new PantallaVisualizacion();
+            // Se obtiene la cantidad de intervalos mediante el combo box
+            int cantIntervalos = int.Parse(cbo_selectInterval.Text);
+
+            // Se instancia la pantalla y se le envian los datos por parametro
+            PantallaVisualizacion pantallaVisualizacion = new PantallaVisualizacion(minMax, cantIntervalos);
             pantallaVisualizacion.ShowDialog();
         }
 
