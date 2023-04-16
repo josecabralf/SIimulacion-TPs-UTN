@@ -221,7 +221,8 @@ namespace TP2_WF.Entidades
                 // Primera iteracion
                 if (i == 0)
                 {
-                    minMax[0] = nro_gen_4dp;
+                    // En la exponencial negativa, el minimo es siempre 0
+                    minMax[0] = 0;
                     minMax[1] = nro_gen_4dp;
                 }
                 else
