@@ -15,6 +15,7 @@ namespace TP2_WF.Entidades
         {
             streamWriter = new StreamWriter(filePath);
         }
+
         public void WriteToCsvFile(decimal num)
         {
             streamWriter.WriteLine(num);

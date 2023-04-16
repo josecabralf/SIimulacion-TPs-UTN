@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TP2_WF.Entidades;
+using TP2_WF.Presentacion;
 
 namespace TP2_WF
 {
@@ -15,6 +16,7 @@ namespace TP2_WF
     {
         ValidadorParametros validadorParametros;
         GeneradorNros generadorNros;
+        private decimal[] minMax;
 
         public PantallaPrincipalGenerador()
         {
@@ -22,7 +24,7 @@ namespace TP2_WF
             InitializeComponent();
             validadorParametros = new ValidadorParametros();
             generadorNros = new GeneradorNros();
-
+            minMax = new decimal[2];
         }
 
         private void cbo_selectDist_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,13 +133,13 @@ namespace TP2_WF
                 if (!parametrosValidos)
                 {
                     MessageBox.Show("Los parametros ingresados no son validos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                else
-                {
-                    // Se ejecuta el generador
-                    generadorNros.Uniforme(tamMuestra, paramLimInf, paramLimSup);
-                    Console.WriteLine("Fin exe gen");
-                } 
+                
+                // Se ejecuta el generador
+                minMax = generadorNros.Uniforme(tamMuestra, paramLimInf, paramLimSup);
+                Console.WriteLine("Fin exe gen");
+                 
             }
 
             else if (cbo_selectDist.SelectedIndex == 1)
@@ -163,13 +165,13 @@ namespace TP2_WF
                 if (!parametrosValidos)
                 {
                     MessageBox.Show("Los parametros ingresados no son validos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } 
-                else
-                {
-                    // Se ejecuta el generador
-                    generadorNros.Normal_BoxMuller(tamMuestra, paramMedia, paramSD);
-                    Console.WriteLine("Fin exe gen");
+                    return;
                 }
+
+                // Se ejecuta el generador
+                minMax = generadorNros.Normal_BoxMuller(tamMuestra, paramMedia, paramSD);
+                Console.WriteLine("Fin exe gen");
+                
             }
 
             else
@@ -192,13 +194,13 @@ namespace TP2_WF
                     if (!parametrosValidos)
                     {
                         MessageBox.Show("Los parametros ingresados no son validos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
-                    else
-                    {
-                        // Se ejecuta el generador
-                        generadorNros.Exponencial_NegativaLambda(tamMuestra, paramLambda);
-                        Console.WriteLine("Fin exe gen");
-                    }
+
+                    // Se ejecuta el generador
+                    minMax = generadorNros.Exponencial_NegativaLambda(tamMuestra, paramLambda);
+                    Console.WriteLine("Fin exe gen");
+                    
 
                 }
                 else
@@ -220,16 +222,18 @@ namespace TP2_WF
                     if (!parametrosValidos)
                     {
                         MessageBox.Show("Los parametros ingresados no son validos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
-                    else
-                    {
-                        // Se ejecuta el generador
-                        generadorNros.Exponencial_NegativaLambda(tamMuestra, paramMedia);
-                        Console.WriteLine("Fin exe gen");
-                    }
+
+                    // Se ejecuta el generador
+                    minMax = generadorNros.Exponencial_NegativaLambda(tamMuestra, paramMedia);
+                    Console.WriteLine("Fin exe gen");
+                    
                 }
 
             }
+            PantallaVisualizacion pantallaVisualizacion = new PantallaVisualizacion();
+            pantallaVisualizacion.ShowDialog();
         }
 
         private void rbt_lambda_CheckedChanged(object sender, EventArgs e)

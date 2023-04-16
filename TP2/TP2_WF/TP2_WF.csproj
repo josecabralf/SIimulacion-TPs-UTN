@@ -46,9 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\CsvReader.cs" />
     <Compile Include="Entidades\CsvWriter.cs" />
     <Compile Include="Entidades\GeneradorNros.cs" />
+    <Compile Include="Entidades\Graficador.cs" />
     <Compile Include="Entidades\ValidadorParametros.cs" />
+    <Compile Include="Presentacion\PantallaVisualizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\PantallaVisualizacion.Designer.cs">
+      <DependentUpon>PantallaVisualizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\PantallaPrincipalGenerador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +65,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentacion\PantallaVisualizacion.resx">
+      <DependentUpon>PantallaVisualizacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\PantallaPrincipalGenerador.resx">
       <DependentUpon>PantallaPrincipalGenerador.cs</DependentUpon>
     </EmbeddedResource>
