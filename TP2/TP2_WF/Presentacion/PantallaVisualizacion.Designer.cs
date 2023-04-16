@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gdw_dataSet = new System.Windows.Forms.DataGridView();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gdw_frecObs = new System.Windows.Forms.DataGridView();
@@ -55,13 +54,9 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(241, 47);
+            this.chart1.Location = new System.Drawing.Point(230, 47);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(803, 565);
+            this.chart1.Size = new System.Drawing.Size(892, 565);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
@@ -70,12 +65,12 @@
             this.gdw_frecObs.AllowUserToAddRows = false;
             this.gdw_frecObs.AllowUserToDeleteRows = false;
             this.gdw_frecObs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gdw_frecObs.Location = new System.Drawing.Point(1073, 47);
+            this.gdw_frecObs.Location = new System.Drawing.Point(1144, 47);
             this.gdw_frecObs.Name = "gdw_frecObs";
             this.gdw_frecObs.ReadOnly = true;
             this.gdw_frecObs.RowHeadersWidth = 51;
             this.gdw_frecObs.RowTemplate.Height = 24;
-            this.gdw_frecObs.Size = new System.Drawing.Size(478, 565);
+            this.gdw_frecObs.Size = new System.Drawing.Size(407, 565);
             this.gdw_frecObs.TabIndex = 2;
             // 
             // PantallaVisualizacion

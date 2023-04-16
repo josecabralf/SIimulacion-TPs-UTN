@@ -32,11 +32,14 @@ namespace TP2_WF.Presentacion
             // Para el eje x:
             decimal[] arrayLimSup = new decimal[frecObs.Length];
 
+            //Obtiene el ancho de intervalo
+            decimal anchoIntervalo = (MinMax[1] - MinMax[0]) / frecObs.Length;
+
             // Se carga el visualizador de datos y las frecuencias observadas
             csvReader.LoadCsvData(CSV, frecObs, MinMax, arrayLimSup);
             gdw_dataSet.DataSource = CSV;
 
-            // Estetico Columnas
+            // Estetico Columnas Tabla
             foreach (DataGridViewColumn columna in gdw_dataSet.Columns)
             {
                 columna.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -45,27 +48,45 @@ namespace TP2_WF.Presentacion
             // Establecemos el título del gráfico
             chart1.Titles.Add("Gráfico de Frecuencias Observadas");
 
+            // Le agreagamos un area al grafico
+            ChartArea chartArea1 = new ChartArea();
+            chartArea1.InnerPlotPosition.Auto = true;
+            chart1.ChartAreas.Add(chartArea1);
+
+            // Se establece la serie para que se vea como histograma
+            Series frecObsSerie = new Series();
+            frecObsSerie.ChartType = SeriesChartType.Column;
+            frecObsSerie.Name = "Frecuencias Observadas";
+            chart1.Series.Add(frecObsSerie);
+            frecObsSerie.IsVisibleInLegend = false;
+
+            // Se agregan las frecObs al grafico
             for (int i = 0; i < arrayLimSup.Length; i++)
             {
-                Series serie = chart1.Series.Add(arrayLimSup[i].ToString());
-                
-                serie.Label = frecObs[i].ToString();
-                serie.Points.Add(frecObs[i]);
+                string intervalo = $"{arrayLimSup[i] - anchoIntervalo} - {arrayLimSup[i]}";
+                DataPoint dp = new DataPoint();
+                dp.AxisLabel = intervalo;
+                dp.YValues = new double[] { frecObs[i] };
+                frecObsSerie.Points.Add(dp);
+
             };
 
-            this.cargarTablaFrecObs(arrayLimSup);
+            // Configurar etiquetas del eje X
+            chart1.ChartAreas[0].AxisX.Interval = 1;
+            chart1.ChartAreas[0].AxisX.Title = "Intervalos";
+
+            // Configurar etiquetas del eje Y
+            chart1.ChartAreas[0].AxisY.Title = "Frecuencias Observadas";
+
+            // Se genera la tabla de frecObs
+            this.cargarTablaFrecObs(arrayLimSup, anchoIntervalo);
         }
 
-        private void cargarTablaFrecObs(decimal[] arrayLimSup)
+        private void cargarTablaFrecObs(decimal[] arrayLimSup, decimal anchoIntervalo)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Intervalo");
             dt.Columns.Add("Frecuencia Observada");
-            
-
-            //Obtiene el ancho de intervalo
-            decimal anchoIntervalo = (MinMax[1] - MinMax[0]) / frecObs.Length;
-
 
             // Agrega los numeros a la tabla y obtiene la frecuencia observada de los intervalos
             decimal limInf;
