@@ -46,10 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\CsvReader.cs" />
     <Compile Include="Entidades\CsvWriter.cs" />
     <Compile Include="Entidades\GeneradorNros.cs" />
-    <Compile Include="Entidades\Graficador.cs" />
     <Compile Include="Entidades\ValidadorParametros.cs" />
     <Compile Include="Presentacion\PantallaVisualizacion.cs">
       <SubType>Form</SubType>

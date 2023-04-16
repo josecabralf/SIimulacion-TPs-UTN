@@ -32,3 +32,4 @@ C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\D
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.exe
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.pdb
 D:\Desktop\Contenidos\Santi\UTN\4to año\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.Presentacion.PantallaVisualizacion.resources
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP2\TP2_WF\obj\Debug\TP2_WF.Presentacion.PantallaVisualizacion.resources

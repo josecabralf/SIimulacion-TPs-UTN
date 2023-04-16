@@ -28,36 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gvw_datos = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.gvw_datos)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // gvw_datos
+            // dataGridView1
             // 
-            this.gvw_datos.AllowUserToAddRows = false;
-            this.gvw_datos.AllowUserToDeleteRows = false;
-            this.gvw_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvw_datos.Location = new System.Drawing.Point(1056, 12);
-            this.gvw_datos.Name = "gvw_datos";
-            this.gvw_datos.ReadOnly = true;
-            this.gvw_datos.Size = new System.Drawing.Size(175, 519);
-            this.gvw_datos.TabIndex = 0;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(1223, 65);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(344, 532);
+            this.dataGridView1.TabIndex = 0;
             // 
             // PantallaVisualizacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1234, 543);
-            this.Controls.Add(this.gvw_datos);
+            this.ClientSize = new System.Drawing.Size(1645, 668);
+            this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PantallaVisualizacion";
             this.Text = "Visualización de Datos Generados";
-            ((System.ComponentModel.ISupportInitialize)(this.gvw_datos)).EndInit();
+            this.Load += new System.EventHandler(this.PantallaVisualizacion_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView gvw_datos;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

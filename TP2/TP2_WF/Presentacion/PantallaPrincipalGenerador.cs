@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TP2_WF.Entidades;
 using TP2_WF.Presentacion;
@@ -32,7 +25,7 @@ namespace TP2_WF
             // Dependiendo de la distribución seleccionada los parametros a cargar cambian,
             // por lo que se refleja en los labels, y si corresponde radio buttons
 
-            if(cbo_selectDist.SelectedIndex == 0)
+            if (cbo_selectDist.SelectedIndex == 0)
             {
                 // Que se habilita e inhabilita al seleccionar Uniforme
                 lbl_param1.Text = "Límite Inferior del intervalo";
@@ -107,14 +100,14 @@ namespace TP2_WF
                 MessageBox.Show("El tamaño de muestra no es valido.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-          
-            
-            
+
+
+
             // Dependiendo la distribución el camino a tomar es distinto
             if (cbo_selectDist.SelectedIndex == 0)
             {
                 Console.WriteLine("Soy Uniforme");
-                
+
                 // Se valida que no esten vacios los parametros
                 if (estaVacio(txt_param1.Text) || estaVacio(txt_param2.Text))
                 {
@@ -135,11 +128,11 @@ namespace TP2_WF
                     MessageBox.Show("Los parametros ingresados no son validos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                
+
                 // Se ejecuta el generador
                 minMax = generadorNros.Uniforme(tamMuestra, paramLimInf, paramLimSup);
                 Console.WriteLine("Fin exe gen");
-                 
+
             }
 
             else if (cbo_selectDist.SelectedIndex == 1)
@@ -171,12 +164,13 @@ namespace TP2_WF
                 // Se ejecuta el generador
                 minMax = generadorNros.Normal_BoxMuller(tamMuestra, paramMedia, paramSD);
                 Console.WriteLine("Fin exe gen");
-                
+
             }
 
             else
             {
-                if (rbt_lambda.Checked) {
+                if (rbt_lambda.Checked)
+                {
                     Console.WriteLine("Soy Exponencial Negativa con param Lambda");
                     // Se valida que no este vacio el parametro
                     if (estaVacio(txt_param1.Text))
@@ -200,7 +194,7 @@ namespace TP2_WF
                     // Se ejecuta el generador
                     minMax = generadorNros.Exponencial_NegativaLambda(tamMuestra, paramLambda);
                     Console.WriteLine("Fin exe gen");
-                    
+
 
                 }
                 else
@@ -218,7 +212,7 @@ namespace TP2_WF
                     Console.WriteLine(paramMedia);
                     // Verificamos que la media sea mayor a 0
                     bool parametrosValidos = validadorParametros.validarSuperiorACero(paramMedia);
-                    
+
                     if (!parametrosValidos)
                     {
                         MessageBox.Show("Los parametros ingresados no son validos.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -228,7 +222,7 @@ namespace TP2_WF
                     // Se ejecuta el generador
                     minMax = generadorNros.Exponencial_NegativaLambda(tamMuestra, paramMedia);
                     Console.WriteLine("Fin exe gen");
-                    
+
                 }
 
             }
@@ -242,7 +236,7 @@ namespace TP2_WF
             txt_param1.Enabled = true;
             txt_param2.Enabled = false;
             txt_param2.Text = "";
-            
+
         }
 
         private void rbt_media_CheckedChanged(object sender, EventArgs e)

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TP2_WF.Entidades
 {
@@ -11,9 +7,6 @@ namespace TP2_WF.Entidades
         // Ruta relativa al archivo CSV con los datos
         private string _archivoCSV = @"../../Recursos/numeros.csv";
 
-
-        // funcion
-        // decimal asjdsadals = funcion
         public void CambiarMinMax(decimal nro_gen, decimal[] arreglo_minMax)
         {
             // nro < min : cambiar min
@@ -109,7 +102,7 @@ namespace TP2_WF.Entidades
                 b = Math.Sqrt(-2 * Math.Log(rnd1.NextDouble()));
                 ang = 2 * Math.PI * rnd1.NextDouble();
                 nro_gen1 = media + dev_est * b * Math.Cos(ang);
-                    
+
                 //b = Math.Sqrt(-2 * Math.Log(rnd2.NextDouble()));
                 //ang = 2 * Math.PI * rnd2.NextDouble();
                 //nro_gen2 = media + dev_est * b * Math.Sin(ang);
@@ -120,8 +113,8 @@ namespace TP2_WF.Entidades
                 // Primera iteracion
                 if (i == 0)
                 {
-                    minMax[0]= nro_gen1_4dp;
-                    minMax[1]= nro_gen1_4dp;
+                    minMax[0] = nro_gen1_4dp;
+                    minMax[1] = nro_gen1_4dp;
                 }
                 else
                 {
@@ -135,7 +128,7 @@ namespace TP2_WF.Entidades
                 //Console.WriteLine(nro_gen2_4dp);
                 //csv.WriteToCsvFile(nro_gen2_4dp);
             }
-            csv.closeStream() ;
+            csv.closeStream();
             return minMax;
         }
 
@@ -177,19 +170,19 @@ namespace TP2_WF.Entidades
                 // Se termina el método
                 nro_gen = (acumulador - 6) * dev_est + media;
                 nro_gen_4dp = Math.Truncate((decimal)nro_gen * 10000) / 10000;
-                    
+
                 // Primera iteracion
                 if (i == 0)
                 {
-                    minMax[0]= nro_gen_4dp;
-                    minMax[1]= nro_gen_4dp;
+                    minMax[0] = nro_gen_4dp;
+                    minMax[1] = nro_gen_4dp;
                 }
                 else
                 {
                     // Otras iteraciones
                     CambiarMinMax(nro_gen_4dp, minMax);
                 };
-                    
+
                 // Carga los datos al csv
                 csv.WriteToCsvFile(nro_gen_4dp);
                 Console.WriteLine(nro_gen_4dp);
@@ -205,20 +198,20 @@ namespace TP2_WF.Entidades
         public decimal[] Exponencial_NegativaLambda(int tam_muestra, double lambda)
         // Parametros de entrada: tamaño de la muestra, lambda
         {
-           // Se establecen las variables iniciales
+            // Se establecen las variables iniciales
 
-           // Se abre archivo CSV
-           CsvWriter csv = new CsvWriter(_archivoCSV);
+            // Se abre archivo CSV
+            CsvWriter csv = new CsvWriter(_archivoCSV);
 
-           // rnd: nro aleatorio perteneciente a una Uniforme[0,1)
-           Random rnd = new Random();
+            // rnd: nro aleatorio perteneciente a una Uniforme[0,1)
+            Random rnd = new Random();
 
-           // nro_gen: será el nro generado en cada iteración del ciclo for.
-           double nro_gen;
-           decimal nro_gen_4dp;
+            // nro_gen: será el nro generado en cada iteración del ciclo for.
+            double nro_gen;
+            decimal nro_gen_4dp;
 
-           //minMax: arreglo que contiene el minimo y el máximo
-           decimal[] minMax = new decimal[2];
+            //minMax: arreglo que contiene el minimo y el máximo
+            decimal[] minMax = new decimal[2];
 
             for (int i = 0; i < tam_muestra; i++)
             {
