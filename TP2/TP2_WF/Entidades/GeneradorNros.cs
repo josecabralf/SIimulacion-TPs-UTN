@@ -79,8 +79,9 @@ namespace TP2_WF.Entidades
             CsvWriter csv = new CsvWriter(_archivoCSV);
 
             // rnd1 y rnd2: serán los dos random pertenecientes a una Uniforme[0,1) utilizados para la generación de nros.
-            Random rnd1 = new Random();
-            //Random rnd2 = new Random();
+            // Se inserto una semilla aleatoria porque sino generaba errores
+            Random rnd1 = new Random(Guid.NewGuid().GetHashCode());
+            Random rnd2 = new Random(Guid.NewGuid().GetHashCode());
 
             // Variables auxiliares para calculos intermedios:
             double b;
@@ -100,7 +101,7 @@ namespace TP2_WF.Entidades
             for (int i = 0; i < tam_muestra; i++)
             {
                 b = Math.Sqrt(-2 * Math.Log(rnd1.NextDouble()));
-                ang = 2 * Math.PI * rnd1.NextDouble();
+                ang = 2 * Math.PI * rnd2.NextDouble();
                 nro_gen1 = media + dev_est * b * Math.Cos(ang);
 
                 //b = Math.Sqrt(-2 * Math.Log(rnd2.NextDouble()));
