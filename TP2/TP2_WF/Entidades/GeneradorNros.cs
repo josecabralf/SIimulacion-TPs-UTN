@@ -65,6 +65,8 @@ namespace TP2_WF.Entidades
             }
             csv.closeStream();
 
+            // Le sumamos un digito de presición al máximo para que sea contado en las frecuencias observadas
+            minMax[1] += (decimal)0.0001;
             return minMax;
         }
 
@@ -130,6 +132,9 @@ namespace TP2_WF.Entidades
                 //csv.WriteToCsvFile(nro_gen2_4dp);
             }
             csv.closeStream();
+
+            // Le sumamos un digito de presición al máximo para que sea contado en las frecuencias observadas
+            minMax[1] += (decimal)0.0001;
             return minMax;
         }
 
@@ -192,6 +197,9 @@ namespace TP2_WF.Entidades
                 acumulador = 0;
             }
             csv.closeStream();
+
+            // Le sumamos un digito de presición al máximo para que sea contado en las frecuencias observadas
+            minMax[1] += (decimal)0.0001;
             return minMax;
         }
 
@@ -239,6 +247,8 @@ namespace TP2_WF.Entidades
 
             csv.closeStream();
 
+            // Le sumamos un digito de presición al máximo para que sea contado en las frecuencias observadas
+            minMax[1] += (decimal)0.0001;
             return minMax;
         }
 

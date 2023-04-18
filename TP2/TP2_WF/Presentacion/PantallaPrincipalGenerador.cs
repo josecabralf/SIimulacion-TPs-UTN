@@ -219,7 +219,7 @@ namespace TP2_WF
                     }
 
                     // Se ejecuta el generador
-                    minMax = generadorNros.Exponencial_NegativaLambda(tamMuestra, paramMedia);
+                    minMax = generadorNros.Exponencial_NegativaMedia(tamMuestra, paramMedia);
                     Console.WriteLine("Fin exe gen");
 
                 }
