@@ -104,10 +104,8 @@ namespace TP2_WF.Entidades
             {
                 b = Math.Sqrt(-2 * Math.Log(rnd1.NextDouble()));
                 ang = 2 * Math.PI * rnd2.NextDouble();
-                nro_gen1 = media + dev_est * b * Math.Cos(ang);
 
-                //b = Math.Sqrt(-2 * Math.Log(rnd2.NextDouble()));
-                //ang = 2 * Math.PI * rnd2.NextDouble();
+                nro_gen1 = media + dev_est * b * Math.Cos(ang);
                 //nro_gen2 = media + dev_est * b * Math.Sin(ang);
 
                 nro_gen1_4dp = Math.Truncate((decimal)nro_gen1 * 10000) / 10000;

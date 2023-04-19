@@ -29,6 +29,7 @@ namespace TP2_WF.Entidades
 
                 //Obtiene el ancho de intervalo
                 decimal anchoIntervalo = (minMax[1] - minMax[0]) / frecObs.Length;
+                anchoIntervalo = Math.Truncate(anchoIntervalo*10000)/10000;
 
                 //Obtiene arrayLimSup con los limites superiores de los intervalos
                 arrayLimSup = establecerLimSupInt(arrayLimSup, minMax[0], anchoIntervalo);
