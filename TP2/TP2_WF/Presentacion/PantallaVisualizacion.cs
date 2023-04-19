@@ -34,7 +34,7 @@ namespace TP2_WF.Presentacion
 
             //Obtiene el ancho de intervalo
             decimal anchoIntervalo = (MinMax[1] - MinMax[0]) / frecObs.Length;
-            anchoIntervalo = Math.Truncate(anchoIntervalo * 10000) / 10000;
+            anchoIntervalo = Math.Truncate(anchoIntervalo * 100000) / 100000;
 
             // Se carga el visualizador de datos y las frecuencias observadas
             csvReader.LoadCsvData(CSV, frecObs, MinMax, arrayLimSup);
