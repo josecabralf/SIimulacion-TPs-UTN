@@ -34,7 +34,6 @@ namespace TP2_WF.Presentacion
 
             //Obtiene el ancho de intervalo
             decimal anchoIntervalo = (MinMax[1] - MinMax[0]) / frecObs.Length;
-            anchoIntervalo = Math.Truncate(anchoIntervalo * 100000) / 100000;
 
             // Se carga el visualizador de datos y las frecuencias observadas
             csvReader.LoadCsvData(CSV, frecObs, MinMax, arrayLimSup);
@@ -48,11 +47,6 @@ namespace TP2_WF.Presentacion
 
             // Establecemos el título del gráfico
             chart1.Titles.Add("Gráfico de Frecuencias Observadas");
-
-            // Le agreagamos un area al grafico
-            ChartArea chartArea1 = new ChartArea();
-            chartArea1.InnerPlotPosition.Auto = true;
-            chart1.ChartAreas.Add(chartArea1);
 
             // Se establece la serie para que se vea como histograma
             Series frecObsSerie = new Series();

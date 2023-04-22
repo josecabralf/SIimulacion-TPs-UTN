@@ -61,7 +61,6 @@ namespace TP2_WF.Entidades
 
                 // Carga los datos al csv
                 csv.WriteToCsvFile(nro_gen_4dp);
-                Console.WriteLine(nro_gen_4dp);
             }
             csv.closeStream();
 
@@ -89,13 +88,9 @@ namespace TP2_WF.Entidades
             double b;
             double ang;
 
-            // nro_gen1 y nro_gen2: serán los nros aleatorios generados por los rnd anteriores
-            double nro_gen1;
-            //double nro_gen2;
-
-            decimal nro_gen1_4dp;
-            // nro_gen2_4dp;
-
+            // nro_gen: será el nros aleatorio generado por los rnd anteriores
+            double nro_gen;
+            decimal nro_gen_4dp;
 
             //minMax: arreglo que contiene el minimo y el máximo
             decimal[] minMax = new decimal[2];
@@ -105,29 +100,24 @@ namespace TP2_WF.Entidades
                 b = Math.Sqrt(-2 * Math.Log(rnd1.NextDouble()));
                 ang = 2 * Math.PI * rnd2.NextDouble();
 
-                nro_gen1 = media + dev_est * b * Math.Cos(ang);
-                //nro_gen2 = media + dev_est * b * Math.Sin(ang);
+                nro_gen = media + dev_est * b * Math.Cos(ang);
 
-                nro_gen1_4dp = Math.Truncate((decimal)nro_gen1 * 10000) / 10000;
-                //nro_gen2_4dp = Math.Truncate((decimal)nro_gen2 * 10000) / 10000;
+                nro_gen_4dp = Math.Truncate((decimal)nro_gen * 10000) / 10000;
 
                 // Primera iteracion
                 if (i == 0)
                 {
-                    minMax[0] = nro_gen1_4dp;
-                    minMax[1] = nro_gen1_4dp;
+                    minMax[0] = nro_gen_4dp;
+                    minMax[1] = nro_gen_4dp;
                 }
                 else
                 {
                     // Otras iteraciones
-                    CambiarMinMax(nro_gen1_4dp, minMax);
+                    CambiarMinMax(nro_gen_4dp, minMax);
                 };
 
                 // Carga los datos al csv
-                Console.WriteLine(nro_gen1_4dp);
-                csv.WriteToCsvFile(nro_gen1_4dp);
-                //Console.WriteLine(nro_gen2_4dp);
-                //csv.WriteToCsvFile(nro_gen2_4dp);
+                csv.WriteToCsvFile(nro_gen_4dp);
             }
             csv.closeStream();
 
@@ -189,7 +179,6 @@ namespace TP2_WF.Entidades
 
                 // Carga los datos al csv
                 csv.WriteToCsvFile(nro_gen_4dp);
-                Console.WriteLine(nro_gen_4dp);
 
                 // Se resetea el acumulador para la próxima generación
                 acumulador = 0;
@@ -239,7 +228,6 @@ namespace TP2_WF.Entidades
                 };
 
                 // Carga los datos al csv
-                Console.WriteLine(nro_gen_4dp);
                 csv.WriteToCsvFile(nro_gen_4dp);
             }
 

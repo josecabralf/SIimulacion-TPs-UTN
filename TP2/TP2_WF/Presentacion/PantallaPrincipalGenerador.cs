@@ -91,7 +91,6 @@ namespace TP2_WF
 
             // Convertimos el string obtenido del form a int
             int tamMuestra = int.Parse(txt_tamM.Text);
-            Console.WriteLine(tamMuestra);
 
             // Se valida que el tamaño de muestra sea superior a cero
             bool muestraValida = validadorParametros.validarSuperiorACero(tamMuestra);
@@ -105,8 +104,6 @@ namespace TP2_WF
             // Dependiendo la distribución el camino a tomar es distinto
             if (cbo_selectDist.SelectedIndex == 0)
             {
-                Console.WriteLine("Soy Uniforme");
-
                 // Se valida que no esten vacios los parametros
                 if (estaVacio(txt_param1.Text) || estaVacio(txt_param2.Text))
                 {
@@ -117,8 +114,6 @@ namespace TP2_WF
                 // Convertimos los strings obtenidos del form a double
                 double paramLimInf = Double.Parse(txt_param1.Text);
                 double paramLimSup = Double.Parse(txt_param2.Text);
-                Console.WriteLine(paramLimInf);
-                Console.WriteLine(paramLimSup);
                 // Verificamos que los parametros sean validos (limite inferior < limite superior)                
                 bool parametrosValidos = validadorParametros.validarParametrosUniforme(paramLimInf, paramLimSup);
 
@@ -130,14 +125,11 @@ namespace TP2_WF
 
                 // Se ejecuta el generador
                 minMax = generadorNros.Uniforme(tamMuestra, paramLimInf, paramLimSup);
-                Console.WriteLine("Fin exe gen");
 
             }
 
             else if (cbo_selectDist.SelectedIndex == 1)
             {
-                Console.WriteLine("Soy Normal");
-
                 // Se valida que no esten vacios los parametros
                 if (estaVacio(txt_param1.Text) || estaVacio(txt_param2.Text))
                 {
@@ -149,8 +141,7 @@ namespace TP2_WF
                 // Convertimos los strings obtenidos del form a double
                 double paramMedia = Double.Parse(txt_param1.Text);
                 double paramSD = Double.Parse(txt_param2.Text);
-                Console.WriteLine(paramMedia);
-                Console.WriteLine(paramSD);
+
                 // Verificamos que la deviación estandar sea mayor a 0
                 bool parametrosValidos = validadorParametros.validarSuperiorACero(paramSD);
 
@@ -162,15 +153,12 @@ namespace TP2_WF
 
                 // Se ejecuta el generador
                 minMax = generadorNros.Normal_BoxMuller(tamMuestra, paramMedia, paramSD);
-                Console.WriteLine("Fin exe gen");
-
             }
 
             else
             {
                 if (rbt_lambda.Checked)
                 {
-                    Console.WriteLine("Soy Exponencial Negativa con param Lambda");
                     // Se valida que no este vacio el parametro
                     if (estaVacio(txt_param1.Text))
                     {
@@ -180,9 +168,8 @@ namespace TP2_WF
 
                     // Convertimos el string obtenido del form a double
                     double paramLambda = Double.Parse(txt_param1.Text);
-                    Console.WriteLine(paramLambda);
                     bool parametrosValidos = validadorParametros.validarSuperiorACero(paramLambda);
-                    Console.WriteLine("Soy Exponencial Negativa con param Lambda");
+
                     // Verificamos que la lambda sea mayor a 0
                     if (!parametrosValidos)
                     {
@@ -192,13 +179,10 @@ namespace TP2_WF
 
                     // Se ejecuta el generador
                     minMax = generadorNros.Exponencial_NegativaLambda(tamMuestra, paramLambda);
-                    Console.WriteLine("Fin exe gen");
-
-
                 }
+
                 else
                 {
-                    Console.WriteLine("Soy Exponencial Negativa con param Media");
                     // Se valida que no este vacio el parametro
                     if (estaVacio(txt_param2.Text))
                     {
@@ -208,7 +192,7 @@ namespace TP2_WF
 
                     // Convertimos el string obtenido del form a double
                     double paramMedia = Double.Parse(txt_param2.Text);
-                    Console.WriteLine(paramMedia);
+
                     // Verificamos que la media sea mayor a 0
                     bool parametrosValidos = validadorParametros.validarSuperiorACero(paramMedia);
 
@@ -220,11 +204,9 @@ namespace TP2_WF
 
                     // Se ejecuta el generador
                     minMax = generadorNros.Exponencial_NegativaMedia(tamMuestra, paramMedia);
-                    Console.WriteLine("Fin exe gen");
-
                 }
-
             }
+
             // Se obtiene la cantidad de intervalos mediante el combo box
             int cantIntervalos = int.Parse(cbo_selectInterval.Text);
 
@@ -279,8 +261,6 @@ namespace TP2_WF
             {
                 e.Handled = true;
             }
-
-
         }
     }
 }
