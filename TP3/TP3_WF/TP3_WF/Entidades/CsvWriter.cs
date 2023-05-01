@@ -1,21 +1,21 @@
 ﻿using System;
 using System.IO;
 
-namespace TP3_WF.Entidades
+namespace TP2_WF.Entidades
 {
     public class CsvWriter
     {
         StreamWriter streamWriter;
 
-        public CsvWriter(String filePath)
+        public CsvWriter(string filePath)
         {
             // Instancia el objeto que nos permite escribir en el archivo CSV
             streamWriter = new StreamWriter(filePath);
         }
 
-        public void WriteToCsvFile(dynamic[] res)
+        public void WriteToCsvFile(string res)
         {
-            // Escribe una linea en el archivo CSV
+            // Escribe un numero en el archivo CSV
             streamWriter.WriteLine(res);
         }
 

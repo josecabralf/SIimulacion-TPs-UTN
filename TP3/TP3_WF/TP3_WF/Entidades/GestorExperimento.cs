@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using TP2_WF.Entidades;
 
 namespace TP3_WF.Entidades
 {
     internal class GestorExperimento
     {
-        private string CSV = @"../../Recursos/datos.csv";
         Experimento experimento;
         private string CondExito;
 
@@ -25,9 +26,6 @@ namespace TP3_WF.Entidades
 
         public void realizarExperimento(int nroExpemimentos, int desde, int cant)
         {
-            // Se abre el escritor
-            CsvWriter csvWriter = new CsvWriter(CSV);
-
             // Inicializan los rnds
             Random rndRecuerda = new Random(Guid.NewGuid().GetHashCode());
             Random rndComprara = new Random(Guid.NewGuid().GetHashCode());
@@ -59,7 +57,7 @@ namespace TP3_WF.Entidades
 
                 if(i >= desde && i < desde + cant)
                 {
-                    csvWriter.WriteToCsvFile(res);
+                    Console.WriteLine(string.Join(", ", res));
                 }
             };
         }

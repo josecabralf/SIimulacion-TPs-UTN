@@ -12,4 +12,10 @@
     <Folder Include="Recursos\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Recursos\datos.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
