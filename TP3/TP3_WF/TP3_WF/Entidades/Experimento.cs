@@ -27,7 +27,7 @@ namespace TP3_WF.Entidades
             _ProbAcNoRecuerda = new double[] { 0.5, 0.9, 1 };
         }
 
-        public bool Recuerda(float rnd)
+        public bool Recuerda(double rnd)
         // Este método se encarga de determinar si el cliente recuerda la publicidad
         {
             if (rnd < 0.4) return true;

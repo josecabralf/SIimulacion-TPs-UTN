@@ -8,19 +8,60 @@ namespace TP3_WF.Entidades
 {
     internal class GestorExperimento
     {
-        CsvWriter Writer;
-        string CSV = @"../../Recursos/datos.csv";
+        private string CSV = @"../../Recursos/datos.csv";
         Experimento experimento;
+        private string CondExito;
 
-        GestorExperimento()
+        public GestorExperimento()
         {
-            Writer = new CsvWriter(CSV);
             experimento = new Experimento();
+            CondExito = "Definitivamente sí";
+        }
+
+        private dynamic[] asignarResLinea(int i, double rnd1, bool rec, double rnd2, string comp, int exitos)
+        {
+            return new dynamic[] {i, rnd1, rec, rnd2, comp, exitos};
         }
 
         public void realizarExperimento(int nroExpemimentos, int desde, int cant)
         {
+            // Se abre el escritor
+            CsvWriter csvWriter = new CsvWriter(CSV);
 
+            // Inicializan los rnds
+            Random rndRecuerda = new Random(Guid.NewGuid().GetHashCode());
+            Random rndComprara = new Random(Guid.NewGuid().GetHashCode());
+
+            // Variables de iteracion
+            bool recuerda;
+            double rnd1;
+
+            string comprara;
+            double rnd2;
+
+            // Contador de Éxitos
+            int exitos = 0;
+
+            // Línea de resultados: [NroExp, rndRecuerda, Recuerda, rndComprara, Comprara, AC Exitos]
+            dynamic[] res;
+
+            for(int i = 1; i < nroExpemimentos+1; i++)
+            {
+                rnd1 = rndRecuerda.NextDouble();
+                recuerda = experimento.Recuerda(rnd1);
+
+                rnd2 = rndComprara.NextDouble();
+                comprara = experimento.Comprara(rnd2, recuerda);
+
+                if(comprara == CondExito) exitos++;
+                
+                res = asignarResLinea(i, rnd1, recuerda, rnd2, comprara, exitos);
+
+                if(i >= desde && i < desde + cant)
+                {
+                    csvWriter.WriteToCsvFile(res);
+                }
+            };
         }
     }
 }
