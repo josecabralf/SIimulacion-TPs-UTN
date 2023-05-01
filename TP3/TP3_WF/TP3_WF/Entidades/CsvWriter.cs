@@ -19,7 +19,7 @@ namespace TP2_WF.Entidades
             streamWriter.WriteLine(res);
         }
 
-        public void closeStream()
+        public void CloseStream()
         {
             // Cierra el archivo CSV
             streamWriter.Close();
