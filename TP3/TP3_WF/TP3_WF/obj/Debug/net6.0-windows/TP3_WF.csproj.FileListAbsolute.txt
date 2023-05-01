@@ -15,4 +15,3 @@ C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_W
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.pdb
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.genruntimeconfig.cache
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\ref\TP3_WF.dll
-C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\Recursos\datos.csv

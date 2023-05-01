@@ -10,13 +10,14 @@ namespace TP3_WF.Entidades
 {
     internal class GestorExperimento
     {
+        private string _archivoCSV = @"./datos.csv";
         Experimento experimento;
         private string CondExito;
 
         public GestorExperimento()
         {
             experimento = new Experimento();
-            CondExito = "Definitivamente sí";
+            CondExito = "Definitivamente si";
         }
 
         private dynamic[] asignarResLinea(int i, double rnd1, bool rec, double rnd2, string comp, int exitos)
@@ -26,16 +27,22 @@ namespace TP3_WF.Entidades
 
         public void realizarExperimento(int nroExpemimentos, int desde, int cant)
         {
+            // Se abre archivo CSV
+            CsvWriter csv = new CsvWriter(_archivoCSV);
+
             // Inicializan los rnds
             Random rndRecuerda = new Random(Guid.NewGuid().GetHashCode());
             Random rndComprara = new Random(Guid.NewGuid().GetHashCode());
 
             // Variables de iteracion
-            bool recuerda;
-            double rnd1;
 
-            string comprara;
+            // Recuerda: recuerda el cliente la publicidad?
+            double rnd1;
+            bool recuerda;
+
+            // Comprara: comprará el cliente el producto?
             double rnd2;
+            string comprara;
 
             // Contador de Éxitos
             int exitos = 0;
@@ -45,10 +52,10 @@ namespace TP3_WF.Entidades
 
             for(int i = 1; i < nroExpemimentos+1; i++)
             {
-                rnd1 = rndRecuerda.NextDouble();
+                rnd1 = Math.Truncate(rndRecuerda.NextDouble()*10000)/10000;
                 recuerda = experimento.Recuerda(rnd1);
 
-                rnd2 = rndComprara.NextDouble();
+                rnd2 = Math.Truncate(rndComprara.NextDouble()*10000)/10000;
                 comprara = experimento.Comprara(rnd2, recuerda);
 
                 if(comprara == CondExito) exitos++;
@@ -57,9 +64,17 @@ namespace TP3_WF.Entidades
 
                 if(i >= desde && i < desde + cant)
                 {
-                    Console.WriteLine(string.Join(", ", res));
+                    csv.WriteToCsvFile(string.Join(", ", res));
+                }
+
+                if (i == nroExpemimentos)
+                {
+
+                    csv.WriteToCsvFile("\n" + string.Join(", ", res));
                 }
             };
+
+            csv.closeStream();
         }
     }
 }

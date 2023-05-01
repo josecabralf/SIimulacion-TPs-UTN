@@ -18,7 +18,7 @@ namespace TP3_WF.Entidades
         public Experimento()
         {
             // Comprar: tiene todos los posibles resultados finales del experimento
-            Comprar = new string[] { "Definitivamente no", "Dudoso", "Definitivamente sí" };
+            Comprar = new string[] { "Definitivamente no", "Dudoso", "Definitivamente si" };
 
             // _ProbAcRecuerda: contiene las P() AC de los resultados en caso de que el cliente recuerde la publicidad
             _ProbAcRecuerda = new double[] { 0.3, 0.6, 1 };

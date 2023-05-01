@@ -14,9 +14,6 @@ namespace TP3_WF
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
-
-            GestorExperimento exp = new GestorExperimento();
-            exp.realizarExperimento(10, 1, 5);
         }
     }
 }
