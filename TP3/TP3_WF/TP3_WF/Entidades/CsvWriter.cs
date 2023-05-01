@@ -13,10 +13,10 @@ namespace TP3_WF.Entidades
             streamWriter = new StreamWriter(filePath);
         }
 
-        public void WriteToCsvFile(decimal num)
+        public void WriteToCsvFile(string[] res)
         {
-            // Escribe un numero en el archivo CSV
-            streamWriter.WriteLine(num);
+            // Escribe una linea en el archivo CSV
+            streamWriter.WriteLine(res);
         }
 
         public void closeStream()

@@ -10,10 +10,17 @@ namespace TP3_WF.Entidades
     {
         CsvWriter Writer;
         string CSV = @"../../Recursos/datos.csv";
+        Experimento experimento;
 
         GestorExperimento()
         {
             Writer = new CsvWriter(CSV);
+            experimento = new Experimento();
+        }
+
+        public void realizarExperimento(int nroExpemimentos, int desde, int cant)
+        {
+
         }
     }
 }

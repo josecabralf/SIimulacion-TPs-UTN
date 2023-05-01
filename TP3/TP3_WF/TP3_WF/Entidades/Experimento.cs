@@ -8,44 +8,62 @@ namespace TP3_WF.Entidades
 {
     internal class Experimento
     {
-        string[] Comprar;
+        // Esta clase contiene los métodos necesarios para llevar a cabo 1 sola corrida del experimento
 
-        Experimento()
+        // Atributos:
+        string[] Comprar;
+        private double[] _ProbAcRecuerda;
+        private double[] _ProbAcNoRecuerda;
+
+        public Experimento()
         {
+            // Comprar: tiene todos los posibles resultados finales del experimento
             Comprar = new string[] { "Definitivamente no", "Dudoso", "Definitivamente sí" };
+
+            // _ProbAcRecuerda: contiene las P() AC de los resultados en caso de que el cliente recuerde la publicidad
+            _ProbAcRecuerda = new double[] { 0.3, 0.6, 1 };
+
+            // _ProbAcNoRecuerda: contiene las P() AC de los resultados en caso de que el cliente no recuerde la publicidad
+            _ProbAcNoRecuerda = new double[] { 0.5, 0.9, 1 };
         }
 
-        bool Recuerda(double rnd)
+        public bool Recuerda(float rnd)
+        // Este método se encarga de determinar si el cliente recuerda la publicidad
         {
             if (rnd < 0.4) return true;
+
             return false;
         }
 
-        string Comprara(double rnd, bool recuerda)
+        private string CompraraRecuerda(double rnd)
+        // Este método se encarga de determinar la rta de un cliente que recuerda la publicidad
+        {
+            for (int i = 0; i<2; i++)
+            {
+                if(rnd < _ProbAcRecuerda[i])
+                    return Comprar[i];
+            }
+            return Comprar[2];
+        }
+
+        private string CompraraNoRecuerda(double rnd)
+        // Este método se encarga de determinar la rta de un cliente que no recuerda la publicidad
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                if (rnd < _ProbAcNoRecuerda[i])
+                    return Comprar[i];
+            }
+            return Comprar[2];
+        }
+
+        public string Comprara(double rnd, bool recuerda)
+        // Este método se encarga de determinar la rta del cliente
         {
             if(recuerda)
-            {
-                if (rnd < 0.3)
-                {
-                    return Comprar[0];
-                } else if (rnd < 0.6)
-                {
-                    return Comprar[1];
-                }
-                return Comprar[2];
-            }else
-            {
-                if (rnd < 0.5)
-                {
-                    return Comprar[0];
-                }
-                else if (rnd < 0.9)
-                {
-                    return Comprar[1];
-                }
-                return Comprar[2];
-            }
-
+                return CompraraRecuerda(rnd);
+            else
+                return CompraraNoRecuerda(rnd);
         }
     }
 }
