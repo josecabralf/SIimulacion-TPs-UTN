@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace TP2_WF.Entidades
+namespace TP3_WF.Entidades
 {
     public class CsvWriter
     {
@@ -15,7 +15,7 @@ namespace TP2_WF.Entidades
 
         public void WriteToCsvFile(string res)
         {
-            // Escribe un numero en el archivo CSV
+            // Escribe un string en el archivo CSV
             streamWriter.WriteLine(res);
         }
 

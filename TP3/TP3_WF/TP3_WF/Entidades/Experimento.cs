@@ -11,7 +11,7 @@ namespace TP3_WF.Entidades
         // Esta clase contiene los métodos necesarios para llevar a cabo 1 sola corrida del experimento
 
         // Atributos:
-        string[] Comprar;
+        private string[] Comprar;
         private double[] _ProbAcRecuerda;
         private double[] _ProbAcNoRecuerda;
 

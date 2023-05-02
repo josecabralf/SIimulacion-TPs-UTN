@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using TP2_WF.Entidades;
+using TP3_WF.Entidades;
 
 namespace TP3_WF.Entidades
 {
