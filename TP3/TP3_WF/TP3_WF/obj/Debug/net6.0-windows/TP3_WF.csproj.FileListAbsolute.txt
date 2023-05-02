@@ -15,3 +15,21 @@ C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_W
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.pdb
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.genruntimeconfig.cache
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\ref\TP3_WF.dll
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\TP3_WF.exe
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\TP3_WF.deps.json
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\TP3_WF.runtimeconfig.json
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\TP3_WF.dll
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\TP3_WF.pdb
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.csproj.AssemblyReference.cache
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.PantallaAnuncioPorTV.resources
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.csproj.GenerateResource.cache
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.GeneratedMSBuildEditorConfig.editorconfig
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.AssemblyInfoInputs.cache
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.AssemblyInfo.cs
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.csproj.CoreCompileInputs.cache
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.dll
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\refint\TP3_WF.dll
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.pdb
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.genruntimeconfig.cache
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\ref\TP3_WF.dll
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.Presentacion.PantallaVisualizacion.resources

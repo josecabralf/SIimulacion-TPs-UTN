@@ -28,92 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbl_nroExperimentos = new Label();
-            lbl_desde = new Label();
-            lbl_cant = new Label();
-            btn_generar = new Button();
-            txt_nroExperimento = new TextBox();
-            txt_desde = new TextBox();
-            txt_cant = new TextBox();
-            SuspendLayout();
+            this.lbl_nroExperimentos = new System.Windows.Forms.Label();
+            this.lbl_desde = new System.Windows.Forms.Label();
+            this.lbl_cant = new System.Windows.Forms.Label();
+            this.btn_generar = new System.Windows.Forms.Button();
+            this.txt_nroExperimento = new System.Windows.Forms.TextBox();
+            this.txt_desde = new System.Windows.Forms.TextBox();
+            this.txt_cant = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
             // 
             // lbl_nroExperimentos
             // 
-            lbl_nroExperimentos.AutoSize = true;
-            lbl_nroExperimentos.Location = new Point(30, 14);
-            lbl_nroExperimentos.Name = "lbl_nroExperimentos";
-            lbl_nroExperimentos.Size = new Size(178, 20);
-            lbl_nroExperimentos.TabIndex = 0;
-            lbl_nroExperimentos.Text = "Número de Experimentos";
+            this.lbl_nroExperimentos.AutoSize = true;
+            this.lbl_nroExperimentos.Location = new System.Drawing.Point(26, 10);
+            this.lbl_nroExperimentos.Name = "lbl_nroExperimentos";
+            this.lbl_nroExperimentos.Size = new System.Drawing.Size(142, 15);
+            this.lbl_nroExperimentos.TabIndex = 0;
+            this.lbl_nroExperimentos.Text = "Número de Experimentos";
             // 
             // lbl_desde
             // 
-            lbl_desde.AutoSize = true;
-            lbl_desde.Location = new Point(30, 81);
-            lbl_desde.Name = "lbl_desde";
-            lbl_desde.Size = new Size(51, 20);
-            lbl_desde.TabIndex = 1;
-            lbl_desde.Text = "Desde";
+            this.lbl_desde.AutoSize = true;
+            this.lbl_desde.Location = new System.Drawing.Point(26, 61);
+            this.lbl_desde.Name = "lbl_desde";
+            this.lbl_desde.Size = new System.Drawing.Size(39, 15);
+            this.lbl_desde.TabIndex = 1;
+            this.lbl_desde.Text = "Desde";
             // 
             // lbl_cant
             // 
-            lbl_cant.AutoSize = true;
-            lbl_cant.Location = new Point(30, 151);
-            lbl_cant.Name = "lbl_cant";
-            lbl_cant.Size = new Size(135, 20);
-            lbl_cant.TabIndex = 2;
-            lbl_cant.Text = "Cantidad de Lineas";
+            this.lbl_cant.AutoSize = true;
+            this.lbl_cant.Location = new System.Drawing.Point(26, 113);
+            this.lbl_cant.Name = "lbl_cant";
+            this.lbl_cant.Size = new System.Drawing.Size(107, 15);
+            this.lbl_cant.TabIndex = 2;
+            this.lbl_cant.Text = "Cantidad de Lineas";
             // 
             // btn_generar
             // 
-            btn_generar.BackColor = SystemColors.Desktop;
-            btn_generar.Location = new Point(479, 31);
-            btn_generar.Name = "btn_generar";
-            btn_generar.Size = new Size(247, 173);
-            btn_generar.TabIndex = 3;
-            btn_generar.Text = "Generar";
-            btn_generar.UseVisualStyleBackColor = false;
+            this.btn_generar.BackColor = System.Drawing.Color.Red;
+            this.btn_generar.Location = new System.Drawing.Point(419, 23);
+            this.btn_generar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_generar.Name = "btn_generar";
+            this.btn_generar.Size = new System.Drawing.Size(216, 130);
+            this.btn_generar.TabIndex = 3;
+            this.btn_generar.Text = "Generar";
+            this.btn_generar.UseVisualStyleBackColor = false;
+            this.btn_generar.Click += new System.EventHandler(this.btn_generar_Click);
             // 
             // txt_nroExperimento
             // 
-            txt_nroExperimento.Location = new Point(30, 37);
-            txt_nroExperimento.Name = "txt_nroExperimento";
-            txt_nroExperimento.Size = new Size(392, 27);
-            txt_nroExperimento.TabIndex = 4;
-            txt_nroExperimento.KeyPress += txt_nroExperimento_KeyPress;
+            this.txt_nroExperimento.Location = new System.Drawing.Point(26, 28);
+            this.txt_nroExperimento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_nroExperimento.Name = "txt_nroExperimento";
+            this.txt_nroExperimento.Size = new System.Drawing.Size(344, 23);
+            this.txt_nroExperimento.TabIndex = 4;
+            this.txt_nroExperimento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nroExperimento_KeyPress);
             // 
             // txt_desde
             // 
-            txt_desde.Location = new Point(30, 104);
-            txt_desde.Name = "txt_desde";
-            txt_desde.Size = new Size(392, 27);
-            txt_desde.TabIndex = 5;
-            txt_desde.KeyPress += txt_desde_KeyPress;
+            this.txt_desde.Location = new System.Drawing.Point(26, 78);
+            this.txt_desde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_desde.Name = "txt_desde";
+            this.txt_desde.Size = new System.Drawing.Size(344, 23);
+            this.txt_desde.TabIndex = 5;
+            this.txt_desde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_desde_KeyPress);
             // 
             // txt_cant
             // 
-            txt_cant.Location = new Point(30, 174);
-            txt_cant.Name = "txt_cant";
-            txt_cant.Size = new Size(392, 27);
-            txt_cant.TabIndex = 6;
-            txt_cant.KeyPress += txt_cant_KeyPress;
+            this.txt_cant.Location = new System.Drawing.Point(26, 130);
+            this.txt_cant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_cant.Name = "txt_cant";
+            this.txt_cant.Size = new System.Drawing.Size(344, 23);
+            this.txt_cant.TabIndex = 6;
+            this.txt_cant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cant_KeyPress);
             // 
             // PantallaAnuncioPorTV
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(756, 235);
-            Controls.Add(txt_cant);
-            Controls.Add(txt_desde);
-            Controls.Add(txt_nroExperimento);
-            Controls.Add(btn_generar);
-            Controls.Add(lbl_cant);
-            Controls.Add(lbl_desde);
-            Controls.Add(lbl_nroExperimentos);
-            Name = "PantallaAnuncioPorTV";
-            Text = "Anuncio por Televisión";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(662, 176);
+            this.Controls.Add(this.txt_cant);
+            this.Controls.Add(this.txt_desde);
+            this.Controls.Add(this.txt_nroExperimento);
+            this.Controls.Add(this.btn_generar);
+            this.Controls.Add(this.lbl_cant);
+            this.Controls.Add(this.lbl_desde);
+            this.Controls.Add(this.lbl_nroExperimentos);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "PantallaAnuncioPorTV";
+            this.Text = "Anuncio por Televisión";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

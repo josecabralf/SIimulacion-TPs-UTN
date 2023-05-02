@@ -14,6 +14,10 @@ namespace TP3_WF.Entidades
         Experimento experimento;
         private string CondExito;
 
+        public string getArchivoCSV()
+        {
+            return _archivoCSV;
+        }
         public GestorExperimento()
         {
             experimento = new Experimento();
@@ -73,11 +77,13 @@ namespace TP3_WF.Entidades
 
                 // Cargamos la línea al csv si cumple la condición
                 if(i >= desde && i < desde + cant) 
-                    csv.WriteToCsvFile(string.Join(", ", res));
+                    csv.WriteToCsvFile(string.Join(";", res));
             };
-            
+
             // Cargamos la última línea (resultado de la simulación)
-            csv.WriteToCsvFile("\n" + string.Join(", ", res));
+            string[] blank = new string[6] { " ", " ", " ", " ", " ", " "};
+            csv.WriteToCsvFile(string.Join(";", blank));
+            csv.WriteToCsvFile(string.Join(";", res));
 
             // Cerramos el archivo
             csv.CloseStream();

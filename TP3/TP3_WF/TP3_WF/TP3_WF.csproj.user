@@ -4,5 +4,8 @@
     <Compile Update="Presentacion\PantallaAnuncioPorTV.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Presentacion\PantallaVisualizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
