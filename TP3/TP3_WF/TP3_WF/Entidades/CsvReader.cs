@@ -37,13 +37,11 @@ namespace TP3_WF.Entidades
                 dt.Columns.Add("Cant Éxitos");
 
                 string[] lineArray = new string[6] { "0", "", "", "", "", "1" };
-                
-                // Leer las líneas del archivo
 
                 using (streamReader)
                 {
                     string? currentLine;
-                    // currentLine will be null when the StreamReader reaches the end of file
+                    // Leer las líneas del archivo y cargar la tabla de datos
                     while ((currentLine = streamReader.ReadLine()) != null)
                     {
                         lineArray = currentLine.Split(';');
@@ -60,6 +58,7 @@ namespace TP3_WF.Entidades
                     }
                 }
 
+                // Se calcula la probabilidad de éxito
                 double nroExp = double.Parse(lineArray[0]);
                 double exitos = double.Parse(lineArray[5]);
 
