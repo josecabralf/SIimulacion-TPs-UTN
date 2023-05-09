@@ -71,19 +71,21 @@ namespace TP3_WF.Entidades
 
                 // Si quiere comprar: éxito
                 if(comprara == CondExito) exitos++;
-                
-                // Creamos la línea de la iteración
-                res = AsignarResLinea(i, rnd1, recuerda, rnd2, comprara, exitos);
 
                 // Cargamos la línea al csv si cumple la condición
-                if(i >= desde && i < desde + cant) 
+                if((i >= desde && i < desde + cant) || i == nroExpemimentos)
+                {
+                    // Creamos la línea de la iteración
+                    res = AsignarResLinea(i, rnd1, recuerda, rnd2, comprara, exitos);
+                    if (i == nroExpemimentos)
+                    {
+                        // Cargamos la última línea (resultado de la simulación)
+                        string[] blank = new string[6] { " ", " ", " ", " ", " ", " " };
+                        csv.WriteToCsvFile(string.Join(";", blank));
+                    }
                     csv.WriteToCsvFile(string.Join(";", res));
+                }       
             };
-
-            // Cargamos la última línea (resultado de la simulación)
-            string[] blank = new string[6] { " ", " ", " ", " ", " ", " "};
-            csv.WriteToCsvFile(string.Join(";", blank));
-            csv.WriteToCsvFile(string.Join(";", res));
 
             // Cerramos el archivo
             csv.CloseStream();

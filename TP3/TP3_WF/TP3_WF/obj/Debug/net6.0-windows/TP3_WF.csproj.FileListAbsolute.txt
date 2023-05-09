@@ -4,7 +4,6 @@ C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_W
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\TP3_WF.dll
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\TP3_WF.pdb
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.csproj.AssemblyReference.cache
-C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.Form1.resources
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.csproj.GenerateResource.cache
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.AssemblyInfoInputs.cache
@@ -33,3 +32,23 @@ D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_W
 D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.genruntimeconfig.cache
 D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\ref\TP3_WF.dll
 D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.Presentacion.PantallaVisualizacion.resources
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.PantallaAnuncioPorTV.resources
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.Presentacion.PantallaVisualizacion.resources
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\TP3_WF.exe
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\TP3_WF.deps.json
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\TP3_WF.runtimeconfig.json
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\TP3_WF.dll
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\bin\Debug\net6.0-windows\TP3_WF.pdb
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.csproj.AssemblyReference.cache
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.PantallaAnuncioPorTV.resources
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.Presentacion.PantallaVisualizacion.resources
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.csproj.GenerateResource.cache
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.AssemblyInfoInputs.cache
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.AssemblyInfo.cs
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.csproj.CoreCompileInputs.cache
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.dll
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\refint\TP3_WF.dll
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.pdb
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\TP3_WF.genruntimeconfig.cache
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\tp3\TP3_WF\TP3_WF\obj\Debug\net6.0-windows\ref\TP3_WF.dll
