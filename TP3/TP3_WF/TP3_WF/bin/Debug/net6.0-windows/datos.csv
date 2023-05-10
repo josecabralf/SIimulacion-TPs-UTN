@@ -1,102 +1,102 @@
-5;0,7949;False;0,2321;Definitivamente no;1
-6;0,7356;False;0,075;Definitivamente no;1
-7;0,5588;False;0,6783;Dudoso;1
-8;0,1884;True;0,6897;Definitivamente si;2
-9;0,8804;False;0,9775;Definitivamente si;3
-10;0,5103;False;0,2482;Definitivamente no;3
-11;0,0863;True;0,8746;Definitivamente si;4
-12;0,9128;False;0,9542;Definitivamente si;5
-13;0,5419;False;0,858;Dudoso;5
-14;0,8008;False;0,2067;Definitivamente no;5
-15;0,5935;False;0,2944;Definitivamente no;5
-16;0,0666;True;0,902;Definitivamente si;6
-17;0,3976;True;0,9081;Definitivamente si;7
-18;0,9263;False;0,7538;Dudoso;7
-19;0,5253;False;0,6419;Dudoso;7
-20;0,8949;False;0,6137;Dudoso;7
-21;0,3956;True;0,351;Dudoso;7
-22;0,3727;True;0,818;Definitivamente si;8
-23;0,7419;False;0,2165;Definitivamente no;8
-24;0,6213;False;0,7134;Dudoso;8
-25;0,2472;True;0,1344;Definitivamente no;8
-26;0,5697;False;0,1214;Definitivamente no;8
-27;0,751;False;0,2081;Definitivamente no;8
-28;0,9299;False;0,1;Definitivamente no;8
-29;0,4749;False;0,6574;Dudoso;8
-30;0,5157;False;0,6506;Dudoso;8
-31;0,1398;True;0,4046;Dudoso;8
-32;0,2713;True;0,5798;Dudoso;8
-33;0,4189;False;0,4274;Definitivamente no;8
-34;0,8113;False;0,0932;Definitivamente no;8
-35;0,3864;True;0,3364;Dudoso;8
-36;0,9664;False;0,9458;Definitivamente si;9
-37;0,4317;False;0,332;Definitivamente no;9
-38;0,1448;True;0,56;Dudoso;9
-39;0,0505;True;0,9372;Definitivamente si;10
-40;0,569;False;0,0933;Definitivamente no;10
-41;0,1794;True;0,3685;Dudoso;10
-42;0,8864;False;0,6342;Dudoso;10
-43;0,3097;True;0,1614;Definitivamente no;10
-44;0,4262;False;0,2446;Definitivamente no;10
-45;0,3628;True;0,387;Dudoso;10
-46;0,7507;False;0,7823;Dudoso;10
-47;0,9819;False;0,9857;Definitivamente si;11
-48;0,2013;True;0,679;Definitivamente si;12
-49;0,3923;True;0,3266;Dudoso;12
-50;0,1797;True;0,7008;Definitivamente si;13
-51;0,145;True;0,108;Definitivamente no;13
-52;0,0583;True;0,8336;Definitivamente si;14
-53;0,7485;False;0,6337;Dudoso;14
-54;0,0692;True;0,1747;Definitivamente no;14
-55;0,8208;False;0,0123;Definitivamente no;14
-56;0,3494;True;0,3187;Dudoso;14
-57;0,396;True;0,268;Definitivamente no;14
-58;0,6291;False;0,9838;Definitivamente si;15
-59;0,8671;False;0,9712;Definitivamente si;16
-60;0,2252;True;0,1106;Definitivamente no;16
-61;0,9846;False;0,8669;Dudoso;16
-62;0,6288;False;0,5782;Dudoso;16
-63;0,7135;False;0,0323;Definitivamente no;16
-64;0,3647;True;0,3269;Dudoso;16
-65;0,3705;True;0,8435;Definitivamente si;17
-66;0,815;False;0,2947;Definitivamente no;17
-67;0,4939;False;0,5268;Dudoso;17
-68;0,7305;False;0,7647;Dudoso;17
-69;0,4143;False;0,8702;Dudoso;17
-70;0,6271;False;0,3486;Definitivamente no;17
-71;0,6348;False;0,5699;Dudoso;17
-72;0,2528;True;0,348;Dudoso;17
-73;0,8758;False;0,8166;Dudoso;17
-74;0,9562;False;0,5485;Dudoso;17
-75;0,7154;False;0,2451;Definitivamente no;17
-76;0,5092;False;0,7167;Dudoso;17
-77;0,063;True;0,6566;Definitivamente si;18
-78;0,3157;True;0,9718;Definitivamente si;19
-79;0,2584;True;0,3263;Dudoso;19
-80;0,4964;False;0,3521;Definitivamente no;19
-81;0,5877;False;0,1357;Definitivamente no;19
-82;0,5496;False;0,529;Dudoso;19
-83;0,5376;False;0,7734;Dudoso;19
-84;0,2952;True;0,9565;Definitivamente si;20
-85;0,3707;True;0,5425;Dudoso;20
-86;0,0814;True;0,571;Dudoso;20
-87;0,5227;False;0,9461;Definitivamente si;21
-88;0,3496;True;0,2527;Definitivamente no;21
-89;0,9905;False;0,0809;Definitivamente no;21
-90;0,037;True;0,0177;Definitivamente no;21
-91;0,5704;False;0,6778;Dudoso;21
-92;0,8025;False;0,3482;Definitivamente no;21
-93;0,2776;True;0,5888;Dudoso;21
-94;0,8252;False;0,8266;Dudoso;21
-95;0,5844;False;0,2264;Definitivamente no;21
-96;0,5506;False;0,7903;Dudoso;21
-97;0,1728;True;0,6019;Definitivamente si;22
-98;0,945;False;0,8344;Dudoso;22
-99;0,0556;True;0,4011;Dudoso;22
-100;0,5478;False;0,0923;Definitivamente no;22
-101;0,2568;True;0,2555;Definitivamente no;22
-102;0,2513;True;0,2209;Definitivamente no;22
-103;0,7869;False;0,8087;Dudoso;22
-104;0,7652;False;0,9779;Definitivamente si;23
+1;0,6281;False;0,1243;Dudoso;0
+2;0,3997;True;0,4284;Dudoso;0
+3;0,016;True;0,0491;Definitivamente si;1
+4;0,2703;True;0,6751;Dudoso;1
+5;0,3892;True;0,4327;Dudoso;1
+6;0,8836;False;0,7019;Definitivamente no;1
+7;0,1811;True;0,8324;Definitivamente no;1
+8;0,4444;False;0,6967;Definitivamente no;1
+9;0,9805;False;0,3039;Dudoso;1
+10;0,8588;False;0,3392;Dudoso;1
+11;0,4124;False;0,5847;Definitivamente no;1
+12;0,0019;True;0,7857;Definitivamente no;1
+13;0,9469;False;0,5541;Definitivamente no;1
+14;0,2139;True;0,6261;Dudoso;1
+15;0,8054;False;0,7316;Definitivamente no;1
+16;0,1392;True;0,3712;Definitivamente si;2
+17;0,5015;False;0,6258;Definitivamente no;2
+18;0,3053;True;0,7849;Definitivamente no;2
+19;0,0324;True;0,7268;Definitivamente no;2
+20;0,4357;False;0,138;Dudoso;2
+21;0,5019;False;0,0679;Definitivamente si;3
+22;0,3119;True;0,0654;Definitivamente si;4
+23;0,8263;False;0,7399;Definitivamente no;4
+24;0,0731;True;0,9733;Definitivamente no;4
+25;0,3593;True;0,0059;Definitivamente si;5
+26;0,342;True;0,9527;Definitivamente no;5
+27;0,407;False;0,7788;Definitivamente no;5
+28;0,8582;False;0,0205;Definitivamente si;6
+29;0,0734;True;0,1877;Definitivamente si;7
+30;0,4296;False;0,8495;Definitivamente no;7
+31;0,0607;True;0,6302;Dudoso;7
+32;0,3293;True;0,022;Definitivamente si;8
+33;0,4146;False;0,3224;Dudoso;8
+34;0,9314;False;0,324;Dudoso;8
+35;0,5403;False;0,1099;Dudoso;8
+36;0,917;False;0,102;Dudoso;8
+37;0,3195;True;0,154;Definitivamente si;9
+38;0,7725;False;0,7971;Definitivamente no;9
+39;0,4084;False;0,4715;Dudoso;9
+40;0,3145;True;0,5102;Dudoso;9
+41;0,8029;False;0,3976;Dudoso;9
+42;0,834;False;0,0934;Definitivamente si;10
+43;0,9223;False;0,1009;Dudoso;10
+44;0,5289;False;0,5787;Definitivamente no;10
+45;0,4923;False;0,6241;Definitivamente no;10
+46;0,7462;False;0,4878;Dudoso;10
+47;0,2725;True;0,3918;Definitivamente si;11
+48;0,1974;True;0,9653;Definitivamente no;11
+49;0,0993;True;0,4971;Dudoso;11
+50;0,0325;True;0,2211;Definitivamente si;12
+51;0,3649;True;0,7303;Definitivamente no;12
+52;0,9582;False;0,6288;Definitivamente no;12
+53;0,9811;False;0,6323;Definitivamente no;12
+54;0,7781;False;0,6193;Definitivamente no;12
+55;0,2097;True;0,5535;Dudoso;12
+56;0,3162;True;0,0589;Definitivamente si;13
+57;0,5734;False;0,6885;Definitivamente no;13
+58;0,9429;False;0,0757;Definitivamente si;14
+59;0,9109;False;0,6691;Definitivamente no;14
+60;0,0472;True;0,4799;Dudoso;14
+61;0,4765;False;0,9231;Definitivamente no;14
+62;0,3228;True;0,8119;Definitivamente no;14
+63;0,371;True;0,5089;Dudoso;14
+64;0,5509;False;0,4543;Dudoso;14
+65;0,7981;False;0,7089;Definitivamente no;14
+66;0,083;True;0,5626;Dudoso;14
+67;0,5872;False;0,4632;Dudoso;14
+68;0,0155;True;0,23;Definitivamente si;15
+69;0,6735;False;0,5161;Definitivamente no;15
+70;0,8883;False;0,6296;Definitivamente no;15
+71;0,8196;False;0,2172;Dudoso;15
+72;0,7289;False;0,8286;Definitivamente no;15
+73;0,8968;False;0,3133;Dudoso;15
+74;0,7178;False;0,2165;Dudoso;15
+75;0,6328;False;0,7403;Definitivamente no;15
+76;0,6679;False;0,9744;Definitivamente no;15
+77;0,3895;True;0,9644;Definitivamente no;15
+78;0,2973;True;0,1612;Definitivamente si;16
+79;0,5807;False;0,3492;Dudoso;16
+80;0,613;False;0,518;Definitivamente no;16
+81;0,0694;True;0,5608;Dudoso;16
+82;0,2095;True;0,8134;Definitivamente no;16
+83;0,7589;False;0,5233;Definitivamente no;16
+84;0,0408;True;0,9666;Definitivamente no;16
+85;0,0646;True;0,1191;Definitivamente si;17
+86;0,1024;True;0,0013;Definitivamente si;18
+87;0,3481;True;0,3896;Definitivamente si;19
+88;0,6365;False;0,703;Definitivamente no;19
+89;0,7216;False;0,7705;Definitivamente no;19
+90;0,224;True;0,051;Definitivamente si;20
+91;0,3436;True;0,4134;Dudoso;20
+92;0,3766;True;0,0782;Definitivamente si;21
+93;0,8615;False;0,1279;Dudoso;21
+94;0,3612;True;0,9915;Definitivamente no;21
+95;0,838;False;0,5871;Definitivamente no;21
+96;0,48;False;0,5857;Definitivamente no;21
+97;0,463;False;0,5845;Definitivamente no;21
+98;0,3714;True;0,6465;Dudoso;21
+99;0,7307;False;0,8697;Definitivamente no;21
+100;0,4092;False;0,0614;Definitivamente si;22
  ; ; ; ; ; 
-1000;0,5657;False;0,7755;Dudoso;251
+1000;0,5503;False;0,0798;Definitivamente si;225

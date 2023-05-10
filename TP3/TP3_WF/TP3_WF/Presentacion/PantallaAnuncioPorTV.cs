@@ -5,14 +5,11 @@ namespace TP3_WF
 {
     public partial class PantallaAnuncioPorTV : Form
     {
-        GestorExperimento gestor;
         ValidadorParametros validadorParametros;
         public PantallaAnuncioPorTV()
         {
             InitializeComponent();
-            gestor = new GestorExperimento();
             validadorParametros = new ValidadorParametros();
-            
         }
 
         private void txt_nroExperimento_KeyPress(object sender, KeyPressEventArgs e)
@@ -49,6 +46,21 @@ namespace TP3_WF
 
         private void btn_generar_Click(object sender, EventArgs e)
         {
+            double? recueda;
+            double[]? probsRec;
+            double[]? probsNoRec;
+
+            if (!estaVacio(txt_probRec.Text)) recueda = Double.Parse(txt_probRec.Text);
+            else recueda = null;
+
+            if (!estaVacio(txt_recSi.Text)) probsRec = new double[] { Double.Parse(txt_recSi.Text), Double.Parse(txt_recDud.Text), Double.Parse(txt_recNo.Text) };
+            else probsRec = null;
+
+            if (!estaVacio(txt_noRecSi.Text)) probsNoRec = new double[] { Double.Parse(txt_noRecSi.Text), Double.Parse(txt_noRecDud.Text), Double.Parse(txt_noRecNo.Text) };
+            else probsNoRec = null;
+
+            GestorExperimento gestor = new GestorExperimento(recueda, probsRec, probsNoRec);
+
             // Se valida que los textBoxes no esten vacios
             if (estaVacio(txt_nroExperimento.Text) || estaVacio(txt_desde.Text) || estaVacio(txt_cant.Text))
             {
@@ -68,7 +80,7 @@ namespace TP3_WF
             }
 
             // Valida que sea superior a 0 y no caiga fuera de rango el experimento desde el cual se va a visualizar
-            
+
             if (!validadorParametros.validarSuperiorACero(desde))
             {
                 MessageBox.Show("El número de experimento ingresado debe ser mayor a 0.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -88,7 +100,7 @@ namespace TP3_WF
                 MessageBox.Show("El número de experimento ingresado debe ser mayor a 0.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             if (validadorParametros.validarCant(nroExperimento, desde, cant))
             {
                 MessageBox.Show("La cantidad de lineas que se van visualizar desde el número de experimento ingresado sobrepasa el número de experimentos realizados.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);

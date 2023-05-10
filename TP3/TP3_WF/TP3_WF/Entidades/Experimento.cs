@@ -14,23 +14,26 @@ namespace TP3_WF.Entidades
         private string[] Comprar;
         private double[] _ProbAcRecuerda;
         private double[] _ProbAcNoRecuerda;
+        private double _recuerda;
 
-        public Experimento()
+        public Experimento(double recueda, double[] probsRec, double[] probsNoRec)
         {
             // Comprar: tiene todos los posibles resultados finales del experimento
-            Comprar = new string[] { "Definitivamente no", "Dudoso", "Definitivamente si" };
+            Comprar = new string[] { "Definitivamente si", "Dudoso", "Definitivamente no" };
 
             // _ProbAcRecuerda: contiene las P() AC de los resultados en caso de que el cliente recuerde la publicidad
-            _ProbAcRecuerda = new double[] { 0.3, 0.6, 1 };
+            _ProbAcRecuerda = new double[] { probsRec[0], probsRec[0] + probsRec[1], 1 };
 
             // _ProbAcNoRecuerda: contiene las P() AC de los resultados en caso de que el cliente no recuerde la publicidad
-            _ProbAcNoRecuerda = new double[] { 0.5, 0.9, 1 };
+            _ProbAcNoRecuerda = new double[] { probsNoRec[0], probsNoRec[0] + probsNoRec[1], 1 };
+
+            _recuerda = recueda;
         }
 
         public bool Recuerda(double rnd)
         // Este método se encarga de determinar si el cliente recuerda la publicidad
         {
-            if (rnd < 0.4) return true;
+            if (rnd < _recuerda) return true;
 
             return false;
         }

@@ -18,9 +18,13 @@ namespace TP3_WF.Entidades
         {
             return _archivoCSV;
         }
-        public GestorExperimento()
+        public GestorExperimento(double? recueda, double[]? probsRec, double[]? probsNoRec)
         {
-            experimento = new Experimento();
+            probsRec ??= new double[] { 0.4, 0.3, 0.3 };
+            probsNoRec ??= new double[] { 0.1, 0.4, 0.5 };
+            if (recueda == null) recueda = 0.4;
+
+            experimento = new Experimento((double)recueda, probsRec, probsNoRec);
             CondExito = "Definitivamente si";
         }
 
