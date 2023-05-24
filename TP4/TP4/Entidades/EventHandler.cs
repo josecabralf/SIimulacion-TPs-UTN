@@ -20,7 +20,7 @@ namespace TP4.Entidades
         {
             double[] proximo = new double[2];
 
-            for(int i = 0; i < eventos.Length; i++)
+            for (int i = 0; i < eventos.Length; i++)
             {
                 if (i == 0)
                 {

@@ -8,23 +8,31 @@ namespace TP4.Entidades
 {
     internal class Cancha
     {
-        public string? Estado;
+        private Estado Estado;
 
-        public Cancha() => Liberar();
+        public Cancha(Estado estado) 
+        {
+            Estado = estado;
+        }
 
         public void Liberar()
         {
-            Estado = "Libre";
+            Estado.SetEstado("Libre");
         }
 
         public void Ocupar()
         {
-            Estado = "Ocupado";
+            Estado.SetEstado("Ocupado");
         }
 
         public void Limpiar()
         {
-            Estado = "Limpiando";
+            Estado.SetEstado("Limpiando");
+        }
+
+        public string getEstado()
+        {
+            return Estado.GetNombre();
         }
     }
 }
