@@ -8,31 +8,7 @@ namespace TP4.Entidades
 {
     internal class GestorSimulacion
     {
-        private int TiempoASimular;
-        private int CantLineas;
-        private int TiempoDesde;
-
-        private double LlegadaFutbol;
-        private double[] LlegadaHandball;
-        private double[] LlegadaBasket;
-
-        private double[] OcupacionFutbol;
-        private double[] OcupacionHandball;
-        private double[] OcupacionBasket;
-
-        public GestorSimulacion(int tiempoASimular, int cantLineas, int tiempoDesde, double llegadaFutbol, double[] llegadaHandball, double[] llegadaBasket, double[] ocupacionFutbol, double[] ocupacionHandball, double[] ocupacionBasket)
-        {
-            TiempoASimular = tiempoASimular;
-            CantLineas = cantLineas;
-            TiempoDesde = tiempoDesde;
-
-            LlegadaFutbol = llegadaFutbol;
-            LlegadaHandball = llegadaHandball;
-            LlegadaBasket = llegadaBasket;
-
-            OcupacionFutbol = ocupacionFutbol;
-            OcupacionHandball = ocupacionHandball;
-            OcupacionBasket = ocupacionBasket;
-        }
+        private Estado[] EstadosDeportistas = { new Estado("En Espera"), new Estado("Jugando"), new Estado("Finalizo") };
+        private Estado[] EstadosCancha = { new Estado("Libre"), new Estado("Ocupada"), new Estado("Limpiando") };
     }
 }

@@ -9,30 +9,22 @@ namespace TP4.Entidades
     internal class Cancha
     {
         private Estado Estado;
+        private int TamCola;
 
-        public Cancha(Estado estado) 
+        public Cancha(Estado estado, int tamCola) 
         {
             Estado = estado;
+            TamCola = tamCola;
         }
 
-        public void Liberar()
-        {
-            Estado.SetEstado("Libre");
-        }
+        public void SetEstado(Estado estado) => Estado = estado;
 
-        public void Ocupar()
-        {
-            Estado.SetEstado("Ocupado");
-        }
+        public void SumarACola() => TamCola++;
+        public void RestarACola() => TamCola--;
 
-        public void Limpiar()
+        public string[] GetDatos()
         {
-            Estado.SetEstado("Limpiando");
-        }
-
-        public string getEstado()
-        {
-            return Estado.GetNombre();
+            return new string[] { Estado.GetNombre(), TamCola.ToString() };
         }
     }
 }

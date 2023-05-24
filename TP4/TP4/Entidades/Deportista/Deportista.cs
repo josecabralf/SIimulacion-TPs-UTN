@@ -19,15 +19,13 @@ namespace TP4.Entidades.Deportista
             Disciplina = tipo;
         }
 
-        public void Llegar(double tiempo, string estado = "En Espera")
+        public void SetEstado(Estado estado) => Estado = estado;
+
+        public void Llegar(double tiempo, Estado estado)
         {
-            Estado.SetEstado(estado);
+            SetEstado(estado);
             tiempoLlegada = tiempo;
         }
-
-        public void Jugar() => Estado.SetEstado("Jugando");
-
-        public void Finalizar() => Estado.SetEstado("Finalizo");
 
         public int GetPrioridad()
         {

@@ -15,11 +15,6 @@ namespace TP4.Entidades
             Nombre = nombre;
         }
 
-        public void SetEstado(string nombre)
-        {
-            Nombre= nombre;
-        }
-
         public string GetNombre()
         {
             return Nombre;
