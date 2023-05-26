@@ -27,16 +27,18 @@ namespace TP4.Entidades
 
         private double TLimpieza;
 
+        private double InicioImp;
         private int Iteraciones;
+
         #endregion
         #region Constructor
-        public GestorSimulacion(double InicioImp, int Cantidad, double FinSim, double limsLlegFutbol, double[] limsLlegHandball, 
+        public GestorSimulacion(double inicioImp, int Cantidad, double FinSim, double limsLlegFutbol, double[] limsLlegHandball, 
             double[] limsLlegBasket, double[] limsOcupFutbol, double[] limsOcupHandball, double[] limsOcupBasket, 
             double tLimpieza) 
         {
-            tDeEventos = new double[7];
-            tDeEventos[6] = FinSim;
-            tDeEventos[5] = InicioImp;
+            tDeEventos = new double[6];
+            tDeEventos[5] = FinSim;
+            InicioImp = inicioImp;
             Iteraciones = Cantidad;
 
             LimsLlegFutbol = limsLlegFutbol;
@@ -111,6 +113,12 @@ namespace TP4.Entidades
         public string[] FinLimpieza(string[] lineaAnt)
         {
             string[] linea = new string[45];
+            return linea;
+        }
+        public string[] FinSimulacion(string[] lineaAnt)
+        {
+            string[] linea = lineaAnt;
+            linea[0] = Eventos[5];
             return linea;
         }
         #endregion
@@ -195,18 +203,27 @@ namespace TP4.Entidades
 
             bool fin = false;
             double[] proximoEvento;
-            int contadorIteraciones;
+            int contadorIteraciones = 0;
 
             while (!fin)
             {
                 proximoEvento = EventHandler.ProximoEvento(tDeEventos);
 
-                if (proximoEvento[1] == 1) { linea = LlegadaBasket(lineaAnt); }
-                if (proximoEvento[1] == 2) { linea = LlegadaHandball(lineaAnt); }
-                if (proximoEvento[1] == 3) { linea = LlegadaFutbol(lineaAnt); }
-                if (proximoEvento[1] == 4) { linea = FinOcupacion(lineaAnt); }
-                if (proximoEvento[1] == 5) { linea = FinLimpieza(lineaAnt); }
+                if (proximoEvento[1] == 0) { linea = LlegadaBasket(lineaAnt); }
+                else if (proximoEvento[1] == 1) { linea = LlegadaHandball(lineaAnt); }
+                else if (proximoEvento[1] == 2) { linea = LlegadaFutbol(lineaAnt); }
+                else if (proximoEvento[1] == 3) { linea = FinOcupacion(lineaAnt); }
+                else if (proximoEvento[1] == 4) { linea = FinLimpieza(lineaAnt); }
+                else { 
+                    linea = FinSimulacion(lineaAnt); 
+                    fin = true;
+                }
 
+                if (proximoEvento[0] >= InicioImp && contadorIteraciones < Iteraciones)
+                {
+                    CSVWriter.WriteLine(linea);
+                    contadorIteraciones++;
+                }
             }
 
             CSVWriter.Close();

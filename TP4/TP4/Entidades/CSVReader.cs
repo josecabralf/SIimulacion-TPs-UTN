@@ -97,14 +97,14 @@ namespace TP4.Entidades
 
                 // Inicializamos las estadísticas para evitar errores
 
-                lineArray[19]="1"; // T Espera AC Basket
-                lineArray[20]="1"; // T Espera AC Futbol
-                lineArray[21] = "1"; // T Espera AC Handball
+                lineArray[19]="0"; // T Espera AC Basket
+                lineArray[20]="0"; // T Espera AC Futbol
+                lineArray[21] = "0"; // T Espera AC Handball
                 lineArray[22] = "1"; // Contador EsperaFinalizada Basket
                 lineArray[23] = "1"; // Contador EsperaFinalizada Futbol
                 lineArray[24] = "1"; // Contador EsperaFinalizada Handball
                 lineArray[25] = "1"; // Cont Llegadas
-                lineArray[26] = "1"; // Cont Retirados sin Jugar
+                lineArray[26] = "0"; // Cont Retirados sin Jugar
 
                 using (streamReader)
                 {
@@ -177,17 +177,17 @@ namespace TP4.Entidades
                 double tEsperaF = double.Parse(lineArray[20]);
                 double tEsperaH = double.Parse(lineArray[21]);
 
-                int contEfB = int.Parse(lineArray[22]);
-                int contEfF = int.Parse(lineArray[23]);
-                int contEfH = int.Parse(lineArray[24]);
+                double contEfB = double.Parse(lineArray[22]);
+                double contEfF = double.Parse(lineArray[23]);
+                double contEfH = double.Parse(lineArray[24]);
 
-                int contLlegadas = int.Parse(lineArray[25]);
-                int contRSJ = int.Parse(lineArray[26]);
+                double contLlegadas = double.Parse(lineArray[25]);
+                double contRSJ = double.Parse(lineArray[26]);
 
                 double promedioB = Truncar(tEsperaB / contEfB);
                 double promedioF = Truncar(tEsperaF / contEfF);
                 double promedioH = Truncar(tEsperaH / contEfH);
-                double porcRSJ = Truncar((contLlegadas / contRSJ)*100);
+                double porcRSJ = Truncar((contRSJ/contLlegadas)*10000)/100;
 
                 return new double[] { promedioB, promedioF, promedioH, porcRSJ };
             }
