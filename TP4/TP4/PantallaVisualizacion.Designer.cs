@@ -75,6 +75,7 @@
             // 
             // txt_tiempoPromEsperaF
             // 
+            this.txt_tiempoPromEsperaF.Enabled = false;
             this.txt_tiempoPromEsperaF.Location = new System.Drawing.Point(733, 465);
             this.txt_tiempoPromEsperaF.Name = "txt_tiempoPromEsperaF";
             this.txt_tiempoPromEsperaF.Size = new System.Drawing.Size(100, 23);
@@ -82,6 +83,7 @@
             // 
             // txt_porcRetiraSinJugar
             // 
+            this.txt_porcRetiraSinJugar.Enabled = false;
             this.txt_porcRetiraSinJugar.Location = new System.Drawing.Point(1072, 491);
             this.txt_porcRetiraSinJugar.Name = "txt_porcRetiraSinJugar";
             this.txt_porcRetiraSinJugar.Size = new System.Drawing.Size(100, 23);
@@ -89,6 +91,7 @@
             // 
             // txt_tiempoPromEsperaHB
             // 
+            this.txt_tiempoPromEsperaHB.Enabled = false;
             this.txt_tiempoPromEsperaHB.Location = new System.Drawing.Point(900, 464);
             this.txt_tiempoPromEsperaHB.Name = "txt_tiempoPromEsperaHB";
             this.txt_tiempoPromEsperaHB.Size = new System.Drawing.Size(100, 23);
@@ -96,6 +99,7 @@
             // 
             // txt_tiempoPromEsperaBB
             // 
+            this.txt_tiempoPromEsperaBB.Enabled = false;
             this.txt_tiempoPromEsperaBB.Location = new System.Drawing.Point(1072, 462);
             this.txt_tiempoPromEsperaBB.Name = "txt_tiempoPromEsperaBB";
             this.txt_tiempoPromEsperaBB.Size = new System.Drawing.Size(100, 23);

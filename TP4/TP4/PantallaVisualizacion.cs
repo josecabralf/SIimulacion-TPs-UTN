@@ -22,7 +22,7 @@ namespace TP4
             csvReader = new CSVReader(_archivoCSV);
             CSV = new DataTable();
         }
-
+        
         private void PantallaVisualizacion_Load(object sender, EventArgs e)
         {
             //Carga la grilla con los contenidos del CSV
