@@ -31,8 +31,8 @@
             this.lbl_tiempoSimulacion = new System.Windows.Forms.Label();
             this.txt_tiempoSimulacion = new System.Windows.Forms.TextBox();
             this.lbl_unidadTSim = new System.Windows.Forms.Label();
-            this.txt_iteracionInicial = new System.Windows.Forms.TextBox();
-            this.lbl_iteracionInicial = new System.Windows.Forms.Label();
+            this.txt_cantIteraciones = new System.Windows.Forms.TextBox();
+            this.lbl_cantIteraciones = new System.Windows.Forms.Label();
             this.txt_horaDesde = new System.Windows.Forms.TextBox();
             this.lbl_horaDesde = new System.Windows.Forms.Label();
             this.lbl_paramsOpc = new System.Windows.Forms.Label();
@@ -102,22 +102,22 @@
             this.lbl_unidadTSim.TabIndex = 2;
             this.lbl_unidadTSim.Text = "min";
             // 
-            // txt_iteracionInicial
+            // txt_cantIteraciones
             // 
-            this.txt_iteracionInicial.Location = new System.Drawing.Point(12, 80);
-            this.txt_iteracionInicial.Name = "txt_iteracionInicial";
-            this.txt_iteracionInicial.Size = new System.Drawing.Size(131, 23);
-            this.txt_iteracionInicial.TabIndex = 4;
-            this.txt_iteracionInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_IntParam_KeyPress);
+            this.txt_cantIteraciones.Location = new System.Drawing.Point(12, 80);
+            this.txt_cantIteraciones.Name = "txt_cantIteraciones";
+            this.txt_cantIteraciones.Size = new System.Drawing.Size(131, 23);
+            this.txt_cantIteraciones.TabIndex = 4;
+            this.txt_cantIteraciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_IntParam_KeyPress);
             // 
-            // lbl_iteracionInicial
+            // lbl_cantIteraciones
             // 
-            this.lbl_iteracionInicial.AutoSize = true;
-            this.lbl_iteracionInicial.Location = new System.Drawing.Point(12, 62);
-            this.lbl_iteracionInicial.Name = "lbl_iteracionInicial";
-            this.lbl_iteracionInicial.Size = new System.Drawing.Size(131, 15);
-            this.lbl_iteracionInicial.TabIndex = 3;
-            this.lbl_iteracionInicial.Text = "Mostrar desde iteración";
+            this.lbl_cantIteraciones.AutoSize = true;
+            this.lbl_cantIteraciones.Location = new System.Drawing.Point(12, 62);
+            this.lbl_cantIteraciones.Name = "lbl_cantIteraciones";
+            this.lbl_cantIteraciones.Size = new System.Drawing.Size(131, 15);
+            this.lbl_cantIteraciones.TabIndex = 3;
+            this.lbl_cantIteraciones.Text = "Cantidad de iteraciones";
             // 
             // txt_horaDesde
             // 
@@ -538,8 +538,8 @@
             this.Controls.Add(this.lbl_paramsOpc);
             this.Controls.Add(this.txt_horaDesde);
             this.Controls.Add(this.lbl_horaDesde);
-            this.Controls.Add(this.txt_iteracionInicial);
-            this.Controls.Add(this.lbl_iteracionInicial);
+            this.Controls.Add(this.txt_cantIteraciones);
+            this.Controls.Add(this.lbl_cantIteraciones);
             this.Controls.Add(this.lbl_unidadTSim);
             this.Controls.Add(this.txt_tiempoSimulacion);
             this.Controls.Add(this.lbl_tiempoSimulacion);
@@ -555,8 +555,8 @@
         private Label lbl_tiempoSimulacion;
         private TextBox txt_tiempoSimulacion;
         private Label lbl_unidadTSim;
-        private TextBox txt_iteracionInicial;
-        private Label lbl_iteracionInicial;
+        private TextBox txt_cantIteraciones;
+        private Label lbl_cantIteraciones;
         private TextBox txt_horaDesde;
         private Label lbl_horaDesde;
         private Label lbl_paramsOpc;

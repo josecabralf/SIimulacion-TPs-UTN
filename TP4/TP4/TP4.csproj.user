@@ -4,5 +4,8 @@
     <Compile Update="PantallaSimuladorPolideportivo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="PantallaVisualizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
