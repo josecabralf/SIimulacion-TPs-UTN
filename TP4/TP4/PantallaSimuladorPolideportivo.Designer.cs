@@ -1,6 +1,6 @@
 ﻿namespace TP4
 {
-    partial class Form1
+    partial class PantallaSimuladorPolideportivo
     {
         /// <summary>
         ///  Required designer variable.

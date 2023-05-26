@@ -8,5 +8,19 @@ namespace TP4.Entidades
 {
     internal class ValidadorParamentros
     {
+        public bool validarSuperiorACero(int n)
+        {
+            // Valida que el parametro(int) ingresado sea superior a 0
+            return n > 0;
+        }
+
+        public bool validarDesdeHasta(int desde, int hasta)
+        {
+            // Valida que el valor desde no supere hasta
+
+            if (desde > hasta) return false;
+            return true;
+        }
+
     }
 }
