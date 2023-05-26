@@ -36,3 +36,6 @@ namespace TP4.Entidades
         }
     }
 }
+
+// [Llegada F, Llegada B ...]
+// [3,5 , 0]

@@ -12,7 +12,7 @@ namespace TP4.Entidades.Deportista
         private Estado Estado;
         public Disciplina Disciplina;
 
-        public Deportista(double tiempo, Estado estado, Disciplina tipo, int prio)
+        public Deportista(double tiempo, Estado estado, Disciplina tipo)
         {
             tiempoLlegada = tiempo;
             Estado = estado;
@@ -32,9 +32,19 @@ namespace TP4.Entidades.Deportista
             return Disciplina.GetPrioridad();
         }
 
+        public string getNombreEstado()
+        {
+            return Estado.GetNombre();
+        }
+
+        public string getNombreDisc()
+        {
+            return Disciplina.GetNombre();
+        }
+
         public string[] GetDatos()
         {
-            return new string[] { Estado.GetNombre(), tiempoLlegada.ToString(), Disciplina.GetNombre() };
+            return new string[] { this.getNombreEstado(), tiempoLlegada.ToString(), this.getNombreDisc() };
         }
     }
 }

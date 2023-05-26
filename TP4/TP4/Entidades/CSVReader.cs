@@ -8,5 +8,6 @@ namespace TP4.Entidades
 {
     internal class CSVReader
     {
+
     }
 }
