@@ -20,11 +20,23 @@ namespace TP4.Entidades
         public void SetEstado(Estado estado) => Estado = estado;
 
         public void SumarACola() => TamCola++;
+
         public void RestarACola() => TamCola--;
 
-        public string[] GetDatos()
+        public bool HayMenosDe5EnCola()
         {
-            return new string[] { Estado.GetNombre(), TamCola.ToString() };
+            if(TamCola<5) return true;
+            return false;
+        }
+
+        public string getNombreEstado()
+        {
+            return Estado.GetNombre();
+        }
+
+        public int getTamCola()
+        {
+            return TamCola;
         }
     }
 }

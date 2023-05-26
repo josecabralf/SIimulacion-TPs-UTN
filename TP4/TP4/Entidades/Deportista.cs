@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TP4.Entidades.Deportista
+namespace TP4.Entidades
 {
     internal class Deportista
     {
@@ -42,9 +42,15 @@ namespace TP4.Entidades.Deportista
             return Disciplina.GetNombre();
         }
 
+        public bool esProximoAJugar(double t)
+        {
+            if (tiempoLlegada < t) return true;
+            return false;
+        }
+
         public string[] GetDatos()
         {
-            return new string[] { this.getNombreEstado(), tiempoLlegada.ToString(), this.getNombreDisc() };
+            return new string[] { getNombreEstado(), tiempoLlegada.ToString(), getNombreDisc() };
         }
     }
 }
