@@ -488,35 +488,35 @@ namespace TP4.Entidades
             int contadorIteraciones = 0;
             string impresion;
 
+            if (InicioImp == 0)
+            {
+                lineaAnt[0] = "Inicio Impresion";
+                impresion = string.Join(";", lineaAnt);
+                CSVWriter.WriteLine(impresion);
+
+                contadorIteraciones+=1;
+            }
+
             while (!fin)
             {
                 relojYEvento = EventHandler.ProximoEvento(tDeEventos);
-                
-                if(InicioImp == 0)
-                {
-                    linea[0] = "Inicio Impresion";
-                    linea[1] = InicioImp.ToString();
-                    impresion = string.Join(";", linea);
-                    CSVWriter.WriteLine(impresion);
-                    contadorIteraciones++;
-
-                    continue;
-                }
 
                 BorrarColumnasVector(linea, new int[] { 2, 3, 5, 6, 8, 9, 11, 12, 13, 17 }); // Borramos lo innecesario (Datos generadores de eventos anteriores)
-
-                // Escribimos datos identificatorios del evento actual
-                linea[0] = Eventos[(int)relojYEvento[1]];
-                linea[1] = GeneradorNros.Truncar(relojYEvento[0]).ToString();
 
                 if (relojYEvento[1] == 0 || relojYEvento[1] == 1 || relojYEvento[1] == 2) { linea = Llegada(lineaAnt, relojYEvento); }
                 else if (relojYEvento[1] == 3) { linea = FinOcupacion(lineaAnt, relojYEvento[0]); }
                 else if (relojYEvento[1] == 4) { linea = FinLimpieza(lineaAnt, relojYEvento[0]); }
-                else {
+                else { // FIN DE SIMULACION
+                    linea[0] = Eventos[5];
+                    linea[1] = tDeEventos[5].ToString();
                     impresion = string.Join(";", linea);
                     CSVWriter.WriteLine(impresion); // escribimos linea fin de simulacion
                     fin = true;
                 }
+
+                // Escribimos datos identificatorios del evento actual
+                linea[0] = Eventos[(int)relojYEvento[1]];
+                linea[1] = GeneradorNros.Truncar(relojYEvento[0]).ToString();
 
                 if (relojYEvento[0] >= InicioImp && contadorIteraciones < Iteraciones)
                 {

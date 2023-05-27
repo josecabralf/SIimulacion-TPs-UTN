@@ -33,7 +33,7 @@ namespace TP4.Entidades
             try
             {
                 // Crea la cabecera de la tabla
-
+                #region Headers
                 dt.Columns.Add("Nombre de Evento");
                 dt.Columns.Add("Reloj");
 
@@ -87,19 +87,22 @@ namespace TP4.Entidades
                 dt.Columns.Add("Estado G6");
                 dt.Columns.Add("Tiempo de Llegada G6");
                 dt.Columns.Add("Disciplina G6");
+                #endregion
 
                 string[] lineArray = new string[45];
 
                 // Inicializamos las estadísticas para evitar errores
 
-                lineArray[19]="0"; // T Espera AC Basket
-                lineArray[20]="0"; // T Espera AC Futbol
+                #region Valores de Calculo
+                lineArray[19]= "0"; // T Espera AC Basket
+                lineArray[20]= "0"; // T Espera AC Futbol
                 lineArray[21] = "0"; // T Espera AC Handball
                 lineArray[22] = "0"; // Contador EsperaFinalizada Basket
                 lineArray[23] = "0"; // Contador EsperaFinalizada Futbol
                 lineArray[24] = "0"; // Contador EsperaFinalizada Handball
                 lineArray[25] = "0"; // Cont Llegadas
                 lineArray[26] = "0"; // Cont Retirados sin Jugar
+                #endregion
 
                 using (streamReader)
                 {
@@ -109,6 +112,7 @@ namespace TP4.Entidades
                     {
                         lineArray = currentLine.Split(';');
                         DataRow lineRow = dt.NewRow();
+                        #region Cargar Valores a la Fila
 
                         lineRow["Nombre de Evento"] = lineArray[0];
                         lineRow["Reloj"] = lineArray[1];
@@ -163,10 +167,11 @@ namespace TP4.Entidades
                         lineRow["Estado G5"] = lineArray[39];
                         lineRow["Tiempo de Llegada G5"] = lineArray[40];
                         lineRow["Disciplina G5"] = lineArray[41];
-                        lineRow["Estado G1"] = lineArray[42];
-                        lineRow["Tiempo de Llegada G1"] = lineArray[43];
-                        lineRow["Disciplina G1"] = lineArray[44];
+                        lineRow["Estado G6"] = lineArray[42];
+                        lineRow["Tiempo de Llegada G6"] = lineArray[43];
+                        lineRow["Disciplina G6"] = lineArray[44];
 
+                        #endregion
                         dt.Rows.Add(lineRow);
                     }
                 }

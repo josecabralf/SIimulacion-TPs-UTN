@@ -28,7 +28,7 @@ namespace TP4
             //Carga la grilla con los contenidos del CSV
 
             // aca metodo CSV reader supongo que devuelve los 4 valores a cargar (tPromedios por cada uno, porc que retira)
-            CSVReader.LoadCsvData(CSV);
+            double[] resultados = CSVReader.LoadCsvData(CSV);
             gdw_iteracionesSolicitadas.DataSource = CSV;
 
             // Estetico Columnas Tabla
@@ -39,10 +39,10 @@ namespace TP4
 
             // Cargamos la probabilidad
 
-            //txt_tiempoPromEsperaF.Text = 
-            //txt_tiempoPromEsperaHB.Text =
-            //txt_tiempoPromEsperaBB.Text =
-            //txt_porcRetiraSinJugar.Text = 
+            txt_tiempoPromEsperaF.Text = resultados[1].ToString();
+            txt_tiempoPromEsperaHB.Text = resultados[2].ToString();
+            txt_tiempoPromEsperaBB.Text = resultados[0].ToString();
+            txt_porcRetiraSinJugar.Text = resultados[3].ToString();
             
         }
     }
