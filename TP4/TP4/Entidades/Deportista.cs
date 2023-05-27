@@ -48,6 +48,16 @@ namespace TP4.Entidades
             return false;
         }
 
+        public bool estaJugando()
+        {
+            return this.getNombreEstado() == "Jugando";
+        }
+
+        public double getTiempoLleg()
+        {
+            return this.tiempoLlegada;
+        }
+
         public string[] GetDatos()
         {
             return new string[] { getNombreEstado(), tiempoLlegada.ToString(), getNombreDisc() };
