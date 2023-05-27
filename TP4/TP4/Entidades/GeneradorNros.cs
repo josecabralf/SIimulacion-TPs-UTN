@@ -9,7 +9,7 @@ namespace TP4.Entidades
 {
     internal class GeneradorNros
     {
-        private static double Truncar(double nro)
+        public static double Truncar(double nro)
         {
             return Math.Truncate(nro * 10000) / 10000;
         }

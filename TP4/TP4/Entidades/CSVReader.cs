@@ -55,7 +55,7 @@ namespace TP4.Entidades
                 dt.Columns.Add("Fin de Jugada");
                 dt.Columns.Add("Estado Cancha");
                 dt.Columns.Add("Tam Cola");
-                dt.Columns.Add("Tiene Limpieza");
+                dt.Columns.Add("TE Limpieza");
                 dt.Columns.Add("Fin Limpieza");
 
                 // Estadísticas
@@ -95,10 +95,10 @@ namespace TP4.Entidades
                 lineArray[19]="0"; // T Espera AC Basket
                 lineArray[20]="0"; // T Espera AC Futbol
                 lineArray[21] = "0"; // T Espera AC Handball
-                lineArray[22] = "1"; // Contador EsperaFinalizada Basket
-                lineArray[23] = "1"; // Contador EsperaFinalizada Futbol
-                lineArray[24] = "1"; // Contador EsperaFinalizada Handball
-                lineArray[25] = "1"; // Cont Llegadas
+                lineArray[22] = "0"; // Contador EsperaFinalizada Basket
+                lineArray[23] = "0"; // Contador EsperaFinalizada Futbol
+                lineArray[24] = "0"; // Contador EsperaFinalizada Handball
+                lineArray[25] = "0"; // Cont Llegadas
                 lineArray[26] = "0"; // Cont Retirados sin Jugar
 
                 using (streamReader)
@@ -116,9 +116,11 @@ namespace TP4.Entidades
                         lineRow["RND L Basket"] = lineArray[2];
                         lineRow["TEL Basket"] = lineArray[3];
                         lineRow["Prox L Basket"] = lineArray[4];
+                        
                         lineRow["RND L Futbol"] = lineArray[5];
                         lineRow["TEL Futbol"] = lineArray[6];
                         lineRow["Prox L Futbol"] = lineArray[7];
+                        
                         lineRow["RND L Handball"] = lineArray[8];
                         lineRow["TEL Handball"] = lineArray[9];
                         lineRow["Prox L Handball"] = lineArray[10];
@@ -128,9 +130,10 @@ namespace TP4.Entidades
                         lineRow["RND DuracionJugada"] = lineArray[12];
                         lineRow["DuracionJugada"] = lineArray[13];
                         lineRow["Fin de Jugada"] = lineArray[14];
+
                         lineRow["Estado Cancha"] = lineArray[15];
                         lineRow["Tam Cola"] = lineArray[16];
-                        lineRow["Tiene Limpieza"] = lineArray[17];
+                        lineRow["TE Limpieza"] = lineArray[17];
                         lineRow["Fin Limpieza"] = lineArray[18];
 
 
@@ -140,6 +143,7 @@ namespace TP4.Entidades
                         lineRow["Contador EsperaFinalizada Basket"] = lineArray[22];
                         lineRow["Contador EsperaFinalizada Futbol"] = lineArray[23];
                         lineRow["Contador EsperaFinalizada Handball"] = lineArray[24];
+
                         lineRow["Cont Llegadas"] = lineArray[25];
                         lineRow["Cont Retirados sin Jugar"] = lineArray[26];
 

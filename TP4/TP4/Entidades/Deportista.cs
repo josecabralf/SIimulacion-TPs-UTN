@@ -42,12 +42,6 @@ namespace TP4.Entidades
             return Disciplina.GetNombre();
         }
 
-        public bool esProximoAJugar(double t)
-        {
-            if (tiempoLlegada < t) return true;
-            return false;
-        }
-
         public bool estaJugando()
         {
             return this.getNombreEstado() == "Jugando";
@@ -56,11 +50,6 @@ namespace TP4.Entidades
         public double getTiempoLleg()
         {
             return this.tiempoLlegada;
-        }
-
-        public string[] GetDatos()
-        {
-            return new string[] { getNombreEstado(), tiempoLlegada.ToString(), getNombreDisc() };
         }
     }
 }
