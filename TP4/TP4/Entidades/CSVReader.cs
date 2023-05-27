@@ -172,7 +172,7 @@ namespace TP4.Entidades
                     }
                 }
 
-                // Se calcula tiempo promedio de espera por cada disciplina deportiva
+                // Se calcula tiempo promedio de espera promedio por cada disciplina deportiva
                 double tEsperaB = double.Parse(lineArray[19]);
                 double tEsperaF = double.Parse(lineArray[20]);
                 double tEsperaH = double.Parse(lineArray[21]);

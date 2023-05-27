@@ -9,10 +9,10 @@ namespace TP4.Entidades
     internal class GestorSimulacion
     {
         #region Propiedades
-        private string Datos = @"./datos";
+        public string Datos = @"./datos";
         private Estado[] EstadosDeportistas = { new Estado("En Espera"), new Estado("Jugando"), new Estado("Finalizo") };
         private Estado[] EstadosCancha = { new Estado("Libre"), new Estado("Ocupada"), new Estado("Limpiando") };
-        private Disciplina[] Disciplinas = { new Disciplina("Basket", 0), new Disciplina("Futbol", 1), new Disciplina("Handball", 1) };
+        private Disciplina[] Disciplinas = { new Disciplina("Basket", 0), new Disciplina("Handball", 1), new Disciplina("Futbol", 1) };
 
         private string[] Eventos = { "Llegada Basket", "Llegada Handball", "Llegada Futbol", "Fin Ocupacion", "Fin de Limpieza", "Fin de Simulacion" };
         private double[] tDeEventos; // mismo orden que vector arriba
@@ -102,9 +102,111 @@ namespace TP4.Entidades
         #endregion
 
         #region Eventos
+        public void AsignarDeportistaAGrupoSistema(Deportista dep)
+        {
+            for (int i = 0; i < DeportistasEnSistema.Length; i++)
+            {
+                if (DeportistasEnSistema[i] == -1)
+                {
+                    DeportistasEnSistema[i] = dep;
+                    break;
+                }
+            }
+        }
+
+        public void GenerarLlegadaSegunEvento(string[]linea, double[] evento)
+        {
+            double rnd;
+            double tEntreLleg;
+
+            if (evento[1] == 0) // Llegada Basket
+            {
+                rnd = RndBasket.NextDouble();
+                tEntreLleg = CalcularLlegadaBasket(rnd);
+
+                linea[2] = rnd.ToString();
+                linea[3] = tEntreLleg.ToString();
+                linea[4] = (evento[0] + tEntreLleg).ToString();
+            }
+            else if (evento[1] == 1) // Llegada Handball
+            {
+                rnd = RndHandball.NextDouble();
+                tEntreLleg = CalcularLlegadaHandball(rnd);
+
+                linea[5] = rnd.ToString();
+                linea[6] = tEntreLleg.ToString();
+                linea[7] = (evento[0] + tEntreLleg).ToString();
+            }
+            else if (evento[1] == 2) // Llegada Fútbol 
+            {
+                rnd = RndFutbol.NextDouble();
+                tEntreLleg = CalcularLlegadaFutbol(rnd);
+
+                linea[8] = rnd.ToString();
+                linea[9] = tEntreLleg.ToString();
+                linea[10] = (evento[0] + tEntreLleg).ToString();
+            }
+        }
+        public Deportista CrearNuevoDeportista(double[] ev, bool estaLibre, string[] linea)
+        {
+            Deportista dep;
+            Estado estado;
+
+            if (estaLibre) estado = EstadosDeportistas[1];
+            else
+            {
+                estado = EstadosDeportistas[0];
+                Cancha.SumarACola();
+                linea[16] = Cancha.getTamCola().ToString();
+            }
+
+            if (ev[1] == 0) dep = new Deportista(ev[0], estado, Disciplinas[0]); // Llegada Basket
+            if (ev[1] == 1) dep = new Deportista(ev[0], estado, Disciplinas[1]); // Llegada Handball
+            else dep = new Deportista(ev[0], estado, Disciplinas[2]); // Llegada Futbol
+
+            if (estaLibre) // si esta vacia la cancha, genera una nueva ocupacion
+            {
+                double rnd = RndOcupacion.NextDouble();
+                double tOcup = CalcularFinOcupacionCancha(rnd, dep);
+
+                linea[11] = dep.getNombreDisc(); // quien juega
+                linea[12] = rnd.ToString(); 
+                linea[13] = tOcup.ToString();
+                linea[14] = (tOcup + ev[0]).ToString(); // prox llegada
+
+                Cancha.SetEstado(EstadosCancha[1]);
+                linea[15] = Cancha.getNombreEstado();
+            }
+
+            return dep;
+        }
+
         public string[] Llegada(string[] lineaAnt, double[] proximoEv)
         {
-            string[] linea = new string[45];
+            string[] linea = lineaAnt;
+            int contLlegadas = int.Parse(linea[25]) + 1; //sumamos 1 a las llegadas
+            int retirados = int.Parse(linea[26]);
+
+            BorrarColumnasSegunEvento(linea, proximoEv[1]); // borramos columnas innecesarias
+            
+            // Generar Prox llegada         
+            GenerarLlegadaSegunEvento(linea, proximoEv); 
+            
+            if (!Cancha.HayMenosDe5EnCola()) // chequear TamCola
+            {
+                retirados++; // como se retira, sumamos 1 a retirados sin jugar
+            }
+            else
+            {
+                Deportista dep = CrearNuevoDeportista(proximoEv, Cancha.EstaLibre(), linea); // Creamos deportista
+                AsignarDeportistaAGrupoSistema(dep); // Lo asignamos a un grupo posicional
+            }
+
+            // actualizar acumuladores
+            linea[25] = contLlegadas.ToString();
+            linea[26] = retirados.ToString();
+            EscribirDeportistas(linea);
+            
             return linea;
         }
 
@@ -115,7 +217,7 @@ namespace TP4.Entidades
 
             for(int i = 0; i < DeportistasEnSistema.Length; i++)
             {
-                if (DeportistasEnSistema[i] == null) continue;
+                if (DeportistasEnSistema[i] == -1) continue;
                 if (DeportistasEnSistema[i].estaJugando())
                 {
                     jugando = i;
@@ -132,7 +234,7 @@ namespace TP4.Entidades
             int pos = 27;
             for (int i = 0;i < DeportistasEnSistema.Length; i++)
             {
-                if (DeportistasEnSistema[i] == null)
+                if (DeportistasEnSistema[i] == -1)
                 {
                     // Si no hay deportista escribe espacios en blanco
                     linea[pos] = "";
@@ -158,7 +260,7 @@ namespace TP4.Entidades
             double t = reloj;
             for (int i = 0; i < DeportistasEnSistema.Length; i++)
             {
-                if (DeportistasEnSistema[i] == null) continue;
+                if (DeportistasEnSistema[i] == -1) continue;
                 if (DeportistasEnSistema[i].esProximoAJugar(t))
                 {
                     if (AJugar == -1) // todavía no se encontró deportista, se asigna al primero encontrado
@@ -218,6 +320,29 @@ namespace TP4.Entidades
             }
         }
 
+        public void BorrarColumnasSegunEvento(string[] linea, double evento)
+        {
+            if(evento == 0) // Llegada Basket
+            {
+                BorrarColumnas(linea, new int[] { 5, 6, 8, 9, 11, 12, 13, 17, 18 });
+            }
+            else if (evento == 1) // Llegada Handball
+            {
+                BorrarColumnas(linea, new int[] { 2, 3, 8, 9, 11, 12, 13, 17, 18, });
+            }
+            else if (evento == 2) // Llegada Fútbol 
+            {
+                BorrarColumnas(linea, new int[] { 2, 3, 5, 6, 11, 12, 13, 17, 18 });
+            }
+            else if (evento == 3) // Fin Ocupacion
+            {
+                BorrarColumnas(linea, new int[] { 2, 3, 5, 6, 8, 9, 11, 12, 13, 14, 17, 18 });
+            } else if (evento == 4) // Limpieza
+            {
+                BorrarColumnas(linea, new int[] { 2, 3, 5, 6, 8, 9, 11, 12, 13 });
+            }
+        }
+
         public string[] FinOcupacion(string[] lineaAnt, double[] proximoEv)
         {
             // Lleva a cabo el evento fin ocupacion
@@ -227,7 +352,7 @@ namespace TP4.Entidades
             linea[1] = proximoEv[0].ToString(); // especificamos reloj
 
             // borramos columnas innecesarias
-            BorrarColumnas(linea, new int[] { 2, 3, 5, 6, 8, 9 });
+            BorrarColumnasSegunEvento(linea, proximoEv[1]);
             
             // buscar grupo Jugando
             int jugando = BuscarDeportistaJugando();
@@ -237,9 +362,6 @@ namespace TP4.Entidades
             if (Cancha.getTamCola() == 0)
                 // no hay nadie en cola, se limpia
             {
-                // borramos del vector el sector de la cancha
-                BorrarColumnas(linea, new int[4] { 11, 12, 13, 14 });
-
                 // asignamos el valor maximo al evento finOcupacion
                 tDeEventos[3] = (double)Int32.MaxValue;
 
@@ -265,16 +387,20 @@ namespace TP4.Entidades
                 tDeEventos[3] = generado + proximoEv[0];
                 linea[14] = tDeEventos[3].ToString();
 
-                SumarAFinDeEspera(linea, DeportistasEnSistema[proximoAjugar], proximoEv[0]);
+                SumarAFinDeEspera(linea, DeportistasEnSistema[proximoAjugar], proximoEv[0]); // Actualizamos acumuladores
 
             }
             EscribirDeportistas(linea);
+            DeportistasEnSistema[jugando] = -1;
             return linea;
         }
 
         public string[] FinLimpieza(string[] lineaAnt, double[] proximoEv)
         {
-            string[] linea = new string[45];
+            string[] linea = lineaAnt;
+            if (Cancha.getTamCola() > 0)
+            {
+            }
             return linea;
         }
         public string[] FinSimulacion(string[] lineaAnt, double[] proximoEv)
@@ -367,14 +493,22 @@ namespace TP4.Entidades
                 else if (proximoEvento[1] == 4) { linea = FinLimpieza(lineaAnt, proximoEvento); }
                 else { 
                     linea = FinSimulacion(lineaAnt, proximoEvento); 
+                    CSVWriter.WriteLine(linea); // escribimos linea fin de simulacion
                     fin = true;
                 }
 
                 if (proximoEvento[0] >= InicioImp && contadorIteraciones < Iteraciones)
                 {
+                    if (contadorIteraciones == 0)
+                    {
+                        linea[0] = "Inicio Impresion";
+                        linea[1] = InicioImp.ToString();
+                    }
                     CSVWriter.WriteLine(linea);
                     contadorIteraciones++;
                 }
+                
+                lineaAnt = linea; // guardamos la linea anterior antes de la proxima iteracion
             }
 
             CSVWriter.Close();

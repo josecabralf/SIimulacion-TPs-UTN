@@ -38,5 +38,10 @@ namespace TP4.Entidades
         {
             return TamCola;
         }
+
+        public bool EstaLibre()
+        {
+            return (this.getNombreEstado() != "Ocupada");
+        }
     }
 }
