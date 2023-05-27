@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace TP4.Entidades
     internal class GestorSimulacion
     {
         #region Propiedades
-        public string Datos = @"./datos";
+        public string Datos = @"./datos.csv";
         private Estado[] EstadosDeportistas = { new Estado("En Espera"), new Estado("Jugando"), new Estado("Finalizo") };
         private Estado[] EstadosCancha = { new Estado("Libre"), new Estado("Ocupada"), new Estado("Limpiando") };
         private Disciplina[] Disciplinas = { new Disciplina("Basket", 0), new Disciplina("Handball", 1), new Disciplina("Futbol", 1) };
@@ -31,7 +32,7 @@ namespace TP4.Entidades
         private int Iteraciones;
 
         private Cancha Cancha;
-        private dynamic[] DeportistasEnSistema;
+        private Deportista?[] DeportistasEnSistema;
 
         Random RndBasket;
         Random RndHandball;
@@ -106,7 +107,7 @@ namespace TP4.Entidades
         {
             for (int i = 0; i < DeportistasEnSistema.Length; i++)
             {
-                if (DeportistasEnSistema[i] == -1)
+                if (DeportistasEnSistema[i] == null)
                 {
                     DeportistasEnSistema[i] = dep;
                     break;
@@ -147,6 +148,7 @@ namespace TP4.Entidades
                 linea[10] = (evento[0] + tEntreLleg).ToString();
             }
         }
+        
         public Deportista CrearNuevoDeportista(double[] ev, bool estaLibre, string[] linea)
         {
             Deportista dep;
@@ -217,7 +219,7 @@ namespace TP4.Entidades
 
             for(int i = 0; i < DeportistasEnSistema.Length; i++)
             {
-                if (DeportistasEnSistema[i] == -1) continue;
+                if (DeportistasEnSistema[i] == null) continue;
                 if (DeportistasEnSistema[i].estaJugando())
                 {
                     jugando = i;
@@ -234,7 +236,7 @@ namespace TP4.Entidades
             int pos = 27;
             for (int i = 0;i < DeportistasEnSistema.Length; i++)
             {
-                if (DeportistasEnSistema[i] == -1)
+                if (DeportistasEnSistema[i] == null)
                 {
                     // Si no hay deportista escribe espacios en blanco
                     linea[pos] = "";
@@ -245,7 +247,7 @@ namespace TP4.Entidades
                 {
                     // Si hay deportista escribe sus datos
                     linea[pos] = DeportistasEnSistema[i].getNombreEstado();
-                    linea[pos + 1] = DeportistasEnSistema[i].getTiempoLleg().toString();
+                    linea[pos + 1] = DeportistasEnSistema[i].getTiempoLleg().ToString();
                     linea[pos + 2] = DeportistasEnSistema[i].getNombreDisc();
                 }
 
@@ -260,7 +262,7 @@ namespace TP4.Entidades
             double t = reloj;
             for (int i = 0; i < DeportistasEnSistema.Length; i++)
             {
-                if (DeportistasEnSistema[i] == -1) continue;
+                if (DeportistasEnSistema[i] == null) continue;
                 if (DeportistasEnSistema[i].esProximoAJugar(t))
                 {
                     if (AJugar == -1) // todavía no se encontró deportista, se asigna al primero encontrado
@@ -387,20 +389,47 @@ namespace TP4.Entidades
                 tDeEventos[3] = generado + proximoEv[0];
                 linea[14] = tDeEventos[3].ToString();
 
+                Cancha.RestarACola();
+                linea[16] = Cancha.getTamCola().ToString();
                 SumarAFinDeEspera(linea, DeportistasEnSistema[proximoAjugar], proximoEv[0]); // Actualizamos acumuladores
 
             }
             EscribirDeportistas(linea);
-            DeportistasEnSistema[jugando] = -1;
+            DeportistasEnSistema[jugando] = null;
             return linea;
         }
 
         public string[] FinLimpieza(string[] lineaAnt, double[] proximoEv)
         {
             string[] linea = lineaAnt;
+            BorrarColumnasSegunEvento(linea, proximoEv[1]); // borramos columnas
+
             if (Cancha.getTamCola() > 0)
             {
+                // Si hay gente en la cola, buscamos el proximo a jugar y generamos una ocupacion
+                int dep = BuscarProximoAJugar(proximoEv[0]);
+
+                double rnd = RndOcupacion.NextDouble();
+                double tOcup = CalcularFinOcupacionCancha(rnd, DeportistasEnSistema[dep]);
+
+                // Escribimos la ocupacion en el vector estado
+                linea[11] = DeportistasEnSistema[dep].getNombreDisc(); // quien juega
+                linea[12] = rnd.ToString();
+                linea[13] = tOcup.ToString();
+                linea[14] = (tOcup + proximoEv[0]).ToString(); // prox llegada
+
+                Cancha.SetEstado(EstadosCancha[1]);
+                Cancha.RestarACola();
+                linea[15] = Cancha.getNombreEstado();
+                linea[16] = Cancha.getTamCola().ToString();
+                EscribirDeportistas(linea);
             }
+            else
+            {
+                Cancha.SetEstado(EstadosCancha[0]);
+                linea[15] = Cancha.getNombreEstado();
+            }
+
             return linea;
         }
         public string[] FinSimulacion(string[] lineaAnt, double[] proximoEv)
@@ -483,6 +512,7 @@ namespace TP4.Entidades
             bool fin = false;
             double[] proximoEvento;
             int contadorIteraciones = 0;
+            string impresion;
 
             while (!fin)
             {
@@ -492,8 +522,9 @@ namespace TP4.Entidades
                 else if (proximoEvento[1] == 3) { linea = FinOcupacion(lineaAnt, proximoEvento); }
                 else if (proximoEvento[1] == 4) { linea = FinLimpieza(lineaAnt, proximoEvento); }
                 else { 
-                    linea = FinSimulacion(lineaAnt, proximoEvento); 
-                    CSVWriter.WriteLine(linea); // escribimos linea fin de simulacion
+                    linea = FinSimulacion(lineaAnt, proximoEvento);
+                    impresion = string.Join(";", linea);
+                    CSVWriter.WriteLine(impresion); // escribimos linea fin de simulacion
                     fin = true;
                 }
 
@@ -504,7 +535,8 @@ namespace TP4.Entidades
                         linea[0] = "Inicio Impresion";
                         linea[1] = InicioImp.ToString();
                     }
-                    CSVWriter.WriteLine(linea);
+                    impresion = string.Join(";", linea);
+                    CSVWriter.WriteLine(impresion);
                     contadorIteraciones++;
                 }
                 

@@ -14,12 +14,12 @@ namespace TP4
     public partial class PantallaVisualizacion : Form
     {
         DataTable CSV;
-        CSVReader csvReader;
+        CsvReader CSVReader;
         public PantallaVisualizacion(string _archivoCSV)
         {
             // Inicializa los componentes de la pantalla e instancia
             InitializeComponent();
-            csvReader = new CSVReader(_archivoCSV);
+            CSVReader = new CsvReader(_archivoCSV);
             CSV = new DataTable();
         }
         
@@ -28,7 +28,7 @@ namespace TP4
             //Carga la grilla con los contenidos del CSV
 
             // aca metodo CSV reader supongo que devuelve los 4 valores a cargar (tPromedios por cada uno, porc que retira)
-
+            CSVReader.LoadCsvData(CSV);
             gdw_iteracionesSolicitadas.DataSource = CSV;
 
             // Estetico Columnas Tabla

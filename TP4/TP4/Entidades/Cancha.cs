@@ -41,7 +41,7 @@ namespace TP4.Entidades
 
         public bool EstaLibre()
         {
-            return (this.getNombreEstado() != "Ocupada");
+            return (this.getNombreEstado() == "Libre");
         }
     }
 }

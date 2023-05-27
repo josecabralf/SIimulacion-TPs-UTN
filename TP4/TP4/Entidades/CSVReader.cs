@@ -25,63 +25,6 @@ namespace TP4.Entidades
             return Math.Truncate(nro * 10000) / 10000;
         }
 
-        private void headers(DataTable dt)
-        {
-            dt.Columns.Add("Nombre de Evento");
-            dt.Columns.Add("Reloj");
-
-            // Deportistas 2-10
-            dt.Columns.Add("RND L Basket");
-            dt.Columns.Add("TEL Basket");
-            dt.Columns.Add("Prox L Basket");
-            dt.Columns.Add("RND L Handball");
-            dt.Columns.Add("TEL Handball");
-            dt.Columns.Add("Prox L Handball");
-            dt.Columns.Add("RND L Futbol");
-            dt.Columns.Add("TEL Futbol");
-            dt.Columns.Add("Prox L Futbol");
-
-            // Servidor: Cancha
-            dt.Columns.Add("Quien Juega");
-            dt.Columns.Add("RND DuracionJugada");
-            dt.Columns.Add("DuracionJugada");
-            dt.Columns.Add("Fin de Jugada");
-            dt.Columns.Add("Estado Cancha");
-            dt.Columns.Add("Tam Cola");
-            dt.Columns.Add("Tiene Limpieza");
-            dt.Columns.Add("Fin Limpieza");
-
-            // Estadísticas
-            dt.Columns.Add("T Espera AC Basket");
-            dt.Columns.Add("T Espera AC Futbol");
-            dt.Columns.Add("T Espera AC Handball");
-            dt.Columns.Add("Contador EsperaFinalizada Basket");
-            dt.Columns.Add("Contador EsperaFinalizada Futbol");
-            dt.Columns.Add("Contador EsperaFinalizada Handball");
-            dt.Columns.Add("Cont Llegadas");
-            dt.Columns.Add("Cont Retirados sin Jugar");
-
-            // Grupos
-            dt.Columns.Add("Estado G1");
-            dt.Columns.Add("Tiempo de Llegada G1");
-            dt.Columns.Add("Disciplina G1");
-            dt.Columns.Add("Estado G2");
-            dt.Columns.Add("Tiempo de Llegada G2");
-            dt.Columns.Add("Disciplina G2");
-            dt.Columns.Add("Estado G3");
-            dt.Columns.Add("Tiempo de Llegada G3");
-            dt.Columns.Add("Disciplina G3");
-            dt.Columns.Add("Estado G4");
-            dt.Columns.Add("Tiempo de Llegada G4");
-            dt.Columns.Add("Disciplina G4");
-            dt.Columns.Add("Estado G5");
-            dt.Columns.Add("Tiempo de Llegada G5");
-            dt.Columns.Add("Disciplina G5");
-            dt.Columns.Add("Estado G6");
-            dt.Columns.Add("Tiempo de Llegada G6");
-            dt.Columns.Add("Disciplina G6");
-        }
-
         public double[]? LoadCsvData(DataTable dt)
         {
             // Carga con los numeros contenidos en el CSV una tabla, un array (frecObs) con las frecuencias
@@ -91,7 +34,59 @@ namespace TP4.Entidades
             {
                 // Crea la cabecera de la tabla
 
-                headers(dt);
+                dt.Columns.Add("Nombre de Evento");
+                dt.Columns.Add("Reloj");
+
+                // Deportistas 2-10
+                dt.Columns.Add("RND L Basket");
+                dt.Columns.Add("TEL Basket");
+                dt.Columns.Add("Prox L Basket");
+                dt.Columns.Add("RND L Handball");
+                dt.Columns.Add("TEL Handball");
+                dt.Columns.Add("Prox L Handball");
+                dt.Columns.Add("RND L Futbol");
+                dt.Columns.Add("TEL Futbol");
+                dt.Columns.Add("Prox L Futbol");
+
+                // Servidor: Cancha
+                dt.Columns.Add("Quien Juega");
+                dt.Columns.Add("RND DuracionJugada");
+                dt.Columns.Add("DuracionJugada");
+                dt.Columns.Add("Fin de Jugada");
+                dt.Columns.Add("Estado Cancha");
+                dt.Columns.Add("Tam Cola");
+                dt.Columns.Add("Tiene Limpieza");
+                dt.Columns.Add("Fin Limpieza");
+
+                // Estadísticas
+                dt.Columns.Add("T Espera AC Basket");
+                dt.Columns.Add("T Espera AC Futbol");
+                dt.Columns.Add("T Espera AC Handball");
+                dt.Columns.Add("Contador EsperaFinalizada Basket");
+                dt.Columns.Add("Contador EsperaFinalizada Futbol");
+                dt.Columns.Add("Contador EsperaFinalizada Handball");
+                dt.Columns.Add("Cont Llegadas");
+                dt.Columns.Add("Cont Retirados sin Jugar");
+
+                // Grupos
+                dt.Columns.Add("Estado G1");
+                dt.Columns.Add("Tiempo de Llegada G1");
+                dt.Columns.Add("Disciplina G1");
+                dt.Columns.Add("Estado G2");
+                dt.Columns.Add("Tiempo de Llegada G2");
+                dt.Columns.Add("Disciplina G2");
+                dt.Columns.Add("Estado G3");
+                dt.Columns.Add("Tiempo de Llegada G3");
+                dt.Columns.Add("Disciplina G3");
+                dt.Columns.Add("Estado G4");
+                dt.Columns.Add("Tiempo de Llegada G4");
+                dt.Columns.Add("Disciplina G4");
+                dt.Columns.Add("Estado G5");
+                dt.Columns.Add("Tiempo de Llegada G5");
+                dt.Columns.Add("Disciplina G5");
+                dt.Columns.Add("Estado G6");
+                dt.Columns.Add("Tiempo de Llegada G6");
+                dt.Columns.Add("Disciplina G6");
 
                 string[] lineArray = new string[45];
 
