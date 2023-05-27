@@ -362,9 +362,7 @@ namespace TP4.Entidades
             {
                 proximoEvento = EventHandler.ProximoEvento(tDeEventos);
 
-                if (proximoEvento[1] == 0) { linea = Llegada(lineaAnt, proximoEvento); }
-                else if (proximoEvento[1] == 1) { linea = Llegada(lineaAnt, proximoEvento); }
-                else if (proximoEvento[1] == 2) { linea = Llegada(lineaAnt, proximoEvento); }
+                if (proximoEvento[1] == 0 || proximoEvento[1] == 1 || proximoEvento[1] == 2) { linea = Llegada(lineaAnt, proximoEvento); }
                 else if (proximoEvento[1] == 3) { linea = FinOcupacion(lineaAnt, proximoEvento); }
                 else if (proximoEvento[1] == 4) { linea = FinLimpieza(lineaAnt, proximoEvento); }
                 else { 
