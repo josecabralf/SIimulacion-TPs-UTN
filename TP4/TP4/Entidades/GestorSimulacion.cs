@@ -127,7 +127,8 @@ namespace TP4.Entidades
 
                 linea[2] = rnd.ToString();
                 linea[3] = tEntreLleg.ToString();
-                linea[4] = (evento[0] + tEntreLleg).ToString();
+                tDeEventos[0] = evento[0] + tEntreLleg;
+                linea[4] = tDeEventos[0].ToString();
             }
             else if (evento[1] == 1) // Llegada Handball
             {
@@ -136,7 +137,8 @@ namespace TP4.Entidades
 
                 linea[5] = rnd.ToString();
                 linea[6] = tEntreLleg.ToString();
-                linea[7] = (evento[0] + tEntreLleg).ToString();
+                tDeEventos[1] = evento[0] + tEntreLleg;
+                linea[7] = tDeEventos[1].ToString();
             }
             else if (evento[1] == 2) // Llegada Fútbol 
             {
@@ -145,7 +147,8 @@ namespace TP4.Entidades
 
                 linea[8] = rnd.ToString();
                 linea[9] = tEntreLleg.ToString();
-                linea[10] = (evento[0] + tEntreLleg).ToString();
+                tDeEventos[2] = evento[0] + tEntreLleg;
+                linea[10] = tDeEventos[2].ToString();
             }
         }
         
@@ -163,8 +166,8 @@ namespace TP4.Entidades
             }
 
             if (ev[1] == 0) dep = new Deportista(ev[0], estado, Disciplinas[0]); // Llegada Basket
-            if (ev[1] == 1) dep = new Deportista(ev[0], estado, Disciplinas[1]); // Llegada Handball
-            else dep = new Deportista(ev[0], estado, Disciplinas[2]); // Llegada Futbol
+            if (ev[1] == 1) dep = new Deportista(ev[0], estado, Disciplinas[2]); // Llegada Handball
+            else dep = new Deportista(ev[0], estado, Disciplinas[1]); // Llegada Futbol
 
             if (estaLibre) // si esta vacia la cancha, genera una nueva ocupacion
             {
