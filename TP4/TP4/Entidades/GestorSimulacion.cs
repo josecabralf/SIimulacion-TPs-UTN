@@ -213,18 +213,19 @@ namespace TP4.Entidades
         private Deportista CrearNuevoDeportistaSegunLlegada(double[] relojYEvento)
         {
             Deportista dep;
+            double tLlegada = GeneradorNros.Truncar(relojYEvento[0]);
 
             if (relojYEvento[1] == 0) // Llego Basketball
             {
-                dep = new Deportista(relojYEvento[0], EstadosDeportistas[0], Disciplinas[0]);
+                dep = new Deportista(tLlegada, EstadosDeportistas[0], Disciplinas[0]);
             }
             else if (relojYEvento[1] == 1) // Llego Futbol
             {
-                dep = new Deportista(relojYEvento[0], EstadosDeportistas[0], Disciplinas[1]);
+                dep = new Deportista(tLlegada, EstadosDeportistas[0], Disciplinas[1]);
             }
             else // Llego Handball
             {
-                dep = new Deportista(relojYEvento[0], EstadosDeportistas[0], Disciplinas[2]);
+                dep = new Deportista(tLlegada, EstadosDeportistas[0], Disciplinas[2]);
             }
             return dep;
         }

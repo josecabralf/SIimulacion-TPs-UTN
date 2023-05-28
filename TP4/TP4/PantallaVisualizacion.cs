@@ -39,9 +39,9 @@ namespace TP4
 
             // Cargamos la probabilidad
 
+            txt_tiempoPromEsperaBB.Text = resultados[0].ToString();
             txt_tiempoPromEsperaF.Text = resultados[1].ToString();
             txt_tiempoPromEsperaHB.Text = resultados[2].ToString();
-            txt_tiempoPromEsperaBB.Text = resultados[0].ToString();
             txt_porcRetiraSinJugar.Text = resultados[3].ToString();
             
         }
