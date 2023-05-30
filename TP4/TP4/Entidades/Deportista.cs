@@ -21,12 +21,6 @@ namespace TP4.Entidades
 
         public void SetEstado(Estado estado) => Estado = estado;
 
-        public void Llegar(double tiempo, Estado estado)
-        {
-            SetEstado(estado);
-            tiempoLlegada = tiempo;
-        }
-
         public int GetPrioridad()
         {
             return Disciplina.GetPrioridad();

@@ -257,7 +257,6 @@ namespace TP4.Entidades
                 if (Cancha.EstaLibre()) // Si la cancha esta libre, pasa directo a jugar y no se suma a la cola
                 {
                     GenerarOcupacionCancha(linea, relojYEvento[0], dep); // generamos ocupacion y la cargamos al vector estado (cambiando estado de Dep a JUGANDO y de Cancha a OCUPADA
-                    SumarAEsperaFinalizadaSegunTipoDeportista(linea, dep, relojYEvento[0]); // sumamos 1 a contador llegadas tipo, y 0 a tiempo espera AC tipo
                 }
                 else
                 {
@@ -296,6 +295,8 @@ namespace TP4.Entidades
             linea[15] = Cancha.getNombreEstado(); // cambiamos la linea para mostrar estado ocupado
 
             dep.SetEstado(EstadosDeportistas[1]); // cambiamos estado de Deportista a jugando
+
+            SumarAEsperaFinalizadaSegunTipoDeportista(linea, dep, reloj); // sumamos 1 a contador llegadas tipo, y 0 a tiempo espera AC tipo
         }
 
         private int BuscarDeportistaJugando(string[] linea)
@@ -361,8 +362,6 @@ namespace TP4.Entidades
 
                 Cancha.RestarACola(); // Restamos 1 a la cola
                 linea[16] = Cancha.getTamCola().ToString(); // actualizamos el tam cola en el vector estado
-
-                SumarAEsperaFinalizadaSegunTipoDeportista(linea, DeportistasEnSistema[proximoAJugar], reloj); //actualizamos variables estadisticas
             }
 
             EscribirDeportistasVectorEstado(linea);
@@ -407,8 +406,6 @@ namespace TP4.Entidades
 
                 Cancha.RestarACola(); // Restamos 1 a la cola
                 linea[16] = Cancha.getTamCola().ToString(); // actualizamos el tam cola en el vector estado
-
-                SumarAEsperaFinalizadaSegunTipoDeportista(linea, DeportistasEnSistema[proximoAJugar], reloj); //actualizamos variables estadisticas
             }
 
             EscribirDeportistasVectorEstado(linea);
@@ -502,6 +499,18 @@ namespace TP4.Entidades
             {
                 relojYEvento = EventHandler.ProximoEvento(tDeEventos);
 
+                if (relojYEvento[0] >= InicioImp && contadorIteraciones < Iteraciones)
+                {
+                    if (contadorIteraciones == 0)
+                    {
+                        lineaAnt[0] = "Inicio Impresion";
+                        lineaAnt[1] = InicioImp.ToString();
+                    }
+                    impresion = string.Join(";", lineaAnt);
+                    CSVWriter.WriteLine(impresion);
+                    contadorIteraciones++;
+                }
+
                 BorrarColumnasVector(linea, new int[] { 2, 3, 5, 6, 8, 9, 11, 12, 13, 17 }); // Borramos lo innecesario (Datos generadores de eventos anteriores)
 
                 if (relojYEvento[1] == 0 || relojYEvento[1] == 1 || relojYEvento[1] == 2) { linea = Llegada(lineaAnt, relojYEvento); }
@@ -518,18 +527,6 @@ namespace TP4.Entidades
                 // Escribimos datos identificatorios del evento actual
                 linea[0] = Eventos[(int)relojYEvento[1]];
                 linea[1] = GeneradorNros.Truncar(relojYEvento[0]).ToString();
-
-                if (relojYEvento[0] >= InicioImp && contadorIteraciones < Iteraciones)
-                {
-                    if (contadorIteraciones == 0)
-                    {
-                        linea[0] = "Inicio Impresion";
-                        linea[1] = InicioImp.ToString();
-                    }
-                    impresion = string.Join(";", linea);
-                    CSVWriter.WriteLine(impresion);
-                    contadorIteraciones++;
-                }
                 
                 lineaAnt = linea; // guardamos la linea anterior antes de la proxima iteracion
             }
