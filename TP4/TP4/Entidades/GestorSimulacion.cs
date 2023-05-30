@@ -296,7 +296,7 @@ namespace TP4.Entidades
 
             dep.SetEstado(EstadosDeportistas[1]); // cambiamos estado de Deportista a jugando
 
-            SumarAEsperaFinalizadaSegunTipoDeportista(linea, dep, reloj); // sumamos 1 a contador llegadas tipo, y 0 a tiempo espera AC tipo
+            SumarAEsperaFinalizadaSegunTipoDeportista(linea, dep, reloj); // sumamos 1 a contador llegadas tipo, y x al tiempo espera AC tipo
         }
 
         private int BuscarDeportistaJugando(string[] linea)
@@ -447,7 +447,6 @@ namespace TP4.Entidades
 
             // Ocupacion Cancha : Inicio no hay nada
             tDeEventos[3] = (double)Int32.MaxValue;
-            BorrarColumnasVector(linea, new int[] { 11, 12, 13, 14 });
 
             // Iniciar Cancha y Deportistas en sistema
             lineaAnt[15] = Cancha.getNombreEstado();
@@ -455,7 +454,6 @@ namespace TP4.Entidades
 
             // Limpieza : Inicio no hay nada
             tDeEventos[4] = (double)Int32.MaxValue;
-            BorrarColumnasVector(linea, new int[] { 17, 18 });
 
             // Variables estadisticas
             // t espera AC 
@@ -480,22 +478,11 @@ namespace TP4.Entidades
             int rsj = 0;
             lineaAnt[26] = rsj.ToString();
             #endregion
-
-            bool fin = false;
             double[] relojYEvento;
             int contadorIteraciones = 0;
             string impresion;
 
-            if (InicioImp == 0)
-            {
-                lineaAnt[0] = "Inicio Impresion";
-                impresion = string.Join(";", lineaAnt);
-                CSVWriter.WriteLine(impresion);
-
-                contadorIteraciones+=1;
-            }
-
-            while (!fin)
+            while (true)
             {
                 relojYEvento = EventHandler.ProximoEvento(tDeEventos);
 
@@ -517,11 +504,15 @@ namespace TP4.Entidades
                 else if (relojYEvento[1] == 3) { linea = FinOcupacion(lineaAnt, relojYEvento[0]); }
                 else if (relojYEvento[1] == 4) { linea = FinLimpieza(lineaAnt, relojYEvento[0]); }
                 else { // FIN DE SIMULACION
+                    string[] blank = new string[45];
+                    impresion = string.Join(";", blank);
+                    CSVWriter.WriteLine(impresion); // escribimos linea en blanco para mejor visualizacion
+
                     linea[0] = Eventos[5];
                     linea[1] = tDeEventos[5].ToString();
                     impresion = string.Join(";", linea);
                     CSVWriter.WriteLine(impresion); // escribimos linea fin de simulacion
-                    fin = true;
+                    break;
                 }
 
                 // Escribimos datos identificatorios del evento actual
