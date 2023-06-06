@@ -490,7 +490,7 @@ namespace TP4.Entidades
                 {
                     if (contadorIteraciones == 0)
                     {
-                        lineaAnt[0] = "Inicio Impresion";
+                        lineaAnt[0] = lineaAnt[0] + " - I.I.";
                         lineaAnt[1] = InicioImp.ToString();
                     }
                     impresion = string.Join(";", lineaAnt);
@@ -498,7 +498,8 @@ namespace TP4.Entidades
                     contadorIteraciones++;
                 }
 
-                BorrarColumnasVector(linea, new int[] { 2, 3, 5, 6, 8, 9, 11, 12, 13, 17 }); // Borramos lo innecesario (Datos generadores de eventos anteriores)
+                BorrarColumnasVector(linea, new int[] { 2, 3, 5, 6, 8, 9, 11, 12, 13, 17 });
+                BorrarColumnasVector(lineaAnt, new int[] { 2, 3, 5, 6, 8, 9, 11, 12, 13, 17 });
 
                 if (relojYEvento[1] == 0 || relojYEvento[1] == 1 || relojYEvento[1] == 2) { linea = Llegada(lineaAnt, relojYEvento); }
                 else if (relojYEvento[1] == 3) { linea = FinOcupacion(lineaAnt, relojYEvento[0]); }

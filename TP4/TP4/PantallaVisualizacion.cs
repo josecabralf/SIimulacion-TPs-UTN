@@ -22,7 +22,7 @@ namespace TP4
             CSVReader = new CsvReader(_archivoCSV);
             CSV = new DataTable();
         }
-        
+
         private void PantallaVisualizacion_Load(object sender, EventArgs e)
         {
             //Carga la grilla con los contenidos del CSV
@@ -43,7 +43,7 @@ namespace TP4
             txt_tiempoPromEsperaF.Text = resultados[1].ToString();
             txt_tiempoPromEsperaHB.Text = resultados[2].ToString();
             txt_porcRetiraSinJugar.Text = resultados[3].ToString();
-            
+
         }
     }
 }
