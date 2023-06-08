@@ -326,10 +326,15 @@ namespace TP4.Entidades
                 if (DeportistasEnSistema[i] == null) continue;
                 else if (DeportistasEnSistema[i].getTiempoLleg() < t && DeportistasEnSistema[i].getNombreEstado() == "En Espera")
                 {
-                    if (proximo == -1) proximo = i; // proximo = primero encontrado
-                    else if (DeportistasEnSistema[proximo].GetPrioridad() < DeportistasEnSistema[i].GetPrioridad()) // si se encuentra otro, se compara prioridad
+                    if (proximo == -1) 
+                    {
+                        proximo = i; // proximo = primero encontrado
+                        t = DeportistasEnSistema[i].getTiempoLleg();
+                    }
+                    else if (DeportistasEnSistema[proximo].GetPrioridad() <= DeportistasEnSistema[i].GetPrioridad()) // si se encuentra otro, se compara prioridad
                     {
                         proximo = i;
+                        t = DeportistasEnSistema[i].getTiempoLleg();
                     }
                 }
             }
@@ -481,6 +486,7 @@ namespace TP4.Entidades
             double[] relojYEvento;
             int contadorIteraciones = 0;
             string impresion;
+            int nroIteraciones = 0;
 
             while (true)
             {
@@ -508,8 +514,8 @@ namespace TP4.Entidades
                     string[] blank = new string[45];
                     impresion = string.Join(";", blank);
                     CSVWriter.WriteLine(impresion); // escribimos linea en blanco para mejor visualizacion
-
-                    linea[0] = Eventos[5];
+                    nroIteraciones++;
+                    linea[0] = Eventos[(int)relojYEvento[1]] + " " + nroIteraciones.ToString();
                     linea[1] = tDeEventos[5].ToString();
                     impresion = string.Join(";", linea);
                     CSVWriter.WriteLine(impresion); // escribimos linea fin de simulacion
@@ -517,7 +523,8 @@ namespace TP4.Entidades
                 }
 
                 // Escribimos datos identificatorios del evento actual
-                linea[0] = Eventos[(int)relojYEvento[1]];
+                nroIteraciones++;
+                linea[0] = Eventos[(int)relojYEvento[1]] + " " + nroIteraciones.ToString();
                 linea[1] = GeneradorNros.Truncar(relojYEvento[0]).ToString();
                 
                 lineaAnt = linea; // guardamos la linea anterior antes de la proxima iteracion
