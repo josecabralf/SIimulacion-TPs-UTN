@@ -1,0 +1,35 @@
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\bin\Debug\net6.0-windows\TP4.exe
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\bin\Debug\net6.0-windows\TP4.deps.json
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\bin\Debug\net6.0-windows\TP4.runtimeconfig.json
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\bin\Debug\net6.0-windows\TP4.dll
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\bin\Debug\net6.0-windows\TP4.pdb
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.csproj.AssemblyReference.cache
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.PantallaSimuladorPolideportivo.resources
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.csproj.GenerateResource.cache
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.GeneratedMSBuildEditorConfig.editorconfig
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.AssemblyInfoInputs.cache
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.AssemblyInfo.cs
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.csproj.CoreCompileInputs.cache
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.dll
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\refint\TP4.dll
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.pdb
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.genruntimeconfig.cache
+D:\Desktop\Contenidos\Santi\UTN\4to_año\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\ref\TP4.dll
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.csproj.AssemblyReference.cache
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.PantallaSimuladorPolideportivo.resources
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.PantallaVisualizacion.resources
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.csproj.GenerateResource.cache
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.AssemblyInfoInputs.cache
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.AssemblyInfo.cs
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.csproj.CoreCompileInputs.cache
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.dll
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\refint\TP4.dll
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.pdb
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\bin\Debug\net6.0-windows\TP4.exe
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\bin\Debug\net6.0-windows\TP4.deps.json
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\bin\Debug\net6.0-windows\TP4.runtimeconfig.json
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\bin\Debug\net6.0-windows\TP4.dll
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\bin\Debug\net6.0-windows\TP4.pdb
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\TP4.genruntimeconfig.cache
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP4\TP4\obj\Debug\net6.0-windows\ref\TP4.dll
