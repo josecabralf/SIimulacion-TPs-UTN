@@ -25,10 +25,14 @@ namespace TP5.Entidades
         private double[] LimsOcupHandball;
         private double[] LimsOcupBasket;
 
-        private double TLimpieza;
-
         private double InicioImp;
         private int Iteraciones;
+        int contadorIteraciones;
+
+        private double H;
+        private double FutbolD;
+        private double HandballD;
+        private double BasketD;
 
         private Cancha Cancha;
         private Deportista?[] DeportistasEnSistema;
@@ -43,12 +47,13 @@ namespace TP5.Entidades
         #region Constructor
         public GestorSimulacion(double inicioImp, int Cantidad, double FinSim, double limsLlegFutbol, double[] limsLlegHandball, 
             double[] limsLlegBasket, double[] limsOcupFutbol, double[] limsOcupHandball, double[] limsOcupBasket, 
-            double tLimpieza) 
+            double h, double baskD, double futD, double handD) 
         {
             tDeEventos = new double[6];
             tDeEventos[5] = FinSim;
             InicioImp = inicioImp;
             Iteraciones = Cantidad;
+            contadorIteraciones = 0;
 
             LimsLlegFutbol = limsLlegFutbol;
             LimsLlegHandball = limsLlegHandball;
@@ -58,7 +63,10 @@ namespace TP5.Entidades
             LimsOcupHandball = limsOcupHandball;
             LimsOcupBasket = limsOcupBasket;
 
-            TLimpieza = tLimpieza;
+            H = h;
+            FutbolD = futD;
+            HandballD = handD;
+            BasketD = baskD;
 
             Cancha = new Cancha(EstadosCancha[0], 0);
             DeportistasEnSistema = new Deportista[6];
@@ -242,9 +250,8 @@ namespace TP5.Entidades
             }
         }
 
-        private string[] Llegada(string[] lineaAnt, double[] relojYEvento)
+        private string[] Llegada(string[] linea, double[] relojYEvento)
         {
-            string[] linea = lineaAnt;
             int contadorLlegadas = int.Parse(linea[25]) + 1; // sumamos 1 al contador de llegadas
             linea[25] = contadorLlegadas.ToString(); // escribimos el nuevo nro
 
@@ -342,10 +349,8 @@ namespace TP5.Entidades
             return proximo;
         }
 
-        private string[] FinOcupacion(string[] lineaAnt, double reloj)
+        private string[] FinOcupacion(string[] linea, double reloj)
         {
-            string[] linea = lineaAnt;
-
             int jugando = BuscarDeportistaJugando(linea); // Buscamos equipo Jugando
             DeportistasEnSistema[jugando].SetEstado(EstadosDeportistas[2]); // cambiamos su estado a FINALIZO
             
@@ -356,7 +361,7 @@ namespace TP5.Entidades
                 tDeEventos[3] = (double)Int32.MaxValue; // valor maximo para que no ocurra
 
                 // Generamos una limpieza
-                GenerarLimpiezaCancha(linea, reloj);
+                GenerarLimpiezaCancha(linea, reloj, DeportistasEnSistema[jugando].getNombreDisc());
 
             }
             else // si hay gente en la cola
@@ -378,21 +383,34 @@ namespace TP5.Entidades
         #endregion
 
         #region Limpieza
-        private void GenerarLimpiezaCancha(string[] linea, double reloj)
+        private void GenerarLimpiezaCancha(string[] linea, double reloj, string disciplina)
         {
-            tDeEventos[4] = TLimpieza + reloj; // Calculamos fin de Limpieza
+            bool flagImprimirIntegracion = (reloj >= InicioImp && contadorIteraciones < Iteraciones);
+
+            // FUNCION DEL EULER
+            double tEntreLimpiezas = 0;
+            /* 
+            if(disciplina == "Basket"){ tEntreLimpiezas = Integrador.Euler(BasketD, Cancha.getContLimpiezas(), flagImprimirIntegracion, H, linea[0]) }
+            else if(disciplina == "Futbol"){ tEntreLimpiezas = Integrador.Euler(FutbolD, Cancha.getContLimpiezas(), flagImprimirIntegracion, H, linea[0]) }
+            else{ tEntreLimpiezas = Integrador.Euler(HandballD, Cancha.getContLimpiezas(), flagImprimirIntegracion, H, linea[0]) }
+             */
+
+            double tFinLimpieza = tEntreLimpiezas + reloj;
+
+            tDeEventos[4] = tFinLimpieza; // Calculamos fin de Limpieza
 
             // agregamos datos al vector estado
-            linea[17] = TLimpieza.ToString(); 
+            linea[17] = tEntreLimpiezas.ToString(); 
             linea[18] = (tDeEventos[4]).ToString();
 
             Cancha.SetEstado(EstadosCancha[2]); // cambiamos el estado de la cancha a LIMPIANDO
             linea[15] = Cancha.getNombreEstado(); // cambiamos la linea para mostrar estado LIMPIANDO
         }
 
-        private string[] FinLimpieza(string[] lineaAnt, double reloj)
+        private string[] FinLimpieza(string[] linea, double reloj)
         {
-            string[] linea = lineaAnt;
+            Cancha.SumarLimpieza(); // Sumamos una limpieza terminada
+            linea[45] = Cancha.getContLimpiezas().ToString(); // escribimos nuevo valor en vector estado
 
             // borramos la limpieza que ocurrio
             linea[18] = "";
@@ -423,8 +441,8 @@ namespace TP5.Entidades
             #region Inicializacion
             // Para escribir archivo CSV
             StreamWriter CSVWriter = new StreamWriter(Datos);
-            string[] lineaAnt = new string[45];
-            string[] linea = new string[45];
+            string[] lineaAnt = new string[47];
+            string[] linea = new string[47];
 
             // Reloj inicial
             double reloj = 0;
@@ -456,6 +474,7 @@ namespace TP5.Entidades
             // Iniciar Cancha y Deportistas en sistema
             lineaAnt[15] = Cancha.getNombreEstado();
             lineaAnt[16] = Cancha.getTamCola().ToString();
+            lineaAnt[45] = Cancha.getContLimpiezas().ToString();
 
             // Limpieza : Inicio no hay nada
             tDeEventos[4] = (double)Int32.MaxValue;
@@ -484,7 +503,6 @@ namespace TP5.Entidades
             lineaAnt[26] = rsj.ToString();
             #endregion
             double[] relojYEvento;
-            int contadorIteraciones = 0;
             string impresion;
             int nroIteraciones = 0;
 
@@ -504,12 +522,19 @@ namespace TP5.Entidades
                     contadorIteraciones++;
                 }
 
-                BorrarColumnasVector(linea, new int[] { 2, 3, 5, 6, 8, 9, 11, 12, 13, 17 });
-                BorrarColumnasVector(lineaAnt, new int[] { 2, 3, 5, 6, 8, 9, 11, 12, 13, 17 });
+                BorrarColumnasVector(linea, new int[] { 2, 3, 5, 6, 8, 9, 11, 12, 13, 17, 46 });
+                BorrarColumnasVector(lineaAnt, new int[] { 2, 3, 5, 6, 8, 9, 11, 12, 13, 17, 46 });
 
-                if (relojYEvento[1] == 0 || relojYEvento[1] == 1 || relojYEvento[1] == 2) { linea = Llegada(lineaAnt, relojYEvento); }
-                else if (relojYEvento[1] == 3) { linea = FinOcupacion(lineaAnt, relojYEvento[0]); }
-                else if (relojYEvento[1] == 4) { linea = FinLimpieza(lineaAnt, relojYEvento[0]); }
+                linea = lineaAnt; // asignamos la linea anterior a la actual para poder usar los valores anteriores
+
+                // Escribimos datos identificatorios del evento actual
+                nroIteraciones++;
+                linea[0] = Eventos[(int)relojYEvento[1]] + " " + nroIteraciones.ToString();
+                linea[1] = GeneradorNros.Truncar(relojYEvento[0]).ToString();
+
+                if (relojYEvento[1] == 0 || relojYEvento[1] == 1 || relojYEvento[1] == 2) { linea = Llegada(linea, relojYEvento); }
+                else if (relojYEvento[1] == 3) { linea = FinOcupacion(linea, relojYEvento[0]); }
+                else if (relojYEvento[1] == 4) { linea = FinLimpieza(linea, relojYEvento[0]); }
                 else { // FIN DE SIMULACION
                     string[] blank = new string[45];
                     impresion = string.Join(";", blank);
@@ -521,11 +546,6 @@ namespace TP5.Entidades
                     CSVWriter.WriteLine(impresion); // escribimos linea fin de simulacion
                     break;
                 }
-
-                // Escribimos datos identificatorios del evento actual
-                nroIteraciones++;
-                linea[0] = Eventos[(int)relojYEvento[1]] + " " + nroIteraciones.ToString();
-                linea[1] = GeneradorNros.Truncar(relojYEvento[0]).ToString();
                 
                 lineaAnt = linea; // guardamos la linea anterior antes de la proxima iteracion
             }

@@ -55,6 +55,8 @@ namespace TP5.Entidades
                 dt.Columns.Add("Fin de Jugada");
                 dt.Columns.Add("Estado Cancha");
                 dt.Columns.Add("Tam Cola");
+                dt.Columns.Add("Contador Limpiezas");
+                dt.Columns.Add("Quien Jugó");
                 dt.Columns.Add("TE Limpieza");
                 dt.Columns.Add("Fin Limpieza");
 
@@ -89,7 +91,7 @@ namespace TP5.Entidades
                 dt.Columns.Add("Disciplina G6");
                 #endregion
 
-                string[] lineArray = new string[45];
+                string[] lineArray = new string[47];
 
                 // Inicializamos las estadísticas para evitar errores
 
@@ -137,6 +139,8 @@ namespace TP5.Entidades
 
                         lineRow["Estado Cancha"] = lineArray[15];
                         lineRow["Tam Cola"] = lineArray[16];
+                        lineRow["Contador Limpiezas"] = lineArray[45];
+                        lineRow["Quien Jugó"] = lineArray[46];
                         lineRow["TE Limpieza"] = lineArray[17];
                         lineRow["Fin Limpieza"] = lineArray[18];
 

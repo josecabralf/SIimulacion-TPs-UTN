@@ -10,16 +10,20 @@ namespace TP5.Entidades
     {
         private Estado Estado;
         private int TamCola;
+        private int ContLimpiezas;
 
         public Cancha(Estado estado, int tamCola) 
         {
             Estado = estado;
             TamCola = tamCola;
+            ContLimpiezas = 0;
         }
 
         public void SetEstado(Estado estado) => Estado = estado;
 
         public void SumarACola() => TamCola++;
+
+        public void SumarLimpieza() => ContLimpiezas++;
 
         public void RestarACola() => TamCola--;
 
@@ -37,6 +41,11 @@ namespace TP5.Entidades
         public int getTamCola()
         {
             return TamCola;
+        }
+
+        public int getContLimpiezas()
+        {
+            return ContLimpiezas;
         }
 
         public bool EstaLibre()
