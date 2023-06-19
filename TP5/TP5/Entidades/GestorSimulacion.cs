@@ -419,8 +419,8 @@ namespace TP5.Entidades
 
             // agregamos datos al vector estado
             linea[46] = disciplina;
-            linea[17] = tEntreLimpiezas.ToString(); 
-            linea[18] = (tDeEventos[4]).ToString();
+            linea[17] = GeneradorNros.Truncar(tEntreLimpiezas).ToString(); 
+            linea[18] = GeneradorNros.Truncar(tDeEventos[4]).ToString();
 
             Cancha.SetEstado(EstadosCancha[2]); // cambiamos el estado de la cancha a LIMPIANDO
             linea[15] = Cancha.getNombreEstado(); // cambiamos la linea para mostrar estado LIMPIANDO

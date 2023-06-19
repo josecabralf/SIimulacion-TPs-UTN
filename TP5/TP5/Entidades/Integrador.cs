@@ -55,7 +55,7 @@ namespace TP5.Entidades
 
                 if (flagImpresion)
                 {
-                    datos = string.Format("{0,-15:#0.0000} {1,-15:#0.0000} {2,-15:#0.0000} {3,-15:#0.0000} {4,-15:#.0000}", 
+                    datos = string.Format("{0,-15:#0.0000} {1,-15:#0.0000} {2,-15:#0.0000} {3,-15:#0.0000} {4,-15:#0.0000}", 
                                             t, d, dPrima, tProximo, dProximo);
                     csvWriter.WriteLine(datos);
                 }
