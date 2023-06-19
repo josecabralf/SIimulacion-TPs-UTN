@@ -79,7 +79,7 @@ namespace TP5
                 return;
             }
 
-           // GestorSimulacion gestorSimulacion = new GestorSimulacion(inicioImp, cantidad, finSim, limsLlegFutbol, limsLlegHandball, limsLlegBasket, limsOcupFutbol, limsOcupHandball, limsOcupBasket, tLimpieza);
+            GestorSimulacion gestorSimulacion = new GestorSimulacion(inicioImp, cantidad, finSim, limsLlegFutbol, limsLlegHandball, limsLlegBasket, limsOcupFutbol, limsOcupHandball, limsOcupBasket, hLimpieza, dBasketball, dFutbol, dHandball);
             gestorSimulacion.Simular();
             PantallaVisualizacion pantallaVisualizacion = new PantallaVisualizacion(gestorSimulacion.Datos);
             pantallaVisualizacion.ShowDialog();
