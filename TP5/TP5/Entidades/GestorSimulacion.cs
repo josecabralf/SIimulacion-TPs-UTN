@@ -389,11 +389,19 @@ namespace TP5.Entidades
 
             // FUNCION DEL EULER
             double tEntreLimpiezas = 0;
-            /* 
-            if(disciplina == "Basket"){ tEntreLimpiezas = Integrador.Euler(BasketD, Cancha.getContLimpiezas(), flagImprimirIntegracion, H, linea[0]) }
-            else if(disciplina == "Futbol"){ tEntreLimpiezas = Integrador.Euler(FutbolD, Cancha.getContLimpiezas(), flagImprimirIntegracion, H, linea[0]) }
-            else{ tEntreLimpiezas = Integrador.Euler(HandballD, Cancha.getContLimpiezas(), flagImprimirIntegracion, H, linea[0]) }
-             */
+            
+            if(disciplina == "Basket")
+            { 
+                tEntreLimpiezas = Integrador.Euler(BasketD, Cancha.getContLimpiezas(), flagImprimirIntegracion, H, linea[0]); 
+            }
+            else if(disciplina == "Futbol")
+            { 
+                tEntreLimpiezas = Integrador.Euler(FutbolD, Cancha.getContLimpiezas(), flagImprimirIntegracion, H, linea[0]); 
+            }
+            else
+            { 
+                tEntreLimpiezas = Integrador.Euler(HandballD, Cancha.getContLimpiezas(), flagImprimirIntegracion, H, linea[0]); 
+            }
 
             double tFinLimpieza = tEntreLimpiezas + reloj;
 
