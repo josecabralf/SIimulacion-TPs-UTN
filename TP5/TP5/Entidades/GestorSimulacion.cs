@@ -164,6 +164,16 @@ namespace TP5.Entidades
                 puntero += 3;
             }
         }
+        private void EliminarIntegracionesAnteriores(string directorio)
+        {
+            System.IO.DirectoryInfo di = new DirectoryInfo(directorio);
+
+            foreach (FileInfo file in di.EnumerateFiles())
+            {
+                if (file.Name == "A_null.txt") continue;
+                file.Delete();
+            }
+        }
 
         private static void BorrarColumnasVector(string[] linea, int[] columnasABorrar) 
         {
@@ -511,6 +521,7 @@ namespace TP5.Entidades
             int rsj = 0;
             lineaAnt[26] = rsj.ToString();
             #endregion
+            EliminarIntegracionesAnteriores(@"./Integraciones");
             double[] relojYEvento;
             string impresion;
             int nroIteraciones = 0;

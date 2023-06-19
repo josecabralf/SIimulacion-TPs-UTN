@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.InteropServices;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace TP5.Entidades
 {
@@ -20,24 +18,9 @@ namespace TP5.Entidades
         }
 
         public static double Euler(double dObjetivo, int contador, bool flagImpresion, double h, string nomEvento)
-        {    
-            #region Excel
-            Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-            object misValue = System.Reflection.Missing.Value;
-            Excel.Workbook xlWorkBook = xlApp.Workbooks.Add(misValue);
-            Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-
-            int nroFila = 2;
-
-            if (flagImpresion)
-            {
-                xlWorkSheet.Cells[1, 1] = "ti";
-                xlWorkSheet.Cells[1, 2] = "Di";
-                xlWorkSheet.Cells[1, 3] = "dD/dt";
-                xlWorkSheet.Cells[1, 4] = "ti + 1";
-                xlWorkSheet.Cells[1, 5] = "Di + 1";
-            }
-            #endregion
+        {
+            StreamWriter? csvWriter;
+            string datos;
 
             #region Inicializacion
             double t;
@@ -48,6 +31,18 @@ namespace TP5.Entidades
             double tProximo = 0;
             double dProximo = 0;
             #endregion
+
+            if (flagImpresion)
+            {
+                string archivo = @$".\Integraciones\{nomEvento}.txt";
+                csvWriter = new StreamWriter(archivo);
+                datos = string.Format("{0,-15} {1,-15} {2,-15} {3,-15} {4,-15}", "ti", "Di", "dD/dt", "ti+1", "Di+1");
+                csvWriter.WriteLine(datos);
+            }
+            else
+            {
+                csvWriter = new StreamWriter(@$".\Integraciones\A_null.txt");
+            }
 
             do
             {
@@ -60,27 +55,14 @@ namespace TP5.Entidades
 
                 if (flagImpresion)
                 {
-                    xlWorkSheet.Cells[nroFila, 1] = t;
-                    xlWorkSheet.Cells[nroFila, 2] = d;
-                    xlWorkSheet.Cells[nroFila, 3] = dPrima;
-                    xlWorkSheet.Cells[nroFila, 4] = tProximo;
-                    xlWorkSheet.Cells[nroFila, 5] = dPrima;
-                    nroFila++;
+                    datos = string.Format("{0,-15:#0.0000} {1,-15:#0.0000} {2,-15:#0.0000} {3,-15:#0.0000} {4,-15:#.0000}", 
+                                            t, d, dPrima, tProximo, dProximo);
+                    csvWriter.WriteLine(datos);
                 }
             }
             while (d < dObjetivo);
 
-            if(flagImpresion)
-            {
-                xlWorkBook.SaveAs(@$"C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP5\TP5\bin\Debug\net6.0-windows\Integraciones\{nomEvento}.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            }
-
-            xlWorkBook.Close(true, misValue, misValue);
-            xlApp.Quit();
-            Marshal.ReleaseComObject(xlWorkSheet);
-            Marshal.ReleaseComObject(xlWorkBook);
-            Marshal.ReleaseComObject(xlApp);
-
+            csvWriter.Close();
             return t;
         }
     }
