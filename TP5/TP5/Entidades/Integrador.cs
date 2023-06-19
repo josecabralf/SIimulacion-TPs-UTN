@@ -8,15 +8,6 @@ namespace TP5.Entidades
 {
     internal class Integrador
     {
-        public static void generarLinea(string[] linea, double t, double d, double dPrima, double tProximo, double dProximo ) 
-        {
-            linea[0] = t.ToString();
-            linea[1] = d.ToString();
-            linea[2] = dPrima.ToString();
-            linea[3] = tProximo.ToString();
-            linea[4] = dProximo.ToString();
-        }
-
         public static double Euler(double dObjetivo, int contador, bool flagImpresion, double h, string nomEvento)
         {
             StreamWriter? csvWriter;
@@ -49,7 +40,7 @@ namespace TP5.Entidades
                 t = tProximo;
                 d = dProximo;
 
-                dPrima = 0.6 * C + t;
+                dPrima = (0.6 * C) + t;
                 tProximo = t + h;
                 dProximo = t + h * dPrima;
 
@@ -63,7 +54,7 @@ namespace TP5.Entidades
             while (d < dObjetivo);
 
             csvWriter.Close();
-            return t;
+            return t + 0.0001; // digito de correccion por overflow de datos
         }
     }
 }
