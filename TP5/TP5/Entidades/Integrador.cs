@@ -72,7 +72,7 @@ namespace TP5.Entidades
 
             if(flagImpresion)
             {
-                xlWorkBook.SaveAs(@$"./Integraciones/{nomEvento}.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlWorkBook.SaveAs(@$"C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP5\TP5\bin\Debug\net6.0-windows\Integraciones\{nomEvento}.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             }
 
             xlWorkBook.Close(true, misValue, misValue);

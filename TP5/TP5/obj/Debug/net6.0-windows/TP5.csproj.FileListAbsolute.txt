@@ -34,3 +34,5 @@ C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP5\TP5\obj\Debu
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP5\TP5\obj\Debug\net6.0-windows\TP5.pdb
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP5\TP5\obj\Debug\net6.0-windows\TP5.genruntimeconfig.cache
 C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP5\TP5\obj\Debug\net6.0-windows\ref\TP5.dll
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP5\TP5\obj\Debug\net6.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\benja\Desktop\Nacho\Apuntes UTN\SIM\Simulacion-TPs-UTN\TP5\TP5\obj\Debug\net6.0-windows\TP5.csproj.ResolveComReference.cache

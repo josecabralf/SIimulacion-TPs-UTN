@@ -403,11 +403,12 @@ namespace TP5.Entidades
                 tEntreLimpiezas = Integrador.Euler(HandballD, Cancha.getContLimpiezas(), flagImprimirIntegracion, H, linea[0]); 
             }
 
-            double tFinLimpieza = tEntreLimpiezas + reloj;
+            double tFinLimpieza = tEntreLimpiezas + reloj; // Calculamos fin de Limpieza
 
-            tDeEventos[4] = tFinLimpieza; // Calculamos fin de Limpieza
+            tDeEventos[4] = tFinLimpieza;
 
             // agregamos datos al vector estado
+            linea[46] = disciplina;
             linea[17] = tEntreLimpiezas.ToString(); 
             linea[18] = (tDeEventos[4]).ToString();
 
@@ -544,7 +545,7 @@ namespace TP5.Entidades
                 else if (relojYEvento[1] == 3) { linea = FinOcupacion(linea, relojYEvento[0]); }
                 else if (relojYEvento[1] == 4) { linea = FinLimpieza(linea, relojYEvento[0]); }
                 else { // FIN DE SIMULACION
-                    string[] blank = new string[45];
+                    string[] blank = new string[47];
                     impresion = string.Join(";", blank);
                     CSVWriter.WriteLine(impresion); // escribimos linea en blanco para mejor visualizacion
                     nroIteraciones++;
