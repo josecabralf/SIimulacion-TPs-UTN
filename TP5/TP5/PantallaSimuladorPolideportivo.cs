@@ -19,14 +19,14 @@ namespace TP5
         private bool faltanParams()
         {
             bool faltaObligatorio = estaVacio(txt_tiempoSimulacion.Text) || estaVacio(txt_cantIteraciones.Text) || estaVacio(txt_horaDesde.Text);
-            bool faltaTiempoLimpieza = estaVacio(txt_tiempoLimpieza.Text);
+            bool faltaTiempoLimpieza = estaVacio(txt_hTLimpieza.Text) || estaVacio(txt_DFutbol.Text) || estaVacio(txt_DHandball.Text) || estaVacio(txt_DBasketball.Text);
             bool faltaDistribucion = estaVacio(txt_distLlegF.Text) || estaVacio(txt_distLlegHBDesde.Text) || estaVacio(txt_distLlegHBHasta.Text) || estaVacio(txt_distLlegBBDesde.Text) || estaVacio(txt_distLlegBBHasta.Text);
             bool faltaOcupacion = estaVacio(txt_distOcupFDesde.Text) || estaVacio(txt_distOcupFHasta.Text) || estaVacio(txt_distOcupHBDesde.Text) || estaVacio(txt_distOcupHBHasta.Text) || estaVacio(txt_distOcupBBDesde.Text) || estaVacio(txt_distOcupBBHasta.Text);
 
             return (faltaObligatorio || faltaTiempoLimpieza || faltaDistribucion || faltaOcupacion);
         }
 
-        private bool validarParamsGestor(double inicioImp, int cantidad, double finSim, double limsLlegFutbol, double[] limsLlegHandball, double[] limsLlegBasket, double[] limsOcupFutbol, double[] limsOcupHandball, double[] limsOcupBasket, double tLimpieza)
+        private bool validarParamsGestor(double inicioImp, int cantidad, double finSim, double limsLlegFutbol, double[] limsLlegHandball, double[] limsLlegBasket, double[] limsOcupFutbol, double[] limsOcupHandball, double[] limsOcupBasket, double hLimpieza, double dFutbol, double dHandball, double dBasketball)
         {
             ValidadorParametros validadorParametros = new ValidadorParametros();
             bool todosSuperioresACero = validadorParametros.validarSuperiorACero(inicioImp);
@@ -43,6 +43,10 @@ namespace TP5
             todosSuperioresACero = todosSuperioresACero || validadorParametros.validarSuperiorACero(limsOcupHandball[1]);
             todosSuperioresACero = todosSuperioresACero || validadorParametros.validarSuperiorACero(limsOcupBasket[0]);
             todosSuperioresACero = todosSuperioresACero || validadorParametros.validarSuperiorACero(limsOcupBasket[1]);
+            todosSuperioresACero = todosSuperioresACero || validadorParametros.validarSuperiorACero(hLimpieza);
+            todosSuperioresACero = todosSuperioresACero || validadorParametros.validarSuperiorACero(dFutbol);
+            todosSuperioresACero = todosSuperioresACero || validadorParametros.validarSuperiorACero(dHandball);
+            todosSuperioresACero = todosSuperioresACero || validadorParametros.validarSuperiorACero(dBasketball);
 
             return todosSuperioresACero;
         }
@@ -64,15 +68,18 @@ namespace TP5
             double[] limsOcupFutbol = new double[] { Double.Parse(txt_distOcupFDesde.Text), Double.Parse(txt_distOcupFHasta.Text) };
             double[] limsOcupHandball = new double[] { Double.Parse(txt_distOcupHBDesde.Text), Double.Parse(txt_distOcupBBHasta.Text) };
             double[] limsOcupBasket = new double[] { Double.Parse(txt_distOcupBBDesde.Text), Double.Parse(txt_distOcupBBHasta.Text) };
-            double tLimpieza = Double.Parse(txt_tiempoLimpieza.Text);
+            double hLimpieza = Double.Parse(txt_hTLimpieza.Text);
+            double dFutbol = Double.Parse(txt_DFutbol.Text);
+            double dHandball = Double.Parse(txt_DHandball.Text);
+            double dBasketball = Double.Parse(txt_DBasketball.Text);
 
-            if (!validarParamsGestor(inicioImp, cantidad, finSim, limsLlegFutbol, limsLlegHandball, limsLlegBasket, limsOcupFutbol, limsOcupHandball, limsOcupBasket, tLimpieza))
+            if (!validarParamsGestor(inicioImp, cantidad, finSim, limsLlegFutbol, limsLlegHandball, limsLlegBasket, limsOcupFutbol, limsOcupHandball, limsOcupBasket, hLimpieza, dFutbol, dHandball, dBasketball))
             {
                 MessageBox.Show("Los parametros deben ser superiores a cero!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            GestorSimulacion gestorSimulacion = new GestorSimulacion(inicioImp, cantidad, finSim, limsLlegFutbol, limsLlegHandball, limsLlegBasket, limsOcupFutbol, limsOcupHandball, limsOcupBasket, tLimpieza);
+           // GestorSimulacion gestorSimulacion = new GestorSimulacion(inicioImp, cantidad, finSim, limsLlegFutbol, limsLlegHandball, limsLlegBasket, limsOcupFutbol, limsOcupHandball, limsOcupBasket, tLimpieza);
             gestorSimulacion.Simular();
             PantallaVisualizacion pantallaVisualizacion = new PantallaVisualizacion(gestorSimulacion.Datos);
             pantallaVisualizacion.ShowDialog();
